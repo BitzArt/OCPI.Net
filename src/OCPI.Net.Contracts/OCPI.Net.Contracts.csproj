@@ -12,7 +12,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="BitzArt.Miscellaneous.EnumToMemberValue" Version="1.2.0" />
 	  <PackageReference Include="BitzArt.Pagination" Version="1.7.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
+	  <ProjectReference Include="..\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj" />
 	</ItemGroup>
 
 </Project>

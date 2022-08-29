@@ -5,5 +5,5 @@ public class InvalidParametersOcpiException : OcpiExceptionBase
     public const string DefaultMessage = "Invalid or missing parameters.";
 
     public InvalidParametersOcpiException(string message = DefaultMessage)
-        : base(message, OcpiStatusCode.InvalidParameters) { }
+        : base(message, OCPI.OcpiStatusCode.InvalidParameters) { }
 }
