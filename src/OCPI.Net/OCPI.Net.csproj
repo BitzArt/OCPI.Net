@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>OCPI</RootNamespace>
+		<AssemblyName>OCPI.Net</AssemblyName>
+
+		<PackageId>OCPI.Net</PackageId>
+		<Authors>BitzArt</Authors>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>
+	</PropertyGroup>
+	
+</Project>
