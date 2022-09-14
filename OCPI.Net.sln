@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Contracts.Tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Platform", "src\OCPI.Net.Platform\OCPI.Net.Platform.csproj", "{74AC15CF-3142-4793-94A0-7DBB75C6855B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCPI.Net.Core", "src\OCPI.Net.Core\OCPI.Net.Core.csproj", "{4C71B7BA-7FAE-42D0-B665-4DE31864BEE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{74AC15CF-3142-4793-94A0-7DBB75C6855B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74AC15CF-3142-4793-94A0-7DBB75C6855B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74AC15CF-3142-4793-94A0-7DBB75C6855B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C71B7BA-7FAE-42D0-B665-4DE31864BEE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C71B7BA-7FAE-42D0-B665-4DE31864BEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C71B7BA-7FAE-42D0-B665-4DE31864BEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C71B7BA-7FAE-42D0-B665-4DE31864BEE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{939DEB6D-B624-478B-93BA-C37D00FCB2E2} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
 		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6} = {348E6C1A-D8EA-4276-B569-3EDD6B391C6E}
 		{74AC15CF-3142-4793-94A0-7DBB75C6855B} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
+		{4C71B7BA-7FAE-42D0-B665-4DE31864BEE8} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1815709D-17EC-48E3-9911-103827F87498}

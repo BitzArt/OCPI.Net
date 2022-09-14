@@ -5,6 +5,7 @@
 		<RootNamespace>OCPI</RootNamespace>
 		<AssemblyName>OCPI.Net.Platform</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 
 		<PackageId>OCPI.Net.Platform</PackageId>
 		<Authors>BitzArt</Authors>

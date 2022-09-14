@@ -1,4 +1,6 @@
-﻿namespace OCPI.Exceptions.Extensions;
+﻿using OCPI.Exceptions;
+
+namespace OCPI;
 
 public static class ExceptionExtensions
 {

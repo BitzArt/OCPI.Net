@@ -1,20 +1,21 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
-		<RootNamespace>OCPI.Contracts</RootNamespace>
-		<AssemblyName>OCPI.Net.Contracts</AssemblyName>
+		<RootNamespace>OCPI</RootNamespace>
+		<AssemblyName>OCPI.Net.Core</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
-		<PackageId>OCPI.Net.Contracts</PackageId>
+		<PackageId>OCPI.Net.Core</PackageId>
 		<Authors>BitzArt</Authors>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
+		<PackageReference Include="BitzArt.Miscellaneous.EnumToMemberValue" Version="1.2.0" />
+		<PackageReference Include="BitzArt.Pagination" Version="1.10.0" />
 	</ItemGroup>
 
 </Project>

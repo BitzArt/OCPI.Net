@@ -6,9 +6,9 @@ namespace OCPI;
 public class OcpiResponse<TData> : OcpiResponse
 {
     [JsonPropertyName("data")]
-    public new TData Data
+    public new TData? Data
     {
-        get => (TData)base.Data;
+        get => (TData)base.Data!;
         set => base.Data = value;
     }
 }
@@ -16,16 +16,16 @@ public class OcpiResponse<TData> : OcpiResponse
 public class OcpiResponse
 {
     [JsonPropertyName("data")]
-    public object Data { get; set; }
+    public object? Data { get; set; }
 
     [JsonPropertyName("status_code")]
-    public int StatusCode { get; set; }
+    public int? StatusCode { get; set; }
 
     [JsonPropertyName("status_message")]
-    public string StatusMessage { get; set; }
+    public string? StatusMessage { get; set; }
 
     [JsonPropertyName("timestamp")]
-    public DateTime Timestamp { get; set; }
+    public DateTime? Timestamp { get; set; }
 
     public OcpiResponse() { }
 
