@@ -4,6 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>OCPI.Exceptions</RootNamespace>
 		<AssemblyName>OCPI.Net.Exceptions</AssemblyName>
+		<ImplicitUsings>enable</ImplicitUsings>
 
 		<PackageId>OCPI.Net.Exceptions</PackageId>
 		<Authors>BitzArt</Authors>
@@ -12,11 +13,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="BitzArt.ApiExceptions" Version="1.5.1" />
+	  <PackageReference Include="BitzArt.ApiExceptions" Version="1.10.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
+	  <ProjectReference Include="..\OCPI.Net.Contracts\OCPI.Net.Contracts.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -4,6 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>OCPI</RootNamespace>
 		<AssemblyName>OCPI.Net.Contracts</AssemblyName>
+		<ImplicitUsings>enable</ImplicitUsings>
 
 		<PackageId>OCPI.Net.Contracts</PackageId>
 		<Authors>BitzArt</Authors>
@@ -13,12 +14,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="BitzArt.Miscellaneous.EnumToMemberValue" Version="1.2.0" />
-	  <PackageReference Include="BitzArt.Pagination" Version="1.7.1" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
-	  <ProjectReference Include="..\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj" />
+	  <PackageReference Include="BitzArt.Pagination" Version="1.10.0" />
 	</ItemGroup>
 
 </Project>

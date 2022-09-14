@@ -5,5 +5,5 @@ public class UnknownLocationOcpiException : OcpiExceptionBase
     public const string DefaultMessage = "Unknown Location.";
 
     public UnknownLocationOcpiException(string message = DefaultMessage)
-        : base(message, OCPI.OcpiStatusCode.UnknownLocation) { }
+        : base(message, OcpiStatusCode.UnknownLocation) { }
 }

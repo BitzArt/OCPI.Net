@@ -1,6 +1,4 @@
 ﻿using BitzArt.EnumToMemberValue;
-using OCPI.Exceptions;
-using System;
 using System.Text.Json.Serialization;
 
 namespace OCPI;
@@ -8,7 +6,11 @@ namespace OCPI;
 public class OcpiResponse<TData> : OcpiResponse
 {
     [JsonPropertyName("data")]
-    public new TData Data { get; set; }
+    public new TData Data
+    {
+        get => (TData)base.Data;
+        set => base.Data = value;
+    }
 }
 
 public class OcpiResponse
@@ -23,7 +25,7 @@ public class OcpiResponse
     public string StatusMessage { get; set; }
 
     [JsonPropertyName("timestamp")]
-    public DateTime Created { get; set; }
+    public DateTime Timestamp { get; set; }
 
     public OcpiResponse() { }
 
@@ -34,7 +36,7 @@ public class OcpiResponse
     {
         Data = data;
         StatusCode = statusCode;
-        Created = DateTime.UtcNow;
+        Timestamp = DateTime.UtcNow;
 
         TryConfigureStatusMessage(statusCode);
     }
@@ -46,22 +48,5 @@ public class OcpiResponse
 
         var status = (OcpiStatusCode)statusCode;
         StatusMessage = status.ToMemberValue();
-    }
-
-    public static OcpiResponse FromException(Exception exception)
-    {
-        if (exception is OcpiExceptionBase ocpiException) return new(ocpiException.Message, ocpiException.OcpiStatusCode);
-
-        if (exception.InnerException != null)
-        {
-            var data = new
-            {
-                message = exception.Message,
-                inner = exception.InnerException.Message
-            };
-            return new(data, OcpiStatusCode.ServerError);
-        }
-
-        return new(exception.Message, OcpiStatusCode.ServerError);
     }
 }

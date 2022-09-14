@@ -12,13 +12,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{1A55D222-2
 		docs\OCPI-2.2.1.pdf = docs\OCPI-2.2.1.pdf
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net", "src\OCPI.Net\OCPI.Net.csproj", "{96EF15DD-991C-412E-8A8D-0EA83D9ECEB1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Contracts", "src\OCPI.Net.Contracts\OCPI.Net.Contracts.csproj", "{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Exceptions", "src\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj", "{939DEB6D-B624-478B-93BA-C37D00FCB2E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCPI.Net.Core", "src\OCPI.Net.Core\OCPI.Net.Core.csproj", "{53C5CAB4-09AE-48B7-B1A7-B9E3A84DDDB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Contracts.Tests", "tests\OCPI.Net.Contracts.Tests\OCPI.Net.Contracts.Tests.csproj", "{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Platform", "src\OCPI.Net.Platform\OCPI.Net.Platform.csproj", "{74AC15CF-3142-4793-94A0-7DBB75C6855B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +26,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{96EF15DD-991C-412E-8A8D-0EA83D9ECEB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96EF15DD-991C-412E-8A8D-0EA83D9ECEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96EF15DD-991C-412E-8A8D-0EA83D9ECEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96EF15DD-991C-412E-8A8D-0EA83D9ECEB1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,19 +34,23 @@ Global
 		{939DEB6D-B624-478B-93BA-C37D00FCB2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{939DEB6D-B624-478B-93BA-C37D00FCB2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{939DEB6D-B624-478B-93BA-C37D00FCB2E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53C5CAB4-09AE-48B7-B1A7-B9E3A84DDDB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53C5CAB4-09AE-48B7-B1A7-B9E3A84DDDB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53C5CAB4-09AE-48B7-B1A7-B9E3A84DDDB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53C5CAB4-09AE-48B7-B1A7-B9E3A84DDDB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74AC15CF-3142-4793-94A0-7DBB75C6855B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74AC15CF-3142-4793-94A0-7DBB75C6855B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74AC15CF-3142-4793-94A0-7DBB75C6855B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74AC15CF-3142-4793-94A0-7DBB75C6855B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{96EF15DD-991C-412E-8A8D-0EA83D9ECEB1} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
 		{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
 		{939DEB6D-B624-478B-93BA-C37D00FCB2E2} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
-		{53C5CAB4-09AE-48B7-B1A7-B9E3A84DDDB3} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
+		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6} = {348E6C1A-D8EA-4276-B569-3EDD6B391C6E}
+		{74AC15CF-3142-4793-94A0-7DBB75C6855B} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1815709D-17EC-48E3-9911-103827F87498}

@@ -5,5 +5,5 @@ public class ServerErrorOcpiException : OcpiExceptionBase
     public const string DefaultMessage = "Unexpected server error.";
 
     public ServerErrorOcpiException(string message = DefaultMessage)
-        : base(message, OCPI.OcpiStatusCode.ServerError) { }
+        : base(message, OcpiStatusCode.ServerError) { }
 }
