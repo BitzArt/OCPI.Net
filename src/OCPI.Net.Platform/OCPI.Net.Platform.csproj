@@ -13,4 +13,16 @@
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="BitzArt.ApiExceptions.AspNetCore" Version="1.10.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj" />
+	</ItemGroup>
+
 </Project>
