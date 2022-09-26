@@ -3,11 +3,11 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>OCPI</RootNamespace>
-		<AssemblyName>OCPI.Net.Platform</AssemblyName>
+		<AssemblyName>OCPI.Net</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
-		<PackageId>OCPI.Net.Platform</PackageId>
+		<PackageId>OCPI.Net</PackageId>
 		<Authors>BitzArt</Authors>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>
