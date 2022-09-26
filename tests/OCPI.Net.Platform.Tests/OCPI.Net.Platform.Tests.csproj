@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
     <IsPackable>false</IsPackable>
+
+    <RootNamespace>OCPI</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,5 +21,13 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OCPI.Net.Platform\OCPI.Net.Platform.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Using Include="Xunit"/>
+	</ItemGroup>
 
 </Project>

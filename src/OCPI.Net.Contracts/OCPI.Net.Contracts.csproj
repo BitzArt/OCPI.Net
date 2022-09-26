@@ -14,7 +14,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
+	  <PackageReference Include="BitzArt.Miscellaneous.EnumToMemberValue" Version="1.2.0" />
+	  <PackageReference Include="BitzArt.Pagination.Contracts" Version="1.10.0" />
 	</ItemGroup>
 
 </Project>
