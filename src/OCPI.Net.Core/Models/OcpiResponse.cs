@@ -11,6 +11,13 @@ public class OcpiResponse<TData> : OcpiResponse
         get => (TData)base.Data!;
         set => base.Data = value;
     }
+
+    public OcpiResponse() { }
+
+    public OcpiResponse(TData data, OcpiStatusCode statusCode = OcpiStatusCode.Success)
+        : this(data, (int)statusCode) { }
+
+    public OcpiResponse(TData data, int statusCode) : base(data!, statusCode) { }
 }
 
 public class OcpiResponse
