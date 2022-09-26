@@ -12,11 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{1A55D222-2
 		docs\OCPI-2.2.1.pdf = docs\OCPI-2.2.1.pdf
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Contracts", "src\OCPI.Net.Contracts\OCPI.Net.Contracts.csproj", "{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Tests", "tests\OCPI.Net.Tests\OCPI.Net.Tests.csproj", "{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Platform.Tests", "tests\OCPI.Net.Platform.Tests\OCPI.Net.Platform.Tests.csproj", "{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Platform", "src\OCPI.Net.Platform\OCPI.Net.Platform.csproj", "{B48983C4-C354-4A22-8BCB-86ACF8DBC5A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net", "src\OCPI.Net\OCPI.Net.csproj", "{B48983C4-C354-4A22-8BCB-86ACF8DBC5A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +22,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,7 +35,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EE4E24DD-4E43-44E3-BDCE-7CAFD740C9B5} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
 		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6} = {348E6C1A-D8EA-4276-B569-3EDD6B391C6E}
 		{B48983C4-C354-4A22-8BCB-86ACF8DBC5A8} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
 	EndGlobalSection
