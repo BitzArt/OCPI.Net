@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>OCPI</RootNamespace>
+		<AssemblyName>OCPI.Net.Platform</AssemblyName>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<PackageId>OCPI.Net.Platform</PackageId>
+		<Authors>BitzArt</Authors>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="BitzArt.ApiExceptions.AspNetCore" Version="1.10.0" />
+	  <PackageReference Include="BitzArt.Miscellaneous.EnumToMemberValue" Version="1.2.0" />
+	  <PackageReference Include="BitzArt.Pagination" Version="1.10.0" />
+	</ItemGroup>
+
+</Project>
