@@ -22,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj" />
+	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
 	</ItemGroup>
 
 </Project>

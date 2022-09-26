@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using OCPI.Exceptions;
 
-namespace OCPI.Extensions;
+namespace OCPI;
 
 public static class UseOcpiExceptionHandlerExtension
 {

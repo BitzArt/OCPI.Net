@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using OCPI.Exceptions;
 
-namespace OCPI.Extensions;
+namespace OCPI;
 
 public static class AddOcpiExceptionHandlerExtension
 {
