@@ -5,7 +5,7 @@ namespace OCPI.Contracts
     public class PlatformPartyViewModel
     {
         [JsonPropertyName("role")]
-        public PlatformPartyRole? Role { get; set; }
+        public PartyRole? Role { get; set; }
 
         [JsonPropertyName("business_details")]
         public BusinessDetailsViewModel? BusinessDetails { get; set; }
