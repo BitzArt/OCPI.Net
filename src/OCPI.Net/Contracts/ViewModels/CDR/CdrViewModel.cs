@@ -11,7 +11,7 @@ public class CdrViewModel
     public string? PartyId { get; set; }
 
     [JsonPropertyName("id")]
-    public string? ExternalId { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("start_date_time")]
     public DateTime? Start { get; set; }

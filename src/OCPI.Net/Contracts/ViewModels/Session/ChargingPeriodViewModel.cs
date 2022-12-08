@@ -8,7 +8,7 @@ public class ChargingPeriodViewModel
     public DateTime? Start { get; set; }
 
     [JsonPropertyName("dimensions")]
-    public IEnumerable<CdrDimensionViewModel>? CdrDimensions { get; set; }
+    public IEnumerable<CdrDimensionViewModel>? Dimensions { get; set; }
 
     [JsonPropertyName("tariff_id")]
     public string? TariffId { get; set; }

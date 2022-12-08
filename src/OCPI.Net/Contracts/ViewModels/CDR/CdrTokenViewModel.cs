@@ -11,10 +11,10 @@ public class CdrTokenViewModel
     public string? PartyId { get; set; }
 
     [JsonPropertyName("uid")]
-    public string? Id { get; set; }
+    public string? Uid { get; set; }
 
     [JsonPropertyName("type")]
-    public TokenType? TokenType { get; set; }
+    public TokenType? Type { get; set; }
 
     [JsonPropertyName("contract_id")]
     public string? ContractId { get; set; }

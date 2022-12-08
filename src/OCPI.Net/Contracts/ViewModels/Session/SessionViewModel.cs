@@ -11,7 +11,7 @@ public class SessionViewModel
     public string? PartyId { get; set; }
 
     [JsonPropertyName("id")]
-    public string? ExternalId { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("start_date_time")]
     public DateTime? Start { get; set; }
@@ -35,10 +35,10 @@ public class SessionViewModel
     public string? Currency { get; set; }
 
     [JsonPropertyName("status")]
-    public SessionStatus? SessionStatus { get; set; }
+    public SessionStatus? Status { get; set; }
 
     [JsonPropertyName("last_updated")]
-    public DateTime? ExternalUpdated { get; set; }
+    public DateTime? LastUpdated { get; set; }
 
     [JsonPropertyName("location_id")]
     public string? LocationId { get; set; }

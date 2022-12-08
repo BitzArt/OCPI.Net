@@ -14,7 +14,7 @@ public class TokenViewModel
     public string? Uid { get; set; }
 
     [JsonPropertyName("type")]
-    public TokenType? TokenType { get; set; }
+    public TokenType? Type { get; set; }
 
     [JsonPropertyName("contract_id")]
     public string? ContractId { get; set; }
@@ -32,7 +32,7 @@ public class TokenViewModel
     public bool? Valid { get; set; }
 
     [JsonPropertyName("whitelist")]
-    public WhitelistType? WhitelistType { get; set; }
+    public WhitelistType? Whitelist { get; set; }
 
     [JsonPropertyName("language")]
     public string? LanguageCode { get; set; }

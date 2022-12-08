@@ -41,8 +41,8 @@ public class TariffRestrictionViewModel
     public int? MaxDuration { get; set; }
 
     [JsonPropertyName("day_of_week")]
-    public IEnumerable<OcpiDayOfWeek>? DaysOfWeek { get; set; }
+    public IEnumerable<OcpiDayOfWeek>? DayOfWeek { get; set; }
 
     [JsonPropertyName("reservation")]
-    public ReservationRestrictionType? ReservationType { get; set; }
+    public ReservationRestrictionType? Reservation { get; set; }
 }
