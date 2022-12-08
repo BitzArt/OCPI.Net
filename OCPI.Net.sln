@@ -16,6 +16,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Tests", "tests\OCP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net", "src\OCPI.Net\OCPI.Net.csproj", "{B48983C4-C354-4A22-8BCB-86ACF8DBC5A8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{364A5353-39CB-488A-9B1B-146903202BA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCPI.Net.Sample", "sample\OCPI.Net.Sample\OCPI.Net.Sample.csproj", "{DC1A02E3-DD66-405C-B4F7-695C4CA7831B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +34,10 @@ Global
 		{B48983C4-C354-4A22-8BCB-86ACF8DBC5A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B48983C4-C354-4A22-8BCB-86ACF8DBC5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B48983C4-C354-4A22-8BCB-86ACF8DBC5A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC1A02E3-DD66-405C-B4F7-695C4CA7831B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC1A02E3-DD66-405C-B4F7-695C4CA7831B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC1A02E3-DD66-405C-B4F7-695C4CA7831B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC1A02E3-DD66-405C-B4F7-695C4CA7831B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +45,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6} = {348E6C1A-D8EA-4276-B569-3EDD6B391C6E}
 		{B48983C4-C354-4A22-8BCB-86ACF8DBC5A8} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
+		{DC1A02E3-DD66-405C-B4F7-695C4CA7831B} = {364A5353-39CB-488A-9B1B-146903202BA8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1815709D-17EC-48E3-9911-103827F87498}

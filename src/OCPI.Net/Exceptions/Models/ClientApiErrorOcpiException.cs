@@ -1,4 +1,6 @@
-﻿namespace OCPI.Exceptions;
+﻿using OCPI.Exceptions.Models.Base;
+
+namespace OCPI.Exceptions;
 
 public class ClientApiErrorOcpiException : OcpiExceptionBase
 {

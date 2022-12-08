@@ -1,4 +1,4 @@
-﻿using OCPI.Exceptions;
+﻿using OCPI.Exceptions.Models.Base;
 
 namespace OCPI;
 
