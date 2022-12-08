@@ -5,13 +5,11 @@
     {
         public InterfaceRole Role { get; set; }
         public ModuleId ModuleId { get; set; }
-        public string Versions { get; set; }
 
-        public OcpiEndpointAttribute(ModuleId moduleId, InterfaceRole role, string versions)
+        public OcpiEndpointAttribute(ModuleId moduleId, InterfaceRole role)
         {
             Role = role;
             ModuleId = moduleId;
-            Versions = versions;
         }
     }
 }

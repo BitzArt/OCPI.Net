@@ -1,14 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using OCPI.Exceptions;
 
 namespace OCPI;
 
 public static class AddOcpiExceptionHandlerExtension
 {
-    public static IServiceCollection AddOcpiExceptionHandler(this IServiceCollection services)
+    public static WebApplicationBuilder AddOcpiExceptionHandler(this WebApplicationBuilder builder)
     {
-        return services
+        builder.Services
             .AddHttpContextAccessor()
             .AddScoped<OcpiExceptionHandler>();
+
+        return builder;
     }
 }

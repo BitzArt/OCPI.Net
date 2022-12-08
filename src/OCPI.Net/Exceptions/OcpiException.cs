@@ -1,6 +1,5 @@
-﻿using OCPI.Exceptions;
-
-namespace OCPI;
+﻿using OCPI;
+using OCPI.Exceptions;
 
 public static class OcpiException
 {
