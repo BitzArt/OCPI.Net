@@ -22,13 +22,13 @@ dotnet add package OCPI.Net
 - ### OCPI Contracts
   This package contains OCPI JSON ViewModels (a.k.a. DTOs)
 
-- ### 🚧 In development | Validation
+- ### 🚧 Validation (Work in Progress)
   Input validation utilizing FluentValidation.
 
 - ### OCPI Errors
   Throw predefined OCPI Exceptions to get OCPI error results, or create your own custom exceptions.
 
-- ### 🚧 In development | Versioning
+- ### 🚧 Versioning (Work in Progress)
   Tag your controllers with OcpiEndpoint attribute and get automated OCPI version fetching.
 
 ## Extra
