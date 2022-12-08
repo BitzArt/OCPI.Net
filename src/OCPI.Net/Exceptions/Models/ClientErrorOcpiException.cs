@@ -1,6 +1,4 @@
-﻿using OCPI.Exceptions.Models.Base;
-
-namespace OCPI.Exceptions;
+﻿namespace OCPI.Exceptions;
 
 public class ClientErrorOcpiException : OcpiExceptionBase
 {

@@ -1,6 +1,6 @@
 ﻿using BitzArt.ApiExceptions;
 
-namespace OCPI.Exceptions.Models.Base;
+namespace OCPI.Exceptions;
 
 public abstract class OcpiExceptionBase : ApiExceptionBase
 {

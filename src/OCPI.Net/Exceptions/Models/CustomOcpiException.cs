@@ -1,5 +1,4 @@
 ﻿using BitzArt.ApiExceptions;
-using OCPI.Exceptions.Models.Base;
 
 namespace OCPI.Exceptions;
 
