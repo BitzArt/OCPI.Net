@@ -15,15 +15,17 @@ dotnet add package OCPI.Net
 
 ## Main features
 
-### Contracts:
-ViewModels: This package contains all necessary OCPI JSON ViewModels.
-🚧 In development | Validation: ViewModel validation.
+- ### Contracts
+  This package contains OCPI JSON ViewModels.
 
-### Exceptions
-Throw predefined OCPI Exceptions to get an OCPI error results, or create your own custom exceptions.
+- ### 🚧 In development | Validation
+  Input validation utilizing FluentValidation.
 
-### Versioning
-🚧 In development | OCPI Versioning: Tag your controllers with OcpiEndpoint attribute and get automated OCPI version fetching.
+- ### OCPI Errors
+  Throw predefined OCPI Exceptions to get OCPI error results, or create your own custom exceptions.
+
+- ### 🚧 In development | Versioning
+  Tag your controllers with OcpiEndpoint attribute and get automated OCPI version fetching.
 
 ## Extra
 
