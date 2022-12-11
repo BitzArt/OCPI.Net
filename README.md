@@ -29,7 +29,7 @@ dotnet add package OCPI.Net
   Throw predefined OCPI Exceptions to get OCPI error results, or create your own custom exceptions.
 
 - ### 🚧 Versioning (Work in Progress)
-  Tag your controllers with OcpiEndpoint attribute and get automated OCPI version fetching.
+  Tag your controllers with OcpiEndpoint attribute to get automated OCPI version fetching.
 
 ## Extra
 
