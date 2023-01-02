@@ -7,10 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<!-- In your actual application, reference a nuget instead -->
 		<ProjectReference Include="..\..\src\OCPI.Net\OCPI.Net.csproj" />
 	</ItemGroup>
