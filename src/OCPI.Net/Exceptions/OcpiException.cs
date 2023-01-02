@@ -1,6 +1,8 @@
 ﻿using OCPI;
 using OCPI.Exceptions;
+using System.Diagnostics.CodeAnalysis;
 
+[SuppressMessage("Design", "CA1050:Declare types in namespaces")]
 public static class OcpiException
 {
     public static CustomOcpiException Custom

@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net", "src\OCPI.Net\OC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{364A5353-39CB-488A-9B1B-146903202BA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCPI.Net.Sample", "sample\OCPI.Net.Sample\OCPI.Net.Sample.csproj", "{DC1A02E3-DD66-405C-B4F7-695C4CA7831B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Sample", "sample\OCPI.Net.Sample\OCPI.Net.Sample.csproj", "{DC1A02E3-DD66-405C-B4F7-695C4CA7831B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
