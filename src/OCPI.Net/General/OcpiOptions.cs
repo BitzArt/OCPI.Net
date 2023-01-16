@@ -22,8 +22,8 @@ namespace OCPI
         public static IServiceCollection AddOcpiOptions(this IServiceCollection services, IConfiguration configuration)
         {
             var options = configuration
-                .GetSection(OcpiOptions.SectionName)
-                .Get<OcpiOptions>();
+                .GetRequiredSection(OcpiOptions.SectionName)
+                .Get<OcpiOptions>()!;
 
             return services.AddOcpiOptions(options);
         }

@@ -36,10 +36,10 @@ public class OcpiResponse
 
     public OcpiResponse() { }
 
-    public OcpiResponse(object data, OcpiStatusCode statusCode = OcpiStatusCode.Success)
+    public OcpiResponse(object? data, OcpiStatusCode statusCode = OcpiStatusCode.Success)
         : this(data, (int)statusCode) { }
 
-    public OcpiResponse(object data, int statusCode)
+    public OcpiResponse(object? data, int statusCode)
     {
         Data = data;
         StatusCode = statusCode;

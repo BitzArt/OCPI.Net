@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OCPI;
 using OCPI.Exceptions;
 using OCPI.Versioning;
 using System.Diagnostics.CodeAnalysis;

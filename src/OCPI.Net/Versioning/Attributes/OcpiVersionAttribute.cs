@@ -7,14 +7,12 @@ namespace OCPI.Versioning
     {
         public OcpiVersion Version { get; set; }
 
+        public OcpiVersionAttribute(string version) :
+            this(version.ToEnum<OcpiVersion>()) { }
+
         public OcpiVersionAttribute(OcpiVersion version)
         {
             Version = version;
-        }
-
-        public OcpiVersionAttribute(string version)
-        {
-            Version = version.ToEnum<OcpiVersion>();
         }
     }
 }
