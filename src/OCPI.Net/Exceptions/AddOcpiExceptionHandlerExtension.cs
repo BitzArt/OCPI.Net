@@ -7,14 +7,10 @@ public static class AddOcpiExceptionHandlerExtension
 {
     public static WebApplicationBuilder AddOcpiExceptionHandler(this WebApplicationBuilder builder)
     {
-        builder.Services.AddOcpiExceptionHandler();
-        return builder;
-    }
-
-    public static IServiceCollection AddOcpiExceptionHandler(this IServiceCollection services)
-    {
-        return services
+        builder.Services
             .AddHttpContextAccessor()
             .AddScoped<OcpiExceptionHandler>();
+
+        return builder;
     }
 }

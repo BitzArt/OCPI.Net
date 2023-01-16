@@ -1,4 +1,5 @@
-﻿using OCPI.Exceptions;
+﻿using BitzArt.ApiExceptions;
+using OCPI.Exceptions;
 
 namespace OCPI;
 
@@ -6,21 +7,11 @@ public static class ExceptionExtensions
 {
     public static OcpiResponse ToOcpiResponse(this Exception exception)
     {
-        if (exception is OcpiExceptionBase ocpiException)
-        {
-            return new(ocpiException.Message, ocpiException.OcpiStatus);
-        }
+        ProblemDetails details;
 
-        if (exception.InnerException != null)
-        {
-            var data = new
-            {
-                message = exception.Message,
-                inner = exception.InnerException.Message
-            };
-            return new(data, OcpiStatusCode.ServerError);
-        }
+        if (exception is ApiExceptionBase apiException) details = new(apiException);
+        else details = new(exception);
 
-        return new(exception.Message, OcpiStatusCode.ServerError);
+        return new OcpiResponse(details, OcpiStatusCode.ServerError);
     }
 }

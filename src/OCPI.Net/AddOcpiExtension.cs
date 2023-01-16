@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using OCPI;
 using OCPI.Exceptions;
 using OCPI.Versioning;
@@ -11,15 +9,18 @@ public static class AddOcpiExtension
 {
     public static WebApplicationBuilder AddOcpi(this WebApplicationBuilder builder)
     {
-        builder.Services.AddOcpi(builder.Configuration);
-        return builder;
-    }
+        // General
+        builder.AddOcpiControllers();
+        builder.ConfigureOcpiJson();
+        builder.AddOcpiOptions();
+        builder.AddOcpiValidation();
 
-    public static IServiceCollection AddOcpi(this IServiceCollection services, IConfiguration configuration)
-    {
-        services.AddOcpiOptions(configuration);
-        services.AddOcpiExceptionHandler();
-        services.AddOcpiVersioning();
-        return services;
+        //Exceptions
+        builder.AddOcpiExceptionHandler();
+
+        //Versioning
+        builder.AddOcpiVersioning();
+
+        return builder;
     }
 }

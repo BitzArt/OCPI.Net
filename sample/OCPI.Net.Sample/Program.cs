@@ -1,7 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-
 // Add all required OCPI services to your application
 builder.AddOcpi();
 

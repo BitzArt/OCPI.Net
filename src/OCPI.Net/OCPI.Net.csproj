@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		<TargetFramework>net7.0</TargetFramework>
 		<RootNamespace>OCPI</RootNamespace>
 		<AssemblyName>OCPI.Net</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -22,6 +22,12 @@
 	  <PackageReference Include="BitzArt.ApiExceptions.AspNetCore" Version="1.12.0" />
 	  <PackageReference Include="BitzArt.Miscellaneous.EnumToMemberValue" Version="1.2.0" />
 	  <PackageReference Include="BitzArt.Pagination" Version="1.13.0" />
+	  <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+	  <PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Contracts\Validators\" />
 	</ItemGroup>
 
 </Project>

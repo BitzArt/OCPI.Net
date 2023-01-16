@@ -35,8 +35,8 @@ public abstract class OcpiControllerBase : ControllerBase
 
     private void ConfigurePageResult(PageResult pageResult)
     {
-        if (HttpContext == null) return;
-        var paginationService = GetService<OcpiPaginationService>()!;
+        if (HttpContext is null) return;
+        var paginationService = GetService<PageResponseService>()!;
         paginationService.ConfigureResponse(pageResult);
     }
 

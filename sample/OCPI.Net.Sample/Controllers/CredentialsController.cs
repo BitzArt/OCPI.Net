@@ -8,7 +8,7 @@ namespace OCPI.Net.Sample.Controllers
     [OcpiEndpoint(ModuleId.Credentials, InterfaceRole.Receiver)]
     [OcpiVersion("2.2")]
     [OcpiVersion("2.2.1")]
-    public class CredentialsController : ControllerBase
+    public class CredentialsController : OcpiControllerBase
     {
         // TODO: Implement sample credentials controller
     }
