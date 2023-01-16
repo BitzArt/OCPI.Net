@@ -7,11 +7,14 @@ public static class ExceptionExtensions
 {
     public static OcpiResponse ToOcpiResponse(this Exception exception)
     {
-        ProblemDetails details;
+        var statusCode = exception is OcpiExceptionBase ocpiException ?
+            ocpiException.OcpiStatus :
+            (int)OcpiStatusCode.ServerError;
 
-        if (exception is ApiExceptionBase apiException) details = new(apiException);
-        else details = new(exception);
+        var details = exception is ApiExceptionBase apiException ?
+            new ProblemDetails(apiException) :
+            new ProblemDetails(exception);
 
-        return new OcpiResponse(details, OcpiStatusCode.ServerError);
+        return new OcpiResponse(details, statusCode);
     }
 }
