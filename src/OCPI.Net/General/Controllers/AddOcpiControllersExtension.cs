@@ -25,6 +25,8 @@ public static class AddOcpiControllersExtension
                 .Converters.Add(new OcpiDateTimeConverter());
             });
 
+        builder.Services.AddScoped<PageResponseService>();
+
         return builder;
     }
 }

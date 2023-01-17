@@ -19,7 +19,9 @@ internal class ValidatorInterceptor : IValidatorInterceptor
         if (result.IsValid) return result;
 
         var data = new { errors = result.Errors.Select(x => x.ErrorMessage) };
-        var dataSerialized = JsonSerializer.Serialize(data);
-        throw OcpiException.InvalidParameters(dataSerialized);
+        var exception = OcpiException.InvalidParameters();
+        exception.Payload.AddData(data);
+
+        throw exception;
     }
 }

@@ -4,9 +4,6 @@ namespace OCPI.Contracts
 {
     public enum CountryCode : int
     {
-        [EnumMember(Value = "ZZ")]
-        NotDefined = 0,
-
         [EnumMember(Value = "XX")]
         TestCountry = 1,
 
