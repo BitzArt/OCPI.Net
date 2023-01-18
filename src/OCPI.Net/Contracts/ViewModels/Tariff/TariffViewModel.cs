@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 public class TariffViewModel
 {
     [JsonPropertyName("country_code")]
-    public string? CountryCode { get; set; }
+    public CountryCode? CountryCode { get; set; }
 
     [JsonPropertyName("party_id")]
     public string? PartyId { get; set; }

@@ -26,8 +26,4 @@
 	  <PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Contracts\Validators\" />
-	</ItemGroup>
-
 </Project>

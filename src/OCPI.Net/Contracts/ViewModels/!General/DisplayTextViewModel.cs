@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 public class DisplayTextViewModel
 {
     [JsonPropertyName("language")]
-    public string? LanguageCode { get; set; }
+    public string? Language { get; set; }
 
     [JsonPropertyName("text")]
     public string? Text { get; set; }
