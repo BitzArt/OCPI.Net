@@ -17,4 +17,12 @@
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="BitzArt.ApiExceptions.AspNetCore" Version="1.12.0" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
+	</ItemGroup>
+
 </Project>

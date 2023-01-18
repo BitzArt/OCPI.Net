@@ -1,6 +1,4 @@
-﻿using OCPI.Contracts;
-
-namespace OCPI.Exceptions;
+﻿namespace OCPI.Exceptions;
 
 public class ServerErrorOcpiException : OcpiExceptionBase
 {

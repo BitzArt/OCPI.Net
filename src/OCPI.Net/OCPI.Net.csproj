@@ -14,8 +14,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="BitzArt.ApiExceptions.AspNetCore" Version="1.12.0" />
-	  <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+	  <ProjectReference Include="..\OCPI.Net.Contracts\OCPI.Net.Contracts.csproj" />
+	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
+	  <ProjectReference Include="..\OCPI.Net.Endpoints\OCPI.Net.Endpoints.csproj" />
+	  <ProjectReference Include="..\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj" />
+	  <ProjectReference Include="..\OCPI.Net.Validation\OCPI.Net.Validation.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
+  </ItemGroup>
+
 </Project>
