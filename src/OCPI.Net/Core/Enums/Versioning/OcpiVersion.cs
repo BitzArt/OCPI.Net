@@ -2,7 +2,7 @@
 
 namespace OCPI;
 
-public enum OcpiVersion
+public enum OcpiVersion : ushort
 {
     [EnumMember(Value = "2.0")]
     v2_0 = 200,

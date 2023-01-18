@@ -11,8 +11,6 @@ public static class AddOcpiExtension
     public static WebApplicationBuilder AddOcpi(this WebApplicationBuilder builder)
     {
         // General
-        builder.AddOcpiControllers();
-        builder.ConfigureOcpiJson();
         builder.AddOcpiOptions();
         builder.AddOcpiValidation();
 

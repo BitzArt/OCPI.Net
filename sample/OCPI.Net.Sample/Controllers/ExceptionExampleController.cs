@@ -4,7 +4,7 @@ namespace OCPI.Net.Sample.Controllers;
 
 [ApiController]
 [Route("exception")]
-public class ExceptionExampleController : OcpiControllerBase
+public class ExceptionExampleController : ControllerBase
 {
     [HttpGet("")]
     public IActionResult ThrowException()

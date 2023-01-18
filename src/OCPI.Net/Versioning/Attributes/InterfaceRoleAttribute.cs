@@ -4,16 +4,14 @@ using OCPI.Contracts;
 namespace OCPI;
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
-public class OcpiEndpointAttribute : Attribute
+public class InterfaceRoleAttribute : Attribute
 {
     public InterfaceRole Role { get; set; }
-    public ModuleId ModuleId { get; set; }
-    public IEnumerable<OcpiVersion> Versions { get; set; }
 
-    public OcpiEndpointAttribute(ModuleId moduleId, InterfaceRole role, string versions) :
+    public OcpiEndpointAttribute(OcpiModule moduleId, InterfaceRole role, string versions) :
         this(moduleId, role, ParseVersions(versions)) { }
 
-    public OcpiEndpointAttribute(ModuleId moduleId, InterfaceRole role, IEnumerable<OcpiVersion> versions)
+    public OcpiEndpointAttribute(OcpiModule moduleId, InterfaceRole role, IEnumerable<OcpiVersion> versions)
     {
         Role = role;
         ModuleId = moduleId;

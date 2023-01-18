@@ -4,7 +4,7 @@ namespace OCPI.Net.Sample.Controllers;
 
 [ApiController]
 [Route("test")]
-public class TestsController : OcpiControllerBase
+public class TestsController : ControllerBase
 {
     [HttpGet("")]
     public IActionResult Test()
