@@ -4,10 +4,12 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>OCPI.Sample</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- In your actual application, reference a nuget instead -->
+		<ProjectReference Include="..\..\src\OCPI.Net.Endpoints\OCPI.Net.Endpoints.csproj" />
 		<ProjectReference Include="..\..\src\OCPI.Net\OCPI.Net.csproj" />
 	</ItemGroup>
 

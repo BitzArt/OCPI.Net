@@ -1,11 +1,14 @@
-﻿namespace OCPI;
+﻿using BitzArt.EnumToMemberValue;
+
+namespace OCPI;
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
 public class OcpiModuleAttribute : Attribute
 {
     public OcpiModule ModuleId { get; set; }
 
-    public OcpiModuleAttribute(string moduleId)
+    public OcpiModuleAttribute(string moduleId) :
+        this(moduleId.ToEnum<OcpiModule>()) { } 
 
     public OcpiModuleAttribute(OcpiModule moduleId)
     {

@@ -22,7 +22,8 @@ public static class UseOcpiEndpointsExtension
 
     public static WebApplication MapOcpiEndpoints(this WebApplication app)
     {
-        app.MapGet("/ocpi/", () => Results.Json(new Result(), OcpiJsonSerializerOptions.Instance));
+        var json = OcpiJsonSerializerOptions.Instance;
+        app.MapGet("/ocpi/", () => Results.Json(new Result(), json));
 
         return app;
     }

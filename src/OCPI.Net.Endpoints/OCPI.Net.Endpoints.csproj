@@ -6,7 +6,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
-		<PackageId>OCPI.Net</PackageId>
+		<PackageId>OCPI.Net.Endpoints</PackageId>
 		<Authors>BitzArt</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
@@ -14,8 +14,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="BitzArt.ApiExceptions.AspNetCore" Version="1.12.0" />
-	  <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+		<PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
 	</ItemGroup>
-
 </Project>

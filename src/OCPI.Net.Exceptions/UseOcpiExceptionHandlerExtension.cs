@@ -1,7 +1,6 @@
 ﻿using BitzArt.ApiExceptions.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using OCPI.Exceptions;
-using System.Diagnostics.CodeAnalysis;
 
 namespace OCPI;
 
