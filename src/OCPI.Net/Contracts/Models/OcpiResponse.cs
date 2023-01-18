@@ -1,4 +1,5 @@
 ﻿using BitzArt.EnumToMemberValue;
+using OCPI.Contracts;
 using System.Text.Json.Serialization;
 
 namespace OCPI;

@@ -2,7 +2,6 @@
 using FluentValidation.AspNetCore;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 
 namespace OCPI;
 

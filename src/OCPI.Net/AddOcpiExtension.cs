@@ -4,7 +4,8 @@ using OCPI.Exceptions;
 using OCPI.Versioning;
 using System.Diagnostics.CodeAnalysis;
 
-[SuppressMessage("Design", "CA1050:Declare types in namespaces")]
+namespace OCPI;
+
 public static class AddOcpiExtension
 {
     public static WebApplicationBuilder AddOcpi(this WebApplicationBuilder builder)

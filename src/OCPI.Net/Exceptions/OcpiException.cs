@@ -1,9 +1,9 @@
-﻿using OCPI;
+﻿using OCPI.Contracts;
 using OCPI.Exceptions;
-using System.Diagnostics.CodeAnalysis;
 
-[SuppressMessage("Design", "CA1050:Declare types in namespaces")]
-public static class OcpiException
+namespace OCPI;
+
+public static partial class OcpiException
 {
     public static CustomOcpiException Custom
         (string message, OcpiStatusCode ocpiStatusCode)

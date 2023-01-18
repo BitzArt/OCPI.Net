@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OCPI.Exceptions;
-using System.Text.Json;
 
 namespace OCPI.Net.Sample.Controllers;
 

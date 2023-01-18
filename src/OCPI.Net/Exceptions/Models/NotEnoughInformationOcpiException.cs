@@ -1,4 +1,6 @@
-﻿namespace OCPI.Exceptions;
+﻿using OCPI.Contracts;
+
+namespace OCPI.Exceptions;
 
 public class NotEnoughInformationOcpiException : OcpiExceptionBase
 {
