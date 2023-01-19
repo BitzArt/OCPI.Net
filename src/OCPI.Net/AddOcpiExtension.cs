@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using OCPI;
 using OCPI.Exceptions;
 using OCPI.Versioning;
-using System.Diagnostics.CodeAnalysis;
 
 namespace OCPI;
 
@@ -17,8 +15,8 @@ public static class AddOcpiExtension
         //Exceptions
         builder.AddOcpiExceptionHandler();
 
-        //Versioning
-        builder.AddOcpiVersioning();
+        //Endpoints
+        builder.AddOcpiEndpoints();
 
         return builder;
     }

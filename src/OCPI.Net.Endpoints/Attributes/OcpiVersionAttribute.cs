@@ -8,7 +8,8 @@ public class OcpiVersionAttribute : Attribute
     public OcpiVersion Version { get; set; }
 
     public OcpiVersionAttribute(string version) :
-        this(version.ToEnum<OcpiVersion>()) { }
+        this(version.ToEnum<OcpiVersion>())
+    { }
 
     public OcpiVersionAttribute(OcpiVersion version)
     {

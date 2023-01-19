@@ -1,29 +1,19 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using OCPI.Endpoints;
+using Microsoft.Extensions.DependencyInjection;
+using OCPI.Services;
 
 namespace OCPI;
 
 public static class UseOcpiEndpointsExtension
 {
-    private class Result
-    {
-        public string Test { get; set; }
-
-        public DateTime DateTime { get; set; }
-
-        public Result()
-        {
-            Test = "Hello World!";
-            DateTime = DateTime.UtcNow;
-        }
-    }
-
     public static WebApplication MapOcpiEndpoints(this WebApplication app)
     {
-        var json = OcpiJsonSerializerOptions.Instance;
-        app.MapGet("/ocpi/", () => Results.Json(new Result(), json));
+        var mapper = (app.Services.CreateScope().ServiceProvider
+            .GetService(typeof(OcpiEndpointMappingService))
+            as OcpiEndpointMappingService)!;
+
+        var registrator = new OcpiEndpointRegisteringService(mapper);
+        registrator.RegisterOcpiEndpoints(app);
 
         return app;
     }

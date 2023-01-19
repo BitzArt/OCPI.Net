@@ -5,13 +5,14 @@ namespace OCPI;
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
 public class OcpiModuleAttribute : Attribute
 {
-    public OcpiModule ModuleId { get; set; }
+    public OcpiModule Module { get; set; }
 
-    public OcpiModuleAttribute(string moduleId) :
-        this(moduleId.ToEnum<OcpiModule>()) { } 
+    public OcpiModuleAttribute(string module) :
+        this(module.ToEnum<OcpiModule>())
+    { }
 
-    public OcpiModuleAttribute(OcpiModule moduleId)
+    public OcpiModuleAttribute(OcpiModule module)
     {
-        ModuleId = moduleId;
+        Module = module;
     }
 }

@@ -1,9 +1,7 @@
-﻿using Microsoft.Extensions.Options;
-using System;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace OCPI.Endpoints;
+namespace OCPI;
 
 internal static class OcpiJsonSerializerOptions
 {

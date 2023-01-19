@@ -1,7 +1,7 @@
 ﻿using BitzArt.Pagination;
 using Microsoft.AspNetCore.Http;
 
-namespace OCPI;
+namespace OCPI.Services;
 
 internal class PageResponseService
 {
