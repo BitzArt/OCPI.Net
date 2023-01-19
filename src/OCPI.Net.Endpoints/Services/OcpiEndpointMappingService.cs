@@ -8,14 +8,9 @@ internal class OcpiEndpointMappingService
     private readonly IDictionary<Type, ICollection<OcpiEndpointRoute>> _typeMap;
     private readonly IDictionary<OcpiVersion, ICollection<OcpiEndpointRoute>> _versionMap;
 
-    public OcpiEndpointMappingService()
+    public OcpiEndpointMappingService(OcpiEndpointTypeCollection endpointTypeCollection)
     {
-        _endpoints = AppDomain
-            .CurrentDomain
-            .GetAssemblies()
-            .SelectMany(x => x.DefinedTypes)
-            .Where(x => typeof(OcpiEndpoint).IsAssignableFrom(x))
-            .Where(x => x != typeof(OcpiEndpoint));
+        _endpoints = endpointTypeCollection.EndpointTypes;
 
         _typeMap = new Dictionary<Type, ICollection<OcpiEndpointRoute>>();
         _versionMap = new Dictionary<OcpiVersion, ICollection<OcpiEndpointRoute>>();
