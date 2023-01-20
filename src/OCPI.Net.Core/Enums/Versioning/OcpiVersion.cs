@@ -4,6 +4,8 @@ namespace OCPI;
 
 public enum OcpiVersion : ushort
 {
+    Invalid = 0,
+
     [EnumMember(Value = "2.0")]
     v2_0 = 200,
 
