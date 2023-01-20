@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using OCPI.Services;
+using System.Reflection;
 
 namespace OCPI.Versioning;
 
@@ -8,12 +9,15 @@ public static class AddOcpiEndpointsExtension
 {
     public static WebApplicationBuilder AddOcpiEndpoints(this WebApplicationBuilder builder)
     {
+        var currentAssembly = typeof(AddOcpiEndpointsExtension).Assembly;
+
         var endpointTypes = AppDomain
             .CurrentDomain
             .GetAssemblies()
+            .Where(x => x != currentAssembly)
             .SelectMany(x => x.DefinedTypes)
-            .Where(x => typeof(OcpiEndpoint).IsAssignableFrom(x))
-            .Where(x => x != typeof(OcpiEndpoint));
+            .Where(x => !x.IsAbstract)
+            .Where(x => typeof(OcpiEndpoint).IsAssignableFrom(x));
 
         foreach (var endpointType in endpointTypes)
         {
@@ -25,6 +29,7 @@ public static class AddOcpiEndpointsExtension
         builder.Services.AddSingleton(endpointTypeCollection);
 
         builder.Services.AddSingleton<OcpiEndpointMappingService>();
+        builder.Services.AddTransient<OcpiEndpointRegisteringService>();
 
         return builder;
     }

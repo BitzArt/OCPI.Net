@@ -4,21 +4,22 @@ namespace OCPI.Services;
 
 internal class OcpiEndpointMappingService
 {
-    private readonly IEnumerable<Type> _endpoints;
+    private readonly ICollection<OcpiEndpointRoute> _routes;
+
     private readonly IDictionary<Type, ICollection<OcpiEndpointRoute>> _typeMap;
     private readonly IDictionary<OcpiVersion, ICollection<OcpiEndpointRoute>> _versionMap;
 
     public OcpiEndpointMappingService(OcpiEndpointTypeCollection endpointTypeCollection)
     {
-        _endpoints = endpointTypeCollection.EndpointTypes;
+        _routes = new HashSet<OcpiEndpointRoute>();
 
         _typeMap = new Dictionary<Type, ICollection<OcpiEndpointRoute>>();
         _versionMap = new Dictionary<OcpiVersion, ICollection<OcpiEndpointRoute>>();
 
-        foreach (var type in _endpoints) ParseEndpoint(type);
+        foreach (var type in endpointTypeCollection.EndpointTypes) ParseEndpoint(type);
     }
 
-    public IEnumerable<Type> GetEndpointTypes() => _endpoints;
+    public IEnumerable<OcpiEndpointRoute> GetRoutes() => _routes;
 
     public IEnumerable<OcpiEndpointRoute> GetRoutes(Type endpointType)
         => _typeMap[endpointType];
@@ -59,6 +60,8 @@ internal class OcpiEndpointMappingService
 
             Route = $"/{version.ToMemberValue()}/{module.ToMemberValue()}"
         };
+
+        _routes.Add(route);
         AddToTypeMap(type, route);
         AddToVersionMap(version, route);
     }
