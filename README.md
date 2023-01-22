@@ -22,18 +22,18 @@ dotnet add package OCPI.Net
 - ### OCPI Contracts
   This package contains OCPI JSON ViewModels (a.k.a. DTOs)
 
-- ### 🚧 OCPI Endpoints (Work in Progress)
-  Create OCPI Endpoints. Built-in routing and versioning.
-  Functionality based on Asp.Net Core Minimal APIs.
+- ### Versioning
+  Mark Controllers with `OcpiEndpoint` attribute to get automated OCPI version fetching.
 
 - ### 🚧 Validation (Work in Progress)
-  ViewModel validation utilizing FluentValidation.
+  OCPI Contract validation.
 
 - ### OCPI Errors
   Throw predefined OCPI Exceptions to get OCPI error results, or create your own custom exceptions.
 
 ## Extra
 
-The package is under heavy development, consider current functionality ALPHA and subject to changes.
+The package is under development, consider current functionality subject to changes.
+
 Any contributions, suggestions and feature requests are welcome.
 
