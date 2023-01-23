@@ -21,6 +21,8 @@ public static class AddOcpiControllersExtension
             options.JsonSerializerOptions.Converters.Add(new OcpiDateTimeConverter());
         });
 
+        builder.Services.AddScoped<PageResponseService>();
+
         return builder;
     }
 }

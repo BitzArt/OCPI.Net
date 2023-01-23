@@ -1,3 +1,4 @@
+using BitzArt.Pagination;
 using Microsoft.AspNetCore.Mvc;
 
 namespace OCPI.Sample.Controllers;
@@ -14,7 +15,7 @@ public class CredentialsController : OcpiController
     [HttpGet]
     public IActionResult GetAsync()
     {
-        var id = 0;
-        return Ok($"Credentials {id}");
+        var result = new PageResult(new List<string> { "value1", "value2" }, 0, 2, 10);
+        return OcpiOk(result);
     }
 }
