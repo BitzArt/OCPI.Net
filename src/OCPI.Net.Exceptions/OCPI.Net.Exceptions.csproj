@@ -19,10 +19,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="BitzArt.ApiExceptions.AspNetCore" Version="1.12.0" />
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
+		<PackageReference Include="OCPI.Net.Core" Version="0.2.0" />
 	</ItemGroup>
 
 </Project>
