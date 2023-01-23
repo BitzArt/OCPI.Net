@@ -6,7 +6,7 @@
 
 Supported OCPI versions: `2.0`, `2.1.1`, `2.2`, `2.2.1`
 
-Package documentation is a Work In Progress.
+Package documentation is expected later.
 
 For now, you can refer to this [sample project](sample/OCPI.Net.Sample)
 
@@ -22,15 +22,18 @@ dotnet add package OCPI.Net
 - ### OCPI Contracts
   This package contains OCPI JSON ViewModels (a.k.a. DTOs)
 
+- ### Versioning
+  Mark Controllers with `OcpiEndpoint` attribute to get automated OCPI version fetching.
+
 - ### 🚧 Validation (Work in Progress)
-  Input validation utilizing FluentValidation.
+  OCPI Contract validation.
 
 - ### OCPI Errors
   Throw predefined OCPI Exceptions to get OCPI error results, or create your own custom exceptions.
 
-- ### 🚧 Versioning (Work in Progress)
-  Tag your controllers with OcpiEndpoint attribute to get automated OCPI version fetching.
-
 ## Extra
 
-You can contact me via e-mail: u.a.durov@gmail.com, or create an Issue here on GitHub.
+The package is under development, consider current functionality subject to changes.
+
+Any contributions, suggestions and feature requests are welcome.
+

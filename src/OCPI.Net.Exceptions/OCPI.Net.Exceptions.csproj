@@ -6,7 +6,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
-		<PackageId>OCPI.Net</PackageId>
+		<PackageId>OCPI.Net.Exceptions</PackageId>
 		<Authors>BitzArt</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
@@ -14,14 +14,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\OCPI.Net.Contracts\OCPI.Net.Contracts.csproj" />
+		<PackageReference Include="BitzArt.ApiExceptions.AspNetCore" Version="1.12.0" />
+	</ItemGroup>
+	
+	<ItemGroup>
 	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
-	  <ProjectReference Include="..\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj" />
-	  <ProjectReference Include="..\OCPI.Net.Validation\OCPI.Net.Validation.csproj" />
 	</ItemGroup>
 
 </Project>

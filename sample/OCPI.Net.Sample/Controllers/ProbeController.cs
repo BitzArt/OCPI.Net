@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OCPI;
-using System.Text.Json;
 
 namespace OCPI.Net.Sample.Controllers;
 
 [ApiController]
 [Route("")]
-public class ProbeController : OcpiControllerBase
+public class ProbeController : ControllerBase
 {
     [HttpGet("")]
     public IActionResult Probe()

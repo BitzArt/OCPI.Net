@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<PackageId>OCPI.Net.Core</PackageId>
+		<Authors>BitzArt</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>
+		<RootNamespace>OCPI.Net</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BitzArt.Miscellaneous.EnumToMemberValue" Version="1.2.0" />
+		<PackageReference Include="BitzArt.Pagination" Version="1.13.0" />
+	</ItemGroup>
+</Project>

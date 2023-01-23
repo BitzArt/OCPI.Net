@@ -1,4 +1,5 @@
 using OCPI;
+using OCPI.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +9,6 @@ builder.AddOcpi();
 var app = builder.Build();
 
 // Add OCPI Exception handling middleware to your request pipeline
-app.UseOcpiExceptionHandler();
-
-app.MapControllers();
+app.UseOcpi();
 
 app.Run();

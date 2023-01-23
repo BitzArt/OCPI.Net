@@ -1,11 +1,21 @@
+using BitzArt.Pagination;
 using Microsoft.AspNetCore.Mvc;
 
-namespace OCPI.Net.Sample.Controllers;
+namespace OCPI.Sample.Controllers;
 
-[ApiController]
-[Route("[Controller]")]
-[OcpiEndpoint(ModuleId.Credentials, InterfaceRole.Receiver, "2.2; 2.2.1")]
-public class CredentialsController : OcpiControllerBase
+[OcpiEndpoint(OcpiModule.Credentials, "Receiver", "2.2, 2.2.1")]
+[Route("2.2/credentials")]
+[Route("2.2.1/credentials")]
+public class CredentialsController : OcpiController
 {
-    // TODO: Implement sample credentials controller
+    public CredentialsController()
+    {
+    }
+
+    [HttpGet]
+    public IActionResult GetAsync()
+    {
+        var result = new PageResult(new List<string> { "value1", "value2" }, 0, 2, 10);
+        return OcpiOk(result);
+    }
 }
