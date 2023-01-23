@@ -15,12 +15,12 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
+	  <PackageReference Include="OCPI.Net.Contracts" Version="0.2.0" />
 	  <PackageReference Include="OCPI.Net.Core" Version="0.2.0" />
+	  <PackageReference Include="OCPI.Net.Exceptions" Version="0.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\OCPI.Net.Contracts\OCPI.Net.Contracts.csproj" />
-	  <ProjectReference Include="..\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj" />
 	  <ProjectReference Include="..\OCPI.Net.Validation\OCPI.Net.Validation.csproj" />
 	</ItemGroup>
 
