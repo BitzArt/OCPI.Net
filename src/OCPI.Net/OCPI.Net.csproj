@@ -18,10 +18,7 @@
 	  <PackageReference Include="OCPI.Net.Contracts" Version="0.2.0" />
 	  <PackageReference Include="OCPI.Net.Core" Version="0.2.0" />
 	  <PackageReference Include="OCPI.Net.Exceptions" Version="0.2.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\OCPI.Net.Validation\OCPI.Net.Validation.csproj" />
+	  <PackageReference Include="OCPI.Net.Validation" Version="0.2.0" />
 	</ItemGroup>
 
 </Project>
