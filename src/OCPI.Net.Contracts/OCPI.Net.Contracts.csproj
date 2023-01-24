@@ -4,17 +4,17 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<RootNamespace>OCPI.Contracts</RootNamespace>
 
 		<PackageId>OCPI.Net.Contracts</PackageId>
 		<Authors>BitzArt</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>
-		<RootNamespace>OCPI.Net</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OCPI.Net.Core" Version="0.2.0" />
+	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
 	</ItemGroup>
 
 </Project>

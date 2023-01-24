@@ -30,8 +30,15 @@ jobs:
 
       - name: Build
         run: |
-          dotnet build src/OCPI.Net/OCPI.Net.csproj --configuration Release /p:Version=${VERSION}
-          dotnet pack src/OCPI.Net/OCPI.Net.csproj --configuration Release /p:Version=${VERSION} --no-build --output .
+          dotnet build OCPI.Net.sln --configuration Release /p:Version=${VERSION}
+          dotnet pack OCPI.Net.sln --configuration Release /p:Version=${VERSION} --no-build --output .
 
       - name: Push
-        run: dotnet nuget push OCPI.Net.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_APIKEY}
+        run: |
+          dotnet nuget push OCPI.Net.Core.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_APIKEY}
+          dotnet nuget push OCPI.Net.Contracts.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_APIKEY}
+          dotnet nuget push OCPI.Net.Exceptions.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_APIKEY}
+          dotnet nuget push OCPI.Net.Controllers.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_APIKEY}
+          dotnet nuget push OCPI.Net.Validation.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_APIKEY}
+          dotnet nuget push OCPI.Net.Versioning.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_APIKEY}
+          dotnet nuget push OCPI.Net.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_APIKEY}

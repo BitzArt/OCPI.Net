@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<RootNamespace>OCPI</RootNamespace>
 
-		<PackageId>OCPI.Net.Core</PackageId>
+		<PackageId>OCPI.Net.Controllers</PackageId>
 		<Authors>BitzArt</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
@@ -14,11 +14,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
+	  <ProjectReference Include="..\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="BitzArt.Miscellaneous.EnumToMemberValue" Version="1.2.0" />
-		<PackageReference Include="BitzArt.Pagination" Version="1.13.0" />
-	</ItemGroup>
 </Project>

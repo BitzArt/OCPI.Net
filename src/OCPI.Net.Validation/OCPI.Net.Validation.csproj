@@ -4,6 +4,7 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<RootNamespace>OCPI.Validation</RootNamespace>
 
 		<PackageId>OCPI.Net.Validation</PackageId>
 		<Authors>BitzArt</Authors>
@@ -13,13 +14,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
-		<PackageReference Include="OCPI.Net.Contracts" Version="0.2.0" />
-		<PackageReference Include="OCPI.Net.Exceptions" Version="0.2.0" />
+	  <ProjectReference Include="..\OCPI.Net.Contracts\OCPI.Net.Contracts.csproj" />
+	  <ProjectReference Include="..\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj" />
 	</ItemGroup>
 
 </Project>
