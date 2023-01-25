@@ -22,7 +22,7 @@ public class VersionsController : OcpiController
     }
 
     [HttpGet("{request}")]
-    public IActionResult GetVersionDetailsAsync([FromRoute]string request)
+    public IActionResult GetVersionDetailsAsync([FromRoute] string request)
     {
         var details = _versionService.GetVersionDetails(request);
         return Ok(details);

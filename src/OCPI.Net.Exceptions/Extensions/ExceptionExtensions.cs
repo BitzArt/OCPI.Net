@@ -11,7 +11,7 @@ public static class ExceptionExtensions
             ocpiException.OcpiStatus : (int)OcpiStatusCode.ServerError;
 
         var problem = exception is ApiExceptionBase apiException ?
-            new ProblemDetails(apiException) : null;
+            new ProblemDetails(apiException) : new ProblemDetails(exception);
 
         var response = new OcpiResponse(null, statusCode)
         {

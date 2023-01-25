@@ -1,7 +1,6 @@
 ﻿using BitzArt.EnumToMemberValue;
 using Microsoft.AspNetCore.Mvc;
 using OCPI.Contracts;
-using System;
 
 namespace OCPI.Versioning.Services;
 

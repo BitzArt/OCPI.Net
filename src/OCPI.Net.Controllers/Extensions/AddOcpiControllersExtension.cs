@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using OCPI.Services;
-using System.Text.Json.Serialization;
 using System.Text.Json;
-using BitzArt.ApiExceptions;
+using System.Text.Json.Serialization;
 
 namespace OCPI;
 

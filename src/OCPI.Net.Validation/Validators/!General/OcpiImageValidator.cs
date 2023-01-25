@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using OCPI.Validation;
-using System.Text.Json.Serialization;
 
 namespace OCPI.Contracts;
 
