@@ -20,8 +20,6 @@ dotnet add package OCPI.Net
 ## Main features
 
 - ### OCPI Contracts + Validation
-  OCPI JSON Contracts + Validation
-  
   (not all validators are implemented yet, Work In Progress)
 
 - ### Versioning
