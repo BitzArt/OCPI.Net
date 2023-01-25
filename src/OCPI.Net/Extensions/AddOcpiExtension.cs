@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using OCPI.Exceptions;
-using OCPI.Versioning;
 
 namespace OCPI;
 

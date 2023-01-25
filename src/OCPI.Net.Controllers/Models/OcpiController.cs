@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using OCPI.Services;
+using OCPI.Validation;
 
 namespace OCPI;
 
 [ApiController]
 public abstract class OcpiController : ControllerBase
 {
+    [NonAction]
     public OkObjectResult OcpiOk([ActionResultObjectValue] object? value)
     {
         if (value is null) return base.Ok(new OcpiResponse());
@@ -22,12 +24,31 @@ public abstract class OcpiController : ControllerBase
         return base.Ok(new OcpiResponse(value));
     }
 
+    [NonAction]
+    public void OcpiValidate<T>(T value)
+    {
+        if (value is null) return;
+        var validator = GetRequiredService<OcpiValidator<T>>();
+        var validationResult = validator.Validate(value);
+
+        if (!validationResult.IsValid)
+        {
+            var exception = OcpiException.InvalidParameters();
+            var errors = validationResult.Errors.Select(x => x.ErrorMessage);
+            exception.Payload.AddData(new { errors });
+            throw exception;
+        }
+    }
+
     private void ConfigurePageResult(PageResult pageResult)
     {
         if (HttpContext is null) return;
-        var paginationService = GetService<PageResponseService>()!;
+        var paginationService = GetRequiredService<PageResponseService>();
+
         paginationService.ConfigureResponse(pageResult);
     }
 
-    private TService? GetService<TService>() => HttpContext.RequestServices.GetService<TService>();
+    private TService GetRequiredService<TService>()
+        where TService : class =>
+        HttpContext.RequestServices.GetRequiredService<TService>()!;
 }

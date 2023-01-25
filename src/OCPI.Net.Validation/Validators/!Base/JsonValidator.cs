@@ -3,9 +3,9 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
-namespace OCPI;
+namespace OCPI.Validation;
 
-public class JsonValidator<T> : AbstractValidator<T>
+public abstract class JsonValidator<T> : AbstractValidator<T>
 {
     public IRuleBuilderOptions<T, TProperty> JsonRuleFor<TProperty>(Expression<Func<T, TProperty>> expression)
     {
@@ -25,7 +25,7 @@ public class JsonValidator<T> : AbstractValidator<T>
     }
 }
 
-public static class MemberInfoExtensions
+internal static class MemberInfoExtensions
 {
     public static TAttribute GetAttribute<TAttribute>(this MemberInfo member)
         where TAttribute : Attribute

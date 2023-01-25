@@ -12,7 +12,16 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/BitzArt/OCPI.Net</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\OCPI.Net.Contracts\OCPI.Net.Contracts.csproj" />

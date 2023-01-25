@@ -5,22 +5,26 @@ namespace OCPI.Sample.Controllers;
 [Route("versions")]
 public class VersionsController : OcpiController
 {
-    private readonly IOcpiVersionService _versions;
+    // This service scans your codebase and maps all OCPI paths from
+    // controllers marked with OcpiEndpoint attribute on startup.
+    private readonly IOcpiVersionService _versionService;
 
-    public VersionsController(IOcpiVersionService versions)
+    public VersionsController(IOcpiVersionService versionService)
     {
-        _versions = versions;
+        _versionService = versionService;
     }
 
     [HttpGet]
     public IActionResult GetVersionsAsync()
     {
-        return Ok(_versions.GetVersions());
+        var versionInfo = _versionService.GetVersions();
+        return Ok(versionInfo);
     }
 
     [HttpGet("{request}")]
     public IActionResult GetVersionDetailsAsync([FromRoute]string request)
     {
-        return Ok(_versions.GetVersionDetails(request));
+        var details = _versionService.GetVersionDetails(request);
+        return Ok(details);
     }
 }

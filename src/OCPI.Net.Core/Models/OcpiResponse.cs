@@ -34,17 +34,21 @@ public class OcpiResponse
     [JsonPropertyName("timestamp")]
     public DateTime? Timestamp { get; set; }
 
-    public OcpiResponse() { }
+    [JsonPropertyName("problem")]
+    public object? Problem { get; set; }
+
+    public OcpiResponse()
+    {
+        Timestamp = DateTime.UtcNow;
+    }
 
     public OcpiResponse(object? data, OcpiStatusCode statusCode = OcpiStatusCode.Success)
         : this(data, (int)statusCode) { }
 
-    public OcpiResponse(object? data, int statusCode)
+    public OcpiResponse(object? data, int statusCode) : this()
     {
         Data = data;
         StatusCode = statusCode;
-        Timestamp = DateTime.UtcNow;
-
         TryConfigureStatusMessage(statusCode);
     }
 

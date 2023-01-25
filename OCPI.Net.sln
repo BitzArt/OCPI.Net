@@ -28,9 +28,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Exceptions", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Validation", "src\OCPI.Net.Validation\OCPI.Net.Validation.csproj", "{609C4BF6-9DF2-4E9A-9993-0E372488B01F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCPI.Net.Versioning", "src\OCPI.Net.Versioning\OCPI.Net.Versioning.csproj", "{98BE64FD-2046-4A39-9C00-C2CECBB7AA03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Versioning", "src\OCPI.Net.Versioning\OCPI.Net.Versioning.csproj", "{98BE64FD-2046-4A39-9C00-C2CECBB7AA03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCPI.Net.Controllers", "src\OCPI.Net.Controllers\OCPI.Net.Controllers.csproj", "{46317B20-B640-4DD3-B70D-11F0A01BB11B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Controllers", "src\OCPI.Net.Controllers\OCPI.Net.Controllers.csproj", "{46317B20-B640-4DD3-B70D-11F0A01BB11B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
