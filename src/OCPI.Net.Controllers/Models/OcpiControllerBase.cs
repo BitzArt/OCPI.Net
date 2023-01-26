@@ -8,7 +8,7 @@ using OCPI.Validation;
 namespace OCPI;
 
 [ApiController]
-public abstract class OcpiController : ControllerBase
+public abstract class OcpiControllerBase : ControllerBase
 {
     [NonAction]
     public OkObjectResult OcpiOk([ActionResultObjectValue] object? value)

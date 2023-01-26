@@ -7,8 +7,8 @@ builder.AddOcpi();
 
 var app = builder.Build();
 
-// Add predefined OCPI Request pipeline.
-// This includes exception handling middleware and mapping controllers
-app.UseOcpi();
+app.UseOcpiExceptionHandler();
+app.MapControllers();
+app.FetchOcpiVersions();
 
 app.Run();
