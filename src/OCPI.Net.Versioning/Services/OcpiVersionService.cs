@@ -24,7 +24,7 @@ internal class OcpiVersionService : IOcpiVersionService
             .GetAssemblies()
             .SelectMany(x => x.DefinedTypes)
             .Where(x => !x.IsAbstract)
-            .Where(x => typeof(OcpiControllerBase).IsAssignableFrom(x));
+            .Where(x => typeof(OcpiController).IsAssignableFrom(x));
 
         foreach (var type in controllerTypes) ParseEndpoint(type);
     }

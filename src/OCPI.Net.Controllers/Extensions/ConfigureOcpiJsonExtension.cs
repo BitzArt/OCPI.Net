@@ -9,6 +9,7 @@ public static class ConfigureOcpiJsonExtension
 {
     public static WebApplicationBuilder ConfigureOcpiJson(this WebApplicationBuilder builder)
     {
+
         builder.Services.ConfigureHttpJsonOptions(options =>
         {
             options.SerializerOptions.PropertyNamingPolicy

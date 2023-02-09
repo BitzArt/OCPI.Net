@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.Extensions.Options;
-using System.Net;
 using System.Text.Json;
 
 namespace OCPI.Exceptions;
@@ -20,16 +19,10 @@ public class OcpiExceptionHandler : IApiExceptionHandler
 
     public async Task HandleAsync(Exception exception)
     {
-        _httpContext.Response.StatusCode = GetHttpStatusCode(exception);
+        _httpContext.Response.StatusCode = exception.GetHttpStatusCode();
         _httpContext.Response.ContentType = "application/json";
 
         var response = JsonSerializer.Serialize(exception.ToOcpiResponse(), _jsonOptions.SerializerOptions);
         await _httpContext.Response.WriteAsync(response);
-    }
-
-    private static int GetHttpStatusCode(Exception exception)
-    {
-        if (exception is ApiExceptionBase apiException) return apiException.StatusCode;
-        return (int)HttpStatusCode.InternalServerError;
     }
 }

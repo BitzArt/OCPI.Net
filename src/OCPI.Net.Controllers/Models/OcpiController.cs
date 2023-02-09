@@ -2,13 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using OCPI.Filters;
 using OCPI.Services;
 using OCPI.Validation;
 
 namespace OCPI;
 
-[ApiController]
-public abstract class OcpiControllerBase : ControllerBase
+[OcpiExceptionFilter]
+public abstract class OcpiController : ControllerBase
 {
     [NonAction]
     public OkObjectResult OcpiOk([ActionResultObjectValue] object? value)

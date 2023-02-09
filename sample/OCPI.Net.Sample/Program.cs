@@ -7,7 +7,6 @@ builder.AddOcpi();
 
 var app = builder.Build();
 
-app.UseOcpiExceptionHandler();
 app.MapControllers();
 app.FetchOcpiVersions();
 
