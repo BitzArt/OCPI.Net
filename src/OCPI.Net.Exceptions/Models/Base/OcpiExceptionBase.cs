@@ -17,4 +17,10 @@ public abstract class OcpiExceptionBase : ApiExceptionBase
     {
         OcpiStatus = ocpiStatusCode;
     }
+
+    public OcpiExceptionBase(string message, int ocpiStatusCode, int httpStatusCode)
+        : base(message, httpStatusCode)
+    {
+        OcpiStatus = ocpiStatusCode;
+    }
 }

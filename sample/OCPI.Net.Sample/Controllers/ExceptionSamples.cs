@@ -1,4 +1,4 @@
-﻿using BitzArt;
+﻿using BitzArt.ApiExceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace OCPI.Sample.Controllers;
@@ -6,16 +6,16 @@ namespace OCPI.Sample.Controllers;
 [Route("exceptions")]
 public class OcpiExceptionSampleController : OcpiController
 {
-    [HttpGet("ocpi-exception")]
+    [HttpGet("ocpi")]
     public IActionResult ThrowOcpiException()
     {
-        throw OcpiException.Custom("sample error message", OcpiStatusCode.ServerError);
+        throw OcpiException.Custom("sample error message", 3999);
     }
 
-    [HttpGet("api-exception")]
-    public IActionResult ThrowApiException()
+    [HttpGet("ocpi-custom")]
+    public IActionResult ThrowOcpiCustomException()
     {
-        throw ApiException.Custom("sample error message", 418);
+        throw OcpiException.Custom("sample error message", 3999, 418);
     }
 
     [HttpGet("other")]

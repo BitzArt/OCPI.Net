@@ -13,7 +13,6 @@ public static class AddOcpiExtension
 
         builder.AddOcpiControllers();
         builder.AddOcpiVersioning();
-        builder.AddOcpiExceptionHandler();
         builder.AddOcpiValidation();
 
         return builder;

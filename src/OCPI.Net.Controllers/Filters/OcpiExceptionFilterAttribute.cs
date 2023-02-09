@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using OCPI.Exceptions;
 
 namespace OCPI.Filters;
 
@@ -9,7 +10,9 @@ public class OcpiExceptionFilterAttribute : ExceptionFilterAttribute
     {
         var exception = context.Exception;
         var response = exception.ToOcpiResponse();
-        var statusCode = exception.GetHttpStatusCode();
+
+        var statusCode = exception is OcpiExceptionBase ocpi ?
+            ocpi.StatusCode : 200;
 
         context.Result = new ObjectResult(response)
         {

@@ -1,12 +1,21 @@
-﻿using OCPI.Exceptions;
+﻿using BitzArt.ApiExceptions;
+using OCPI.Exceptions;
 
 namespace OCPI;
 
 public static partial class OcpiException
 {
     public static CustomOcpiException Custom
-        (string message, OcpiStatusCode ocpiStatusCode)
-        => new(message, ocpiStatusCode);
+        (string message, OcpiStatusCode ocpiStatusCode, ApiStatusCode apiStatusCode = ApiStatusCode.OK)
+        => new(message, ocpiStatusCode, apiStatusCode);
+
+    public static CustomOcpiException Custom
+        (string message, int ocpiStatusCode, ApiStatusCode apiStatusCode = ApiStatusCode.OK)
+        => new(message, ocpiStatusCode, apiStatusCode);
+
+    public static CustomOcpiException Custom
+        (string message, int ocpiStatusCode, int httpStatusCode)
+        => new(message, ocpiStatusCode, httpStatusCode);
 
     public static ClientApiErrorOcpiException ClientApiError
         (string message = ClientApiErrorOcpiException.DefaultMessage)
