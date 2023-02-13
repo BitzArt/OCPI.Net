@@ -2,7 +2,7 @@
 
 namespace OCPI.Contracts;
 
-public class OcpiEvsePlannedStatus
+public class OcpiStatusSchedule
 {
     [JsonPropertyName("period_begin")]
     public DateTime? PeriodBegin { get; set; }

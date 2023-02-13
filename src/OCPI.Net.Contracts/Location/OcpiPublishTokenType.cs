@@ -8,7 +8,7 @@ public class OcpiPublishTokenType
     public string? Uid { get; set; }
 
     [JsonPropertyName("type")]
-    public TokenType? TokenType { get; set; }
+    public TokenType? Type { get; set; }
 
     [JsonPropertyName("visual_number")]
     public string? VisualNumber { get; set; }
