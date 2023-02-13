@@ -1,5 +1,5 @@
-﻿using OCPI.Validation;
-using System.Text.Json.Serialization;
+﻿using FluentValidation;
+using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
@@ -7,5 +7,12 @@ internal class OcpiEnvironmentalImpactValidator : OcpiValidator<OcpiEnvironmenta
 {
     public OcpiEnvironmentalImpactValidator(string httpMethod) : base(httpMethod)
     {
+        JsonRuleFor(x => x.Category)
+            .NotEmpty()
+            .MustValidEnum();
+
+        JsonRuleFor(x => x.Amount)
+            .NotEmpty()
+            .MustMaxDecimalDigits(4);
     }
 }

@@ -18,8 +18,4 @@
 	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="EVSE\" />
-	</ItemGroup>
-
 </Project>
