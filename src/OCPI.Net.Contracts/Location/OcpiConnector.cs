@@ -7,9 +7,6 @@ public class OcpiConnector
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
-    [JsonPropertyName("evseId")]
-    public Guid? EvseId { get; set; }
-
     [JsonPropertyName("standard")]
     public ConnectorType? Standard { get; set; }
 

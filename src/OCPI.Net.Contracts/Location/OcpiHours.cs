@@ -2,7 +2,7 @@
 
 namespace OCPI.Contracts;
 
-public class OcpiWorkingHours
+public class OcpiHours
 {
     [JsonPropertyName("twentyfourseven")]
     public bool? TwentyFourSeven { get; set; }

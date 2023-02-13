@@ -68,7 +68,7 @@ public class OcpiLocation
     public string? TimeZone { get; set; }
 
     [JsonPropertyName("opening_times")]
-    public OcpiWorkingHours? OpeningTimes { get; set; }
+    public OcpiHours? OpeningTimes { get; set; }
 
     [JsonPropertyName("charging_when_closed")]
     public bool? ChargingWhenClosed { get; set; }

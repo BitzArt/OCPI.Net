@@ -14,7 +14,7 @@ public class OcpiEvse
     public EvseStatus? Status { get; set; }
 
     [JsonPropertyName("status_schedule")]
-    public IEnumerable<OcpiEvsePlannedStatus>? StatusSchedule { get; set; }
+    public IEnumerable<OcpiStatusSchedule>? StatusSchedule { get; set; }
 
     [JsonPropertyName("capabilities")]
     public IEnumerable<EvseCapabilityType>? Capabilities { get; set; }

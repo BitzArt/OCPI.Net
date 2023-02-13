@@ -2,14 +2,14 @@
 
 public abstract class OcpiValidator<T> : JsonValidator<T>
 {
-    private readonly string _httpMethod;
+    protected readonly string HttpMethod;
 
     protected OcpiValidator(string httpMethod)
     {
-        _httpMethod = httpMethod;
+        HttpMethod = httpMethod;
     }
 
-    protected bool IsPost => _httpMethod == "POST";
-    protected bool IsPut => _httpMethod == "PUT";
-    protected bool IsPatch => _httpMethod == "PATCH";
+    protected bool IsPost => HttpMethod == "POST";
+    protected bool IsPut => HttpMethod == "PUT";
+    protected bool IsPatch => HttpMethod == "PATCH";
 }
