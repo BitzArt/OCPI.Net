@@ -26,7 +26,6 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\OCPI.Net.Contracts\OCPI.Net.Contracts.csproj" />
 	  <ProjectReference Include="..\OCPI.Net.Controllers\OCPI.Net.Controllers.csproj" />
-	  <ProjectReference Include="..\OCPI.Net.Core\OCPI.Net.Core.csproj" />
 	  <ProjectReference Include="..\OCPI.Net.Exceptions\OCPI.Net.Exceptions.csproj" />
 	  <ProjectReference Include="..\OCPI.Net.Validation\OCPI.Net.Validation.csproj" />
 	  <ProjectReference Include="..\OCPI.Net.Versioning\OCPI.Net.Versioning.csproj" />
