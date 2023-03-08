@@ -8,6 +8,7 @@
 
 		<PackageId>OCPI.Net.Controllers</PackageId>
 		<Authors>BitzArt</Authors>
+		<Description>Contains OCPI Controller base classes</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>

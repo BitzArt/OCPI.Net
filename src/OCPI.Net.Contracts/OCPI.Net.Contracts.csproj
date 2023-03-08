@@ -8,6 +8,7 @@
 
 		<PackageId>OCPI.Net.Contracts</PackageId>
 		<Authors>BitzArt</Authors>
+		<Description>Contains DTOs for OCPI.Net</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>

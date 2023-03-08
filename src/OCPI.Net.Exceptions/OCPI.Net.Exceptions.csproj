@@ -9,6 +9,7 @@
 
 		<PackageId>OCPI.Net.Exceptions</PackageId>
 		<Authors>BitzArt</Authors>
+		<Description>Defines exception classes for OCPI.Net</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>

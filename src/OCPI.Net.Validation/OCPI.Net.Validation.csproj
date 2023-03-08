@@ -8,6 +8,7 @@
 
 		<PackageId>OCPI.Net.Validation</PackageId>
 		<Authors>BitzArt</Authors>
+		<Description>Contains validators for OCPI.Net</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>

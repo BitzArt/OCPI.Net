@@ -8,6 +8,7 @@
 
 		<PackageId>OCPI.Net.Versioning</PackageId>
 		<Authors>BitzArt</Authors>
+		<Description>OCPI module versioning for OCPI.Net</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>
