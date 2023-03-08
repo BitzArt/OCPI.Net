@@ -14,7 +14,7 @@ public static partial class OcpiGeolocationValidationExtensions
     [GeneratedRegex(_longitudeRegexValue)]
     private static partial Regex LongitudeRegex();
 
-    public static IRuleBuilderOptions<TClass, string?> MustValidLatitude<TClass>(this IRuleBuilder<TClass, string?> ruleBuilder) =>
+    public static IRuleBuilderOptions<TClass, string?> ValidLatitude<TClass>(this IRuleBuilder<TClass, string?> ruleBuilder) =>
         ruleBuilder
         .Must(ValidLatitude)
         .WithMessage($"'{{PropertyName}}' is not a valid latitude value. Must match Regex : {_latitudeRegexValue}")
@@ -23,7 +23,7 @@ public static partial class OcpiGeolocationValidationExtensions
     public static bool ValidLatitude(string? value) =>
         string.IsNullOrEmpty(value) || LatitudeRegex().IsMatch(value!);
 
-    public static IRuleBuilderOptions<TClass, string?> MustValidLongitude<TClass>(this IRuleBuilder<TClass, string?> ruleBuilder) =>
+    public static IRuleBuilderOptions<TClass, string?> ValidLongitude<TClass>(this IRuleBuilder<TClass, string?> ruleBuilder) =>
         ruleBuilder
         .Must(ValidLatitude)
         .WithMessage($"'{{PropertyName}}' is not a valid longitude value. Must match Regex : {_longitudeRegexValue}")

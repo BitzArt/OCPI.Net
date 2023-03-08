@@ -9,23 +9,23 @@ internal class OcpiImageValidator : HttpValidator<OcpiImage>
     {
         JsonRuleFor(x => x.Url)
             .NotEmpty()
-            .MustValidUrl();
+            .ValidUrl();
 
         JsonRuleFor(x => x.Thumbnail)
-            .MustValidUrl();
+            .ValidUrl();
 
         JsonRuleFor(x => x.Category)
             .NotEmpty()
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.Type)
             .NotEmpty()
             .MaximumLength(4);
 
         JsonRuleFor(x => x.Width)
-            .MustMaxSymbols(6);
+            .MaxSymbols(5);
 
         JsonRuleFor(x => x.Height)
-            .MustMaxSymbols(6);
+            .MaxSymbols(5);
     }
 }

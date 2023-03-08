@@ -9,10 +9,10 @@ internal partial class OcpiExceptionalPeriodValidator : HttpValidator<OcpiExcept
     {
         JsonRuleFor(x => x.PeriodBegin)
             .NotEmpty()
-            .MustValidDateTime();
+            .ValidDateTime();
 
         JsonRuleFor(x => x.PeriodEnd)
             .NotEmpty()
-            .MustValidDateTime();
+            .ValidDateTime();
     }
 }

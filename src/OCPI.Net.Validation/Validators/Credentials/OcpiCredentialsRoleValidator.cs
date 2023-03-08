@@ -17,7 +17,7 @@ internal class OcpiCredentialsRoleValidator : HttpValidator<OcpiCredentialsRole>
 
         JsonRuleFor(x => x.Role)
             .NotEmpty()
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.BusinessDetails)
             .NotEmpty();

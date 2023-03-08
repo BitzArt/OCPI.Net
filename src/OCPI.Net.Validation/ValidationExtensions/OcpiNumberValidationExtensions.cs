@@ -4,7 +4,7 @@ namespace OCPI.Validation;
 
 public static class OcpiNumberValidationExtensions
 {
-    public static IRuleBuilderOptions<TClass, TNumber?> MustMaxSymbols<TClass, TNumber>(this IRuleBuilder<TClass, TNumber?> ruleBuilder, int maxLength)
+    public static IRuleBuilderOptions<TClass, TNumber?> MaxSymbols<TClass, TNumber>(this IRuleBuilder<TClass, TNumber?> ruleBuilder, int maxLength)
         where TNumber : struct =>
         ruleBuilder.Must(x => MaxSymbols(x, maxLength)).WithMessage($"'{{PropertyName}}' must not consist of more than {maxLength} symbols");
 

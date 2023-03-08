@@ -12,7 +12,7 @@ internal class OcpiBusinessDetailsValidator : HttpValidator<OcpiBusinessDetails>
             .MaximumLength(100);
 
         JsonRuleFor(x => x.Website)
-            .MustValidUrl();
+            .ValidUrl();
 
         JsonRuleFor(x => x.Logo!)
             .SetValidator(new OcpiImageValidator(httpMethod));

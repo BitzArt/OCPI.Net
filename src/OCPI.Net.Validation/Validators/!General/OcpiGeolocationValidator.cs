@@ -9,10 +9,10 @@ internal partial class OcpiGeolocationValidator : HttpValidator<OcpiGeolocation>
     {
         JsonRuleFor(x => x.Latitude)
             .NotEmpty()
-            .MustValidLatitude();
+            .ValidLatitude();
 
         JsonRuleFor(x => x.Longitude)
             .NotEmpty()
-            .MustValidLongitude();
+            .ValidLongitude();
     }
 }

@@ -23,13 +23,13 @@ internal class OcpiEvseValidator : HttpValidator<OcpiEvse>
             .MaximumLength(48);
 
         JsonRuleFor(x => x.Status)
-            .MustValidEnum();
+            .ValidEnum();
 
         RuleForEach(x => x.StatusSchedule)
             .SetValidator(new OcpiStatusScheduleValidator(httpMethod));
 
         RuleForEach(x => x.Capabilities)
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.FloorLevel)
             .MaximumLength(4);
@@ -37,20 +37,19 @@ internal class OcpiEvseValidator : HttpValidator<OcpiEvse>
         JsonRuleFor(x => x.Coordinates!)
             .SetValidator(new OcpiGeolocationValidator(httpMethod));
 
-        JsonRuleFor(x => x.PhysicalReference)
-            .MaximumLength(16);
+        JsonRuleFor(x => x.PhysicalReference);
 
         RuleForEach(x => x.Directions)
             .SetValidator(new OcpiDisplayTextValidator(httpMethod));
 
         RuleForEach(x => x.ParkingRestrictions)
-            .MustValidEnum();
+            .ValidEnum();
 
         RuleForEach(x => x.Images)
             .SetValidator(new OcpiImageValidator(httpMethod));
 
         JsonRuleFor(x => x.LastUpdated)
             .NotEmpty()
-            .MustValidDateTime();
+            .ValidDateTime();
     }
 }

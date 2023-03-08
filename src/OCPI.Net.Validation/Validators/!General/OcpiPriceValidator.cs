@@ -7,16 +7,14 @@ internal class OcpiPriceValidator : HttpValidator<OcpiPrice>
 {
     public OcpiPriceValidator(string httpMethod) : base(httpMethod)
     {
-        JsonRuleFor(x => x.VatExcluded)
-            .NotEmpty()
-            .MustMaxSymbols(10);
+        JsonRuleFor(x => x.ExclVat)
+            .NotEmpty();
 
-        JsonRuleFor(x => x.VatIncluded)
-            .MustMaxSymbols(10);
+        //JsonRuleFor(x => x.InclVat);
 
-        JsonRuleFor(x => x.VatIncluded)
-            .Must((price, x) => x > price.VatExcluded)
-            .When(x => x.VatIncluded is not null && x.VatExcluded is not null)
+        JsonRuleFor(x => x.InclVat)
+            .Must((price, x) => x > price.ExclVat)
+            .When(x => x.InclVat is not null && x.ExclVat is not null)
             .WithMessage("incl_vat cannot be less than excl_vat");
     }
 }

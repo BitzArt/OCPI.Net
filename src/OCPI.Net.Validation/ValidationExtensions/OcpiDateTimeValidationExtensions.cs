@@ -4,7 +4,7 @@ namespace OCPI.Validation;
 
 public static class OcpiDateTimeValidationExtensions
 {
-    public static IRuleBuilderOptions<TClass, DateTime?> MustValidDateTime<TClass>(this IRuleBuilder<TClass, DateTime?> ruleBuilder) =>
+    public static IRuleBuilderOptions<TClass, DateTime?> ValidDateTime<TClass>(this IRuleBuilder<TClass, DateTime?> ruleBuilder) =>
         ruleBuilder.Must(ValidDateTime)
         .WithMessage($"'{{PropertyName}}' is not a valid DateTime. Year must be between {_dateTimeYearLowerBound} and {_dateTimeYearUpperBound}");
 

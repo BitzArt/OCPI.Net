@@ -9,10 +9,10 @@ internal class OcpiEnvironmentalImpactValidator : HttpValidator<OcpiEnvironmenta
     {
         JsonRuleFor(x => x.Category)
             .NotEmpty()
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.Amount)
             .NotEmpty()
-            .MustMaxSymbols(10);
+            .MaxSymbols(10);
     }
 }

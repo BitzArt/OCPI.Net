@@ -4,11 +4,11 @@ namespace OCPI.Validation;
 
 public static class OcpiEnumValidationExtensions
 {
-    public static IRuleBuilderOptions<TClass, TEnum> MustValidEnum<TClass, TEnum>(this IRuleBuilder<TClass, TEnum> ruleBuilder)
+    public static IRuleBuilderOptions<TClass, TEnum> ValidEnum<TClass, TEnum>(this IRuleBuilder<TClass, TEnum> ruleBuilder)
         where TEnum : struct, Enum
-        => MustValidEnum(ruleBuilder);
+        => ValidEnum(ruleBuilder);
 
-    public static IRuleBuilderOptions<TClass, TEnum?> MustValidEnum<TClass, TEnum>(this IRuleBuilder<TClass, TEnum?> ruleBuilder)
+    public static IRuleBuilderOptions<TClass, TEnum?> ValidEnum<TClass, TEnum>(this IRuleBuilder<TClass, TEnum?> ruleBuilder)
         where TEnum : struct, Enum =>
         ruleBuilder.Must(ValidEnum).WithMessage($"'{{PropertyName}}' is not of a valid value.");
 

@@ -21,7 +21,7 @@ internal partial class OcpiLocationValidator : HttpValidator<OcpiLocation>
         });
 
         JsonRuleFor(x => x.CountryCode)
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.PartyId)
             .MaximumLength(3);
@@ -57,7 +57,7 @@ internal partial class OcpiLocationValidator : HttpValidator<OcpiLocation>
             .SetValidator(new OcpiAdditionalGeolocationValidator(httpMethod));
 
         JsonRuleFor(x => x.ParkingType)
-            .MustValidEnum();
+            .ValidEnum();
 
         RuleForEach(x => x.Evses)
             .SetValidator(new OcpiEvseValidator(httpMethod));
@@ -75,7 +75,7 @@ internal partial class OcpiLocationValidator : HttpValidator<OcpiLocation>
             .SetValidator(new OcpiBusinessDetailsValidator(httpMethod));
 
         RuleForEach(x => x.Facilities)
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.TimeZone)
             .MaximumLength(255);
@@ -91,6 +91,6 @@ internal partial class OcpiLocationValidator : HttpValidator<OcpiLocation>
 
         JsonRuleFor(x => x.LastUpdated)
             .NotEmpty()
-            .MustValidDateTime();
+            .ValidDateTime();
     }
 }

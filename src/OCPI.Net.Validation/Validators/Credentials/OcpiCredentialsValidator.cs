@@ -9,13 +9,13 @@ internal class OcpiCredentialsValidator : HttpValidator<OcpiCredentials>
     {
         JsonRuleFor(x => x.Token)
             .NotEmpty()
-            .MustNoWhitespace()
-            .MustInUnicodeRange(0x0021, 0x007E)
+            .NoWhitespace()
+            .InUnicodeRange(0x0021, 0x007E)
             .MaximumLength(64);
 
         JsonRuleFor(x => x.Url)
             .NotEmpty()
-            .MustValidUrl()
+            .ValidUrl()
             .MaximumLength(2048);
 
         JsonRuleFor(x => x.Roles)

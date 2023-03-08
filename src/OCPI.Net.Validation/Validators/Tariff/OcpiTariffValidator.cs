@@ -18,7 +18,7 @@ public class OcpiTariffValidator : HttpValidator<OcpiTariff>
         });
 
         JsonRuleFor(x => x.CountryCode)
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.PartyId)
             .MaximumLength(3);
@@ -30,13 +30,13 @@ public class OcpiTariffValidator : HttpValidator<OcpiTariff>
             .MaximumLength(3);
 
         JsonRuleFor(x => x.Type)
-            .MustValidEnum();
+            .ValidEnum();
 
         RuleForEach(x => x.TariffAltText)
             .SetValidator(new OcpiDisplayTextValidator(httpMethod));
 
         JsonRuleFor(x => x.TariffAltUrl)
-            .MustValidUrl();
+            .ValidUrl();
 
         JsonRuleFor(x => x.MinPrice!)
             .SetValidator(new OcpiPriceValidator(httpMethod));
@@ -48,15 +48,15 @@ public class OcpiTariffValidator : HttpValidator<OcpiTariff>
             .SetValidator(new OcpiTariffElementValidator(httpMethod));
 
         JsonRuleFor(x => x.StartDateTime)
-            .MustValidDateTime();
+            .ValidDateTime();
 
         JsonRuleFor(x => x.EndDateTime)
-            .MustValidDateTime();
+            .ValidDateTime();
 
         JsonRuleFor(x => x.EnergyMix!)
             .SetValidator(new OcpiEnergyMixValidator(httpMethod));
 
         JsonRuleFor(x => x.LastUpdated)
-            .MustValidDateTime();
+            .ValidDateTime();
     }
 }

@@ -12,7 +12,7 @@ internal partial class OcpiPublishTokenTypeValidator : HttpValidator<OcpiPublish
             .MaximumLength(36);
 
         JsonRuleFor(x => x.Type)
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.VisualNumber)
             .MaximumLength(64);

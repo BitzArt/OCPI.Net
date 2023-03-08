@@ -21,19 +21,19 @@ internal class OcpiConnectorValidator : HttpValidator<OcpiConnector>
             .MaximumLength(36);
 
         JsonRuleFor(x => x.Standard)
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.Format)
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.PowerType)
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.TermsAndConditionsUrl)
-            .MustValidUrl();
+            .ValidUrl();
 
         JsonRuleFor(x => x.LastUpdated)
             .NotEmpty()
-            .MustValidDateTime();
+            .ValidDateTime();
     }
 }

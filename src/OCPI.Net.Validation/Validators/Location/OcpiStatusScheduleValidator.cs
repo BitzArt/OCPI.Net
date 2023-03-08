@@ -9,13 +9,13 @@ internal class OcpiStatusScheduleValidator : HttpValidator<OcpiStatusSchedule>
     {
         JsonRuleFor(x => x.PeriodBegin)
             .NotEmpty()
-            .MustValidDateTime();
+            .ValidDateTime();
 
         JsonRuleFor(x => x.PeriodEnd)
-            .MustValidDateTime();
+            .ValidDateTime();
 
         JsonRuleFor(x => x.Status)
             .NotEmpty()
-            .MustValidEnum();
+            .ValidEnum();
     }
 }

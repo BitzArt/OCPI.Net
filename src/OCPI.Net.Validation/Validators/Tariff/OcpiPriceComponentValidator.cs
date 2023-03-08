@@ -9,16 +9,9 @@ public class OcpiPriceComponentValidator : HttpValidator<OcpiPriceComponent>
     {
         JsonRuleFor(x => x.Type)
             .NotEmpty()
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.Price)
-            .NotEmpty()
-            .MustMaxSymbols(10);
-
-        JsonRuleFor(x => x.Vat)
-            .MustMaxSymbols(5);
-
-        JsonRuleFor(x => x.StepSize)
-            .MustMaxSymbols(3);
+            .NotEmpty();
     }
 }

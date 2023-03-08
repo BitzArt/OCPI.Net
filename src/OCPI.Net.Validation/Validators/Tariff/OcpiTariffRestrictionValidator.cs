@@ -19,34 +19,10 @@ public class OcpiTariffRestrictionValidator : HttpValidator<OcpiTariffRestrictio
         JsonRuleFor(x => x.EndDate)
             .MaximumLength(10);
 
-        JsonRuleFor(x => x.MinKwh)
-            .MustMaxSymbols(10);
-
-        JsonRuleFor(x => x.MaxKwh)
-            .MustMaxSymbols(10);
-
-        JsonRuleFor(x => x.MinCurrent)
-            .MustMaxSymbols(10);
-
-        JsonRuleFor(x => x.MaxCurrent)
-            .MustMaxSymbols(10);
-
-        JsonRuleFor(x => x.MinPower)
-            .MustMaxSymbols(10);
-
-        JsonRuleFor(x => x.MaxPower)
-            .MustMaxSymbols(10);
-
-        JsonRuleFor(x => x.MinDuration)
-            .MustMaxSymbols(10);
-
-        JsonRuleFor(x => x.MaxDuration)
-            .MustMaxSymbols(10);
-
         RuleForEach(x => x.DayOfWeek)
-            .MustValidEnum();
+            .ValidEnum();
 
         JsonRuleFor(x => x.Reservation)
-            .MustValidEnum();
+            .ValidEnum();
     }
 }
