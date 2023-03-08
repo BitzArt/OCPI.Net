@@ -3,16 +3,16 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiPriceValidator : OcpiValidator<OcpiPrice>
+internal class OcpiPriceValidator : HttpValidator<OcpiPrice>
 {
     public OcpiPriceValidator(string httpMethod) : base(httpMethod)
     {
         JsonRuleFor(x => x.VatExcluded)
             .NotEmpty()
-            .MustMaxDecimalDigits(4);
+            .MustMaxSymbols(10);
 
         JsonRuleFor(x => x.VatIncluded)
-            .MustMaxDecimalDigits(4);
+            .MustMaxSymbols(10);
 
         JsonRuleFor(x => x.VatIncluded)
             .Must((price, x) => x > price.VatExcluded)

@@ -3,7 +3,7 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiEnvironmentalImpactValidator : OcpiValidator<OcpiEnvironmentalImpact>
+internal class OcpiEnvironmentalImpactValidator : HttpValidator<OcpiEnvironmentalImpact>
 {
     public OcpiEnvironmentalImpactValidator(string httpMethod) : base(httpMethod)
     {
@@ -13,6 +13,6 @@ internal class OcpiEnvironmentalImpactValidator : OcpiValidator<OcpiEnvironmenta
 
         JsonRuleFor(x => x.Amount)
             .NotEmpty()
-            .MustMaxDecimalDigits(4);
+            .MustMaxSymbols(10);
     }
 }

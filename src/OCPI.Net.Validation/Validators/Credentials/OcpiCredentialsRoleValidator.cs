@@ -3,7 +3,7 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiCredentialsRoleValidator : OcpiValidator<OcpiCredentialsRole>
+internal class OcpiCredentialsRoleValidator : HttpValidator<OcpiCredentialsRole>
 {
     public OcpiCredentialsRoleValidator(string httpMethod) : base(httpMethod)
     {

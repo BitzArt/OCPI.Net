@@ -3,7 +3,7 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal partial class OcpiHoursValidator : OcpiValidator<OcpiHours>
+internal partial class OcpiHoursValidator : HttpValidator<OcpiHours>
 {
     public OcpiHoursValidator(string httpMethod) : base(httpMethod)
     {

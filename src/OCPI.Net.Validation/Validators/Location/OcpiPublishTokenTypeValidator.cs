@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace OCPI.Contracts;
 
-internal partial class OcpiPublishTokenTypeValidator : OcpiValidator<OcpiPublishTokenType>
+internal partial class OcpiPublishTokenTypeValidator : HttpValidator<OcpiPublishTokenType>
 {
     public OcpiPublishTokenTypeValidator(string httpMethod) : base(httpMethod)
     {

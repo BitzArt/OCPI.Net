@@ -19,7 +19,7 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="BitzArt.Miscellaneous.EnumToMemberValue" Version="1.2.0" />
+		<PackageReference Include="BitzArt.EnumToMemberValue" Version="1.0.0" />
 		<PackageReference Include="BitzArt.Pagination" Version="1.13.0" />
 	</ItemGroup>
 </Project>

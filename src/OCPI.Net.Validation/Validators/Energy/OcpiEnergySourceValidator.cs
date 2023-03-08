@@ -3,7 +3,7 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiEnergySourceValidator : OcpiValidator<OcpiEnergySource>
+internal class OcpiEnergySourceValidator : HttpValidator<OcpiEnergySource>
 {
     public OcpiEnergySourceValidator(string httpMethod) : base(httpMethod)
     {

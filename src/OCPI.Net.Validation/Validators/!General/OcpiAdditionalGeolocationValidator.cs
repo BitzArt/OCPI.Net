@@ -3,7 +3,7 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal partial class OcpiAdditionalGeolocationValidator : OcpiValidator<OcpiAdditionalGeolocation>
+internal partial class OcpiAdditionalGeolocationValidator : HttpValidator<OcpiAdditionalGeolocation>
 {
     public OcpiAdditionalGeolocationValidator(string httpMethod) : base(httpMethod)
     {

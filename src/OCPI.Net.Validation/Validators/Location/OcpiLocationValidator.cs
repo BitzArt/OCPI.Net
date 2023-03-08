@@ -3,11 +3,11 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal partial class OcpiLocationValidator : OcpiValidator<OcpiLocation>
+internal partial class OcpiLocationValidator : HttpValidator<OcpiLocation>
 {
     public OcpiLocationValidator(string httpMethod) : base(httpMethod)
     {
-        When(x => !IsPatch, () =>
+        Unless(HttpMethod.Patch, () =>
         {
             JsonRuleFor(x => x.CountryCode).NotEmpty();
             JsonRuleFor(x => x.PartyId).NotEmpty();

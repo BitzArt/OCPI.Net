@@ -20,12 +20,12 @@ public static class AddOcpiValidationExtension
             .SelectMany(x => x.DefinedTypes)
             .Where(x => !x.IsAbstract)
             .Select(x => x.DeclaringType)
-            .Where(x => x!.IsSubclassOfRawGeneric(typeof(OcpiValidator<>)));
+            .Where(x => x!.IsSubclassOfRawGeneric(typeof(HttpValidator<>)));
 
         foreach (var type in validatorTypes)
         {
             var modelType = type!.BaseType!.GenericTypeArguments.First();
-            var resultingType = typeof(OcpiValidator<>).MakeGenericType(modelType);
+            var resultingType = typeof(HttpValidator<>).MakeGenericType(modelType);
             builder.Services.AddTransient(resultingType, x =>
             {
                 var httpMethod = x.GetRequiredService<HttpContext>().Request.Method;

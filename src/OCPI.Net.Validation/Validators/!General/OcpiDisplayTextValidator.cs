@@ -3,7 +3,7 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiDisplayTextValidator : OcpiValidator<OcpiDisplayText>
+internal class OcpiDisplayTextValidator : HttpValidator<OcpiDisplayText>
 {
     public OcpiDisplayTextValidator(string httpMethod) : base(httpMethod)
     {

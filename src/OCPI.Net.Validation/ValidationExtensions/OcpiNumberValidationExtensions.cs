@@ -4,11 +4,11 @@ namespace OCPI.Validation;
 
 public static class OcpiNumberValidationExtensions
 {
-    public static IRuleBuilderOptions<TClass, TNumber?> MustMaxDecimalDigits<TClass, TNumber>(this IRuleBuilder<TClass, TNumber?> ruleBuilder, int maxLength)
+    public static IRuleBuilderOptions<TClass, TNumber?> MustMaxSymbols<TClass, TNumber>(this IRuleBuilder<TClass, TNumber?> ruleBuilder, int maxLength)
         where TNumber : struct =>
-        ruleBuilder.Must(x => MaxDecimalDigits(x, maxLength)).WithMessage($"'{{PropertyName}}' must not contain more than {maxLength} decimal digits");
+        ruleBuilder.Must(x => MaxSymbols(x, maxLength)).WithMessage($"'{{PropertyName}}' must not consist of more than {maxLength} symbols");
 
-    public static bool MaxDecimalDigits<TNumber>(TNumber? value, int? maxLength)
+    public static bool MaxSymbols<TNumber>(TNumber? value, int? maxLength)
         where TNumber : struct =>
         value is null || value.ToString()!.Length <= maxLength;
 }

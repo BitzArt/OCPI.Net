@@ -3,7 +3,7 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal partial class OcpiExceptionalPeriodValidator : OcpiValidator<OcpiExceptionalPeriod>
+internal partial class OcpiExceptionalPeriodValidator : HttpValidator<OcpiExceptionalPeriod>
 {
     public OcpiExceptionalPeriodValidator(string httpMethod) : base(httpMethod)
     {

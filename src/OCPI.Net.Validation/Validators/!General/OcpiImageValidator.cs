@@ -3,7 +3,7 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiImageValidator : OcpiValidator<OcpiImage>
+internal class OcpiImageValidator : HttpValidator<OcpiImage>
 {
     public OcpiImageValidator(string httpMethod) : base(httpMethod)
     {
@@ -23,9 +23,9 @@ internal class OcpiImageValidator : OcpiValidator<OcpiImage>
             .MaximumLength(4);
 
         JsonRuleFor(x => x.Width)
-            .MustMaxDecimalDigits(5);
+            .MustMaxSymbols(6);
 
         JsonRuleFor(x => x.Height)
-            .MustMaxDecimalDigits(5);
+            .MustMaxSymbols(6);
     }
 }

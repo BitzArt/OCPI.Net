@@ -3,7 +3,7 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiBusinessDetailsValidator : OcpiValidator<OcpiBusinessDetails>
+internal class OcpiBusinessDetailsValidator : HttpValidator<OcpiBusinessDetails>
 {
     public OcpiBusinessDetailsValidator(string httpMethod) : base(httpMethod)
     {

@@ -23,7 +23,7 @@ public class OcpiTariff
     public IEnumerable<OcpiDisplayText>? TariffAltText { get; set; }
 
     [JsonPropertyName("tariff_alt_url")]
-    public string? Url { get; set; }
+    public string? TariffAltUrl { get; set; }
 
     [JsonPropertyName("min_price")]
     public OcpiPrice? MinPrice { get; set; }
@@ -35,10 +35,10 @@ public class OcpiTariff
     public IEnumerable<OcpiTariffElement>? Elements { get; set; }
 
     [JsonPropertyName("start_date_time")]
-    public DateTime? Start { get; set; }
+    public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("end_date_time")]
-    public DateTime? End { get; set; }
+    public DateTime? EndDateTime { get; set; }
 
     [JsonPropertyName("energy_mix")]
     public OcpiEnergyMix? EnergyMix { get; set; }

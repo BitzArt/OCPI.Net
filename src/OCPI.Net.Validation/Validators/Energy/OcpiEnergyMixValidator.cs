@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace OCPI.Contracts;
 
-internal class OcpiEnergyMixValidator : OcpiValidator<OcpiEnergyMix>
+internal class OcpiEnergyMixValidator : HttpValidator<OcpiEnergyMix>
 {
     public OcpiEnergyMixValidator(string httpMethod) : base(httpMethod)
     {
