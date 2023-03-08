@@ -1,5 +1,4 @@
-﻿using BitzArt.ApiExceptions;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace OCPI.Sample.Controllers;
 
