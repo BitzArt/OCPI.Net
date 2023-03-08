@@ -1,10 +1,9 @@
 ﻿using BitzArt.Pagination;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
-using OCPI.Filters;
 using OCPI.Services;
-using OCPI.Validation;
 
 namespace OCPI;
 
