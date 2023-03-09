@@ -14,7 +14,7 @@ public class OcpiTariff
     public string? Id { get; set; }
 
     [JsonPropertyName("currency")]
-    public string? Currency { get; set; }
+    public CurrencyCode? Currency { get; set; }
 
     [JsonPropertyName("type")]
     public TariffType? Type { get; set; }

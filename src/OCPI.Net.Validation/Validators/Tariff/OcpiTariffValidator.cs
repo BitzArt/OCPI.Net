@@ -27,7 +27,7 @@ public class OcpiTariffValidator : HttpValidator<OcpiTariff>
             .MaximumLength(36);
 
         JsonRuleFor(x => x.Currency)
-            .MaximumLength(3);
+            .ValidEnum();
 
         JsonRuleFor(x => x.Type)
             .ValidEnum();
