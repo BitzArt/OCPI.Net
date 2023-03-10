@@ -3,11 +3,11 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal partial class OcpiLocationValidator : HttpValidator<OcpiLocation>
+internal partial class OcpiLocationValidator : ActionValidator<OcpiLocation>
 {
-    public OcpiLocationValidator(string httpMethod) : base(httpMethod)
+    public OcpiLocationValidator(ActionType actionType) : base(actionType)
     {
-        Unless(HttpMethod.Patch, () =>
+        Unless(ActionType.Patch, () =>
         {
             JsonRuleFor(x => x.CountryCode).NotEmpty();
             JsonRuleFor(x => x.PartyId).NotEmpty();
@@ -30,7 +30,7 @@ internal partial class OcpiLocationValidator : HttpValidator<OcpiLocation>
             .MaximumLength(36);
 
         RuleForEach(x => x.PublishAllowedTo)
-            .SetValidator(new OcpiPublishTokenTypeValidator(httpMethod));
+            .SetValidator(new OcpiPublishTokenTypeValidator(actionType));
 
         JsonRuleFor(x => x.Name)
             .MaximumLength(255);
@@ -51,28 +51,28 @@ internal partial class OcpiLocationValidator : HttpValidator<OcpiLocation>
             .MaximumLength(3);
 
         JsonRuleFor(x => x.Coordinates!)
-            .SetValidator(new OcpiGeolocationValidator(httpMethod));
+            .SetValidator(new OcpiGeolocationValidator(actionType));
 
         RuleForEach(x => x.RelatedLocations)
-            .SetValidator(new OcpiAdditionalGeolocationValidator(httpMethod));
+            .SetValidator(new OcpiAdditionalGeolocationValidator(actionType));
 
         JsonRuleFor(x => x.ParkingType)
             .ValidEnum();
 
         RuleForEach(x => x.Evses)
-            .SetValidator(new OcpiEvseValidator(httpMethod));
+            .SetValidator(new OcpiEvseValidator(actionType));
 
         RuleForEach(x => x.Directions)
-            .SetValidator(new OcpiDisplayTextValidator(httpMethod));
+            .SetValidator(new OcpiDisplayTextValidator(actionType));
 
         JsonRuleFor(x => x.Operator!)
-            .SetValidator(new OcpiBusinessDetailsValidator(httpMethod));
+            .SetValidator(new OcpiBusinessDetailsValidator(actionType));
 
         JsonRuleFor(x => x.Suboperator!)
-            .SetValidator(new OcpiBusinessDetailsValidator(httpMethod));
+            .SetValidator(new OcpiBusinessDetailsValidator(actionType));
 
         JsonRuleFor(x => x.Owner!)
-            .SetValidator(new OcpiBusinessDetailsValidator(httpMethod));
+            .SetValidator(new OcpiBusinessDetailsValidator(actionType));
 
         RuleForEach(x => x.Facilities)
             .ValidEnum();
@@ -81,13 +81,13 @@ internal partial class OcpiLocationValidator : HttpValidator<OcpiLocation>
             .MaximumLength(255);
 
         JsonRuleFor(x => x.OpeningTimes!)
-            .SetValidator(new OcpiHoursValidator(httpMethod));
+            .SetValidator(new OcpiHoursValidator(actionType));
 
         RuleForEach(x => x.Images)
-            .SetValidator(new OcpiImageValidator(httpMethod));
+            .SetValidator(new OcpiImageValidator(actionType));
 
         JsonRuleFor(x => x.EnergyMix!)
-            .SetValidator(new OcpiEnergyMixValidator(httpMethod));
+            .SetValidator(new OcpiEnergyMixValidator(actionType));
 
         JsonRuleFor(x => x.LastUpdated)
             .NotEmpty()

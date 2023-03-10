@@ -2,17 +2,17 @@
 
 namespace OCPI.Contracts;
 
-public class OcpiTariffElementValidator : HttpValidator<OcpiTariffElement>
+public class OcpiTariffElementValidator : ActionValidator<OcpiTariffElement>
 {
-    public OcpiTariffElementValidator(string httpMethod) : base(httpMethod)
+    public OcpiTariffElementValidator(ActionType actionType) : base(actionType)
     {
         JsonRuleFor(x => x.PriceComponents)
             .NotEmpty();
 
         RuleForEach(x => x.PriceComponents)
-            .SetValidator(new OcpiPriceComponentValidator(httpMethod));
+            .SetValidator(new OcpiPriceComponentValidator(actionType));
 
         RuleForEach(x => x.Restrictions)
-            .SetValidator(new OcpiTariffRestrictionValidator(httpMethod));
+            .SetValidator(new OcpiTariffRestrictionValidator(actionType));
     }
 }

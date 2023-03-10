@@ -3,11 +3,11 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiConnectorValidator : HttpValidator<OcpiConnector>
+internal class OcpiConnectorValidator : ActionValidator<OcpiConnector>
 {
-    public OcpiConnectorValidator(string httpMethod) : base(httpMethod)
+    public OcpiConnectorValidator(ActionType actionType) : base(actionType)
     {
-        Unless(HttpMethod.Patch, () =>
+        Unless(ActionType.Patch, () =>
         {
             JsonRuleFor(x => x.Id).NotEmpty();
             JsonRuleFor(x => x.Standard).NotEmpty();

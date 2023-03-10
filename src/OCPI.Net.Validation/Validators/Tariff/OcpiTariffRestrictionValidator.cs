@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-public class OcpiTariffRestrictionValidator : HttpValidator<OcpiTariffRestriction>
+public class OcpiTariffRestrictionValidator : ActionValidator<OcpiTariffRestriction>
 {
-    public OcpiTariffRestrictionValidator(string httpMethod) : base(httpMethod)
+    public OcpiTariffRestrictionValidator(ActionType actionType) : base(actionType)
     {
         JsonRuleFor(x => x.StartTime)
             .MaximumLength(5);

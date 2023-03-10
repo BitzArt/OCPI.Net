@@ -3,11 +3,11 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-public class OcpiTariffValidator : HttpValidator<OcpiTariff>
+public class OcpiTariffValidator : ActionValidator<OcpiTariff>
 {
-    public OcpiTariffValidator(string httpMethod) : base(httpMethod)
+    public OcpiTariffValidator(ActionType actionType) : base(actionType)
     {
-        Unless(HttpMethod.Patch, () =>
+        Unless(ActionType.Patch, () =>
         {
             JsonRuleFor(x => x.CountryCode).NotEmpty();
             JsonRuleFor(x => x.PartyId).NotEmpty();
@@ -33,19 +33,19 @@ public class OcpiTariffValidator : HttpValidator<OcpiTariff>
             .ValidEnum();
 
         RuleForEach(x => x.TariffAltText)
-            .SetValidator(new OcpiDisplayTextValidator(httpMethod));
+            .SetValidator(new OcpiDisplayTextValidator(actionType));
 
         JsonRuleFor(x => x.TariffAltUrl)
             .ValidUrl();
 
         JsonRuleFor(x => x.MinPrice!)
-            .SetValidator(new OcpiPriceValidator(httpMethod));
+            .SetValidator(new OcpiPriceValidator(actionType));
 
         JsonRuleFor(x => x.MaxPrice!)
-            .SetValidator(new OcpiPriceValidator(httpMethod));
+            .SetValidator(new OcpiPriceValidator(actionType));
 
         RuleForEach(x => x.Elements)
-            .SetValidator(new OcpiTariffElementValidator(httpMethod));
+            .SetValidator(new OcpiTariffElementValidator(actionType));
 
         JsonRuleFor(x => x.StartDateTime)
             .ValidDateTime();
@@ -54,7 +54,7 @@ public class OcpiTariffValidator : HttpValidator<OcpiTariff>
             .ValidDateTime();
 
         JsonRuleFor(x => x.EnergyMix!)
-            .SetValidator(new OcpiEnergyMixValidator(httpMethod));
+            .SetValidator(new OcpiEnergyMixValidator(actionType));
 
         JsonRuleFor(x => x.LastUpdated)
             .ValidDateTime();

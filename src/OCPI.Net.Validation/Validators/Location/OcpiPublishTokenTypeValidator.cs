@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal partial class OcpiPublishTokenTypeValidator : HttpValidator<OcpiPublishTokenType>
+internal partial class OcpiPublishTokenTypeValidator : ActionValidator<OcpiPublishTokenType>
 {
-    public OcpiPublishTokenTypeValidator(string httpMethod) : base(httpMethod)
+    public OcpiPublishTokenTypeValidator(ActionType actionType) : base(actionType)
     {
         JsonRuleFor(x => x.Uid)
             .MaximumLength(36);

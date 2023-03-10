@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiStatusScheduleValidator : HttpValidator<OcpiStatusSchedule>
+internal class OcpiStatusScheduleValidator : ActionValidator<OcpiStatusSchedule>
 {
-    public OcpiStatusScheduleValidator(string httpMethod) : base(httpMethod)
+    public OcpiStatusScheduleValidator(ActionType actionType) : base(actionType)
     {
         JsonRuleFor(x => x.PeriodBegin)
             .NotEmpty()

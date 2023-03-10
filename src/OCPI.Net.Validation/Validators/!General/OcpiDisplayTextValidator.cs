@@ -2,9 +2,9 @@
 
 namespace OCPI.Contracts;
 
-internal class OcpiDisplayTextValidator : HttpValidator<OcpiDisplayText>
+internal class OcpiDisplayTextValidator : ActionValidator<OcpiDisplayText>
 {
-    public OcpiDisplayTextValidator(string httpMethod) : base(httpMethod)
+    public OcpiDisplayTextValidator(ActionType actionType) : base(actionType)
     {
         JsonRuleFor(x => x.Language)
             .NotEmpty()

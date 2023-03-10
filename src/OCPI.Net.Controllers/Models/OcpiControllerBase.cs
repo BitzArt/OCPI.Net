@@ -27,7 +27,7 @@ public abstract class OcpiControllerBase : ControllerBase
     public void OcpiValidate<T>(T value)
     {
         if (value is null) return;
-        var validator = GetRequiredService<HttpValidator<T>>();
+        var validator = GetRequiredService<ActionValidator<T>>();
         var validationResult = validator.Validate(value);
 
         if (!validationResult.IsValid)

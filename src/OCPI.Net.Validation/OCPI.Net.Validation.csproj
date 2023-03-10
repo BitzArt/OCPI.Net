@@ -16,7 +16,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BitzArt.FluentValidation.Extensions" Version="0.0.2" />
+		<PackageReference Include="BitzArt.FluentValidation.Extensions" Version="0.0.3" />
 		<PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
 	</ItemGroup>
 

@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiEnvironmentalImpactValidator : HttpValidator<OcpiEnvironmentalImpact>
+internal class OcpiEnvironmentalImpactValidator : ActionValidator<OcpiEnvironmentalImpact>
 {
-    public OcpiEnvironmentalImpactValidator(string httpMethod) : base(httpMethod)
+    public OcpiEnvironmentalImpactValidator(ActionType actionType) : base(actionType)
     {
         JsonRuleFor(x => x.Category)
             .NotEmpty()

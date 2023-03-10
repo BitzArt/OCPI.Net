@@ -2,9 +2,9 @@
 
 namespace OCPI.Contracts;
 
-internal class OcpiPriceValidator : HttpValidator<OcpiPrice>
+internal class OcpiPriceValidator : ActionValidator<OcpiPrice>
 {
-    public OcpiPriceValidator(string httpMethod) : base(httpMethod)
+    public OcpiPriceValidator(ActionType actionType) : base(actionType)
     {
         JsonRuleFor(x => x.ExclVat)
             .NotEmpty();

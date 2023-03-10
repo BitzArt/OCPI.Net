@@ -3,11 +3,11 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiEvseValidator : HttpValidator<OcpiEvse>
+internal class OcpiEvseValidator : ActionValidator<OcpiEvse>
 {
-    public OcpiEvseValidator(string httpMethod) : base(httpMethod)
+    public OcpiEvseValidator(ActionType actionType) : base(actionType)
     {
-        Unless(HttpMethod.Patch, () =>
+        Unless(ActionType.Patch, () =>
         {
             JsonRuleFor(x => x.Uid).NotEmpty();
             JsonRuleFor(x => x.Status).NotEmpty();
@@ -26,7 +26,7 @@ internal class OcpiEvseValidator : HttpValidator<OcpiEvse>
             .ValidEnum();
 
         RuleForEach(x => x.StatusSchedule)
-            .SetValidator(new OcpiStatusScheduleValidator(httpMethod));
+            .SetValidator(new OcpiStatusScheduleValidator(actionType));
 
         RuleForEach(x => x.Capabilities)
             .ValidEnum();
@@ -35,18 +35,18 @@ internal class OcpiEvseValidator : HttpValidator<OcpiEvse>
             .MaximumLength(4);
 
         JsonRuleFor(x => x.Coordinates!)
-            .SetValidator(new OcpiGeolocationValidator(httpMethod));
+            .SetValidator(new OcpiGeolocationValidator(actionType));
 
         JsonRuleFor(x => x.PhysicalReference);
 
         RuleForEach(x => x.Directions)
-            .SetValidator(new OcpiDisplayTextValidator(httpMethod));
+            .SetValidator(new OcpiDisplayTextValidator(actionType));
 
         RuleForEach(x => x.ParkingRestrictions)
             .ValidEnum();
 
         RuleForEach(x => x.Images)
-            .SetValidator(new OcpiImageValidator(httpMethod));
+            .SetValidator(new OcpiImageValidator(actionType));
 
         JsonRuleFor(x => x.LastUpdated)
             .NotEmpty()
