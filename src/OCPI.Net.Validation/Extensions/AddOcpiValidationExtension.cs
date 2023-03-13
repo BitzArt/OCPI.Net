@@ -8,15 +8,15 @@ namespace OCPI;
 
 public static class AddOcpiValidationExtension
 {
+    private interface IOcpiValidatorsAssemblyPointer { }
+
     public static WebApplicationBuilder AddOcpiValidation(this WebApplicationBuilder builder, Action<FluentValidationAutoValidationConfiguration>? validationConfigurationExpression = null)
     {
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddTransient(x => x.GetRequiredService<IHttpContextAccessor>()!.HttpContext!);
 
-        var validatorTypes = AppDomain
-            .CurrentDomain
-            .GetAssemblies()
-            .SelectMany(x => x.DefinedTypes)
+        var validatorTypes = typeof(IOcpiValidatorsAssemblyPointer)
+            .Assembly.DefinedTypes
             .Where(x => !x.IsAbstract)
             .Select(x => x.DeclaringType)
             .Where(x => x!.IsSubclassOfRawGeneric(typeof(ActionValidator<>)));
@@ -25,10 +25,9 @@ public static class AddOcpiValidationExtension
         {
             var modelType = type!.BaseType!.GenericTypeArguments.First();
             var resultingType = typeof(ActionValidator<>).MakeGenericType(modelType);
-            builder.Services.AddTransient(resultingType, x =>
+            builder.Services.AddScoped(resultingType, x =>
             {
-                var httpMethod = x.GetRequiredService<HttpContext>().Request.Method;
-                var actionType = httpMethod.ToActionType();
+                var actionType = x.GetRequiredService<HttpContext>().Request.Method.ToActionType();
                 var instance = Activator.CreateInstance(type, actionType);
                 return instance!;
             });
