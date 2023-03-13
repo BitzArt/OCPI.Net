@@ -9,6 +9,7 @@
 
 		<PackageId>OCPI.Net</PackageId>
 		<Authors>BitzArt</Authors>
+		<Description>OCPI implementation for dotnet</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/BitzArt/OCPI.Net</RepositoryUrl>
