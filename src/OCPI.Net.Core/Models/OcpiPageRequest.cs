@@ -5,8 +5,8 @@ namespace OCPI;
 
 public class OcpiPageRequest : PageRequest
 {
-    [JsonPropertyName("from")]
+    [JsonPropertyName("date_from")]
     public DateTime? From { get; set; }
-    [JsonPropertyName("to")]
+    [JsonPropertyName("date_to")]
     public DateTime? To { get; set; }
 }
