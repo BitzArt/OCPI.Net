@@ -13,9 +13,9 @@ public class OcpiSignedData
     [JsonPropertyName("public_key")]
     public string? PublicKey { get; set; }
 
-    [JsonPropertyName("url")]
-    public string? Url { get; set; }
-
     [JsonPropertyName("signed_values")]
     public IEnumerable<OcpiSignedValue>? SignedValues { get; set; }
+
+    [JsonPropertyName("url")]
+    public string? Url { get; set; }
 }

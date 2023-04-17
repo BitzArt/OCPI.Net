@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 public class OcpiChargingPeriod
 {
     [JsonPropertyName("start_date_time")]
-    public DateTime? Start { get; set; }
+    public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("dimensions")]
     public IEnumerable<OcpiCdrDimension>? Dimensions { get; set; }
