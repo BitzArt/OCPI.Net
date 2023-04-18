@@ -4,13 +4,15 @@ namespace OCPI;
 
 public enum CommandResponseType : byte
 {
+    //====================1x: Success========================
+
     /// <summary>
     /// Command request accepted by the CPO.
     /// </summary>
     [EnumMember(Value = "ACCEPTED")]
     Accepted = 11,
 
-    //======================================
+    //====================2x: Rejected========================
 
     /// <summary>
     /// Command request rejected by the CPO.
@@ -24,7 +26,7 @@ public enum CommandResponseType : byte
     [EnumMember(Value = "UNKNOWN_SESSION")]
     Unknown_session = 22,
 
-    //======================================
+    //====================3x: Error========================
 
     /// <summary>
     /// The requested command is not supported by this CPO, Charge Point, EVSE etc.

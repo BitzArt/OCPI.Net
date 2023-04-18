@@ -4,6 +4,8 @@ namespace OCPI;
 
 public enum CommandType : byte
 {
+    //====================1x: Sessions========================
+
     /// <summary>
     /// Request the Charge Point to start a transaction on the given EVSE/Connector.
     /// </summary>
@@ -16,7 +18,7 @@ public enum CommandType : byte
     [EnumMember(Value = "STOP_SESSION")]
     StopSession = 12,
 
-    //======================================
+    //====================2x: Reservations========================
 
     /// <summary>
     /// Request the Charge Point to reserve a (specific) EVSE for a Token for a certain time, starting now.
@@ -30,7 +32,7 @@ public enum CommandType : byte
     [EnumMember(Value = "CANCEL_RESERVATION")]
     CancelReservation = 22,
 
-    //======================================
+    //====================3x: Other========================
 
     /// <summary>
     /// Request the Charge Point to unlock the connector (if applicable). This functionality is for help desk operators only!

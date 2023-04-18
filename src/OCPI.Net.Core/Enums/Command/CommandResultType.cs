@@ -4,13 +4,15 @@ namespace OCPI;
 
 public enum CommandResultType : byte
 {
+    //====================1x: Success========================
+
     /// <summary>
     /// Command request accepted by the Charge Point.
     /// </summary>
     [EnumMember(Value = "ACCEPTED")]
     Accepted = 11,
 
-    //======================================
+    //====================2x: Conflict========================
 
     /// <summary>
     /// The Reservation has been canceled by the CPO.
@@ -24,7 +26,7 @@ public enum CommandResultType : byte
     [EnumMember(Value = "UNKNOWN_RESERVATION")]
     UnknownReservation = 22,
 
-    //======================================
+    //====================3x: EVSE Error========================
 
     /// <summary>
     /// EVSE is currently occupied, another session is ongoing. Cannot start a new session
@@ -38,7 +40,7 @@ public enum CommandResultType : byte
     [EnumMember(Value = "EVSE_INOPERATIVE")]
     EvseInoperative = 32,
 
-    //======================================
+    //====================4x: Fail========================
 
     /// <summary>
     /// Execution of the command failed at the Charge Point.
