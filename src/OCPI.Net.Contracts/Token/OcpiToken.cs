@@ -44,5 +44,5 @@ public class OcpiToken
     public OcpiEnergyContract? EnergyContract { get; set; }
 
     [JsonPropertyName("last_updated")]
-    public DateTime? ExternalUpdated { get; set; }
+    public DateTime? LastUpdated { get; set; }
 }
