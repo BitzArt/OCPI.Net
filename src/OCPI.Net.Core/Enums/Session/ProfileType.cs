@@ -2,7 +2,7 @@
 
 namespace OCPI;
 
-public enum ProfileType
+public enum ProfileType : byte
 {
     /// <summary>
     /// Driver wants to use the cheapest charging profile possible.
@@ -13,8 +13,8 @@ public enum ProfileType
     //======================================
 
     /// <summary>
-    /// Driver wants his EV charged as quickly as possible and is willing to pay a premium for this, if
-    ///needed.
+    /// Driver wants his EV charged as quickly as possible
+    /// and is willing to pay a premium for this, if needed.
     /// </summary>
     [EnumMember(Value = "FAST")]
     Fast = 21,

@@ -22,7 +22,8 @@ public enum AuthMethodType : byte
     //======================================
 
     /// <summary>
-    /// Whitelist used for authentication, no request to the eMSP has been performed.
+    /// Whitelist used for authentication,
+    /// no request to the eMSP has been performed.
     /// </summary>
     [EnumMember(Value = "WHITELIST")]
     Whitelist = 31,
