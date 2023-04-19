@@ -38,7 +38,7 @@ public class OcpiCdr
     public string? MeterId { get; set; }
 
     [JsonPropertyName("currency")]
-    public string? Currency { get; set; }
+    public CurrencyCode? Currency { get; set; }
 
     [JsonPropertyName("tariffs")]
     public IEnumerable<OcpiTariff>? Tariffs { get; set; }

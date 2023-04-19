@@ -44,7 +44,7 @@ public class OcpiSession
     public string? MeterId { get; set; }
 
     [JsonPropertyName("currency")]
-    public string? Currency { get; set; }
+    public CurrencyCode? Currency { get; set; }
 
     [JsonPropertyName("charging_periods")]
     public IEnumerable<OcpiChargingPeriod>? ChargingPeriods { get; set; }
