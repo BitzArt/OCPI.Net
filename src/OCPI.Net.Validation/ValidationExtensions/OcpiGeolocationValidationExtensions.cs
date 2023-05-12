@@ -14,20 +14,22 @@ public static partial class OcpiGeolocationValidationExtensions
     [GeneratedRegex(_longitudeRegexValue)]
     private static partial Regex LongitudeRegex();
 
+    // OCPI has an error in documentation. It says the max length for Latitude is 10 but their regex says it is 11.
     public static IRuleBuilderOptions<TClass, string?> ValidLatitude<TClass>(this IRuleBuilder<TClass, string?> ruleBuilder) =>
         ruleBuilder
         .Must(ValidLatitude)
         .WithMessage($"'{{PropertyName}}' is not a valid latitude value. Must match Regex : {_latitudeRegexValue}")
-        .MaximumLength(10);
+        .MaximumLength(11);
 
     public static bool ValidLatitude(string? value) =>
         string.IsNullOrEmpty(value) || LatitudeRegex().IsMatch(value!);
 
+    // OCPI has an error in documentation. It says the max length for Longitude is 11 but their regex says it is 12.
     public static IRuleBuilderOptions<TClass, string?> ValidLongitude<TClass>(this IRuleBuilder<TClass, string?> ruleBuilder) =>
         ruleBuilder
         .Must(ValidLatitude)
         .WithMessage($"'{{PropertyName}}' is not a valid longitude value. Must match Regex : {_longitudeRegexValue}")
-        .MaximumLength(11);
+        .MaximumLength(12);
 
     public static bool ValidLongitude(string? value) =>
         string.IsNullOrEmpty(value) || LongitudeRegex().IsMatch(value!);
