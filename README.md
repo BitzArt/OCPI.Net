@@ -26,7 +26,7 @@ dotnet add package OCPI.Net
   This feature allows an easy integration with Asp.Net Core controllers. Apply `OcpiEndpoint` attribute to controllers, and the package will perform an automated scan of the codebase and fetch necessary data for your OCPI Versions Module.
 
 - ### OCPI Errors
-  When using OCPI, there might be certain situations where something goes wrong or an error occurs. To help developers handle these errors effectively, there are predefined OCPI Exceptions available. By throwing (or raising) one of these predefined exceptions, developers can easily communicate the specific error that happened.
+  When using OCPI, there might be certain situations where something goes wrong or an error occurs. To help developers handle these errors effectively, there are predefined OCPI Exceptions available. By throwing (or raising) one of these predefined exceptions, developers can easily communicate the specific error that happened in accordance with the protocol.
 
   In addition to the predefined exceptions, developers also have the flexibility to create their own custom exceptions. This means they can define their own specific types of errors to handle unique situations or requirements in their OCPI implementation.
 
