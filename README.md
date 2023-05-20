@@ -22,6 +22,9 @@ dotnet add package OCPI.Net
 - ### OCPI Contracts + Validation
   This NuGet package provides a comprehensive collection of contract models required for seamless protocol implementation. Additionally, the package includes validators specifically designed to validate OCPI contract models, ensuring their accuracy and compliance with the protocol's specifications.
 
+- ### Asp.Net Core integration
+  The package contains all necessary functionality to easily implement OCPI using Asp.Net Core. Make sure your OCPI controllers inherit from the `OcpiContrtoller` class.
+
 - ### Versioning
   This feature allows an easy integration with Asp.Net Core controllers. Apply `OcpiEndpoint` attribute to controllers, and the package will perform an automated scan of the codebase and fetch necessary data for your OCPI Versions Module.
 
