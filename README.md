@@ -26,7 +26,7 @@ dotnet add package OCPI.Net
   The package contains all necessary functionality to easily implement OCPI using Asp.Net Core. Make sure your OCPI controllers inherit from the `OcpiContrtoller` class.
 
 - ### Versioning
-  This feature allows an easy integration with Asp.Net Core controllers. Apply `OcpiEndpoint` attribute to controllers, and the package will perform an automated scan of the codebase and fetch necessary data for your OCPI Versions Module.
+  This feature allows an easy integration with Asp.Net Core controllers. Apply `OcpiEndpoint` attribute to those controllers that implement OCPI modules, and the package will perform an automated scan of the codebase and fetch necessary data for your OCPI Versions Module.
 
 - ### OCPI Errors
   When using OCPI, there might be certain situations where something goes wrong or an error occurs. To help developers handle these errors effectively, there are predefined OCPI Exceptions available. By throwing (or raising) one of these predefined exceptions, developers can easily communicate the specific error that happened in accordance with the protocol.
