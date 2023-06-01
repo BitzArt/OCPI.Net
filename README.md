@@ -2,7 +2,7 @@
 
 ![Tests](https://github.com/BitzArt/OCPI.Net/actions/workflows/Tests.yml/badge.svg)
 
-[OCPI](https://github.com/ocpi/ocpi) implementation for .Net
+[OCPI](https://github.com/ocpi/ocpi) implementation for .Net, built with C#
 
 Supported OCPI versions: `2.0`, `2.1.1`, `2.2`, `2.2.1`
 
