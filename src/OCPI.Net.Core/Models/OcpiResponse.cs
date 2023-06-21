@@ -28,6 +28,9 @@ public class OcpiResponse
     [JsonPropertyName("status_code")]
     public int? StatusCode { get; set; }
 
+    [JsonIgnore]
+    public bool IsOcpiSuccessStatusCode => StatusCode >= 1000 && StatusCode < 2000;
+
     [JsonPropertyName("status_message")]
     public string? StatusMessage { get; set; }
 
