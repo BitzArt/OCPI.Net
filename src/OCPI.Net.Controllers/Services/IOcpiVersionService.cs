@@ -32,4 +32,7 @@ public interface IOcpiVersionService
 
     /// <summary>Returns raw route mappings that are associated with a specific OCPI Version.</summary>
     IEnumerable<OcpiEndpointRouteMap> GetRoutes(OcpiVersion ocpiVersion);
+
+    /// <summary>Returns a raw route mapping that is associated with a specific OCPI Version and a specific controller.</summary>
+    OcpiEndpointRouteMap GetEndpointMap(OcpiVersion version, Type controllerType);
 }

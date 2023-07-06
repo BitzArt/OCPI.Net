@@ -7,11 +7,13 @@ internal class PageResponseService
 {
     private readonly HttpContext _httpContext;
     private readonly OcpiOptions _options;
+    private readonly IOcpiVersionService _versionService;
 
-    public PageResponseService(IHttpContextAccessor httpContextAccessor, OcpiOptions options)
+    public PageResponseService(IHttpContextAccessor httpContextAccessor, OcpiOptions options, IOcpiVersionService versionService)
     {
         _httpContext = httpContextAccessor.HttpContext!;
         _options = options;
+        _versionService = versionService;
     }
 
     public void ConfigureResponse(PageResult pageResult)

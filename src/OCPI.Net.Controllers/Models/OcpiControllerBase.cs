@@ -1,9 +1,11 @@
-﻿using BitzArt.Pagination;
+﻿using BitzArt.EnumToMemberValue;
+using BitzArt.Pagination;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using OCPI.Services;
+using System.Diagnostics;
 
 namespace OCPI;
 
@@ -42,8 +44,8 @@ public abstract class OcpiControllerBase : ControllerBase
     private void ConfigurePageResult(PageResult pageResult)
     {
         if (HttpContext is null) return;
-        var paginationService = GetRequiredService<PageResponseService>();
 
+        var paginationService = GetRequiredService<PageResponseService>();
         paginationService.ConfigureResponse(pageResult);
     }
 

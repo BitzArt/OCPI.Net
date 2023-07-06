@@ -70,8 +70,7 @@ internal class OcpiVersionService : IOcpiVersionService
     public OcpiVersionDetails GetVersionDetails(OcpiVersion request)
     {
         var exists = _versionRouteMaps.TryGetValue(request, out var routes);
-
-        if (!exists) throw OcpiException.ClientError($"Version '{request.ToMemberValue()}' not implemented.");
+        if (!exists) throw OcpiException.ClientError($"This platform does not support OCPI version '{request.ToMemberValue()}'.");
 
         var result = new OcpiVersionDetails()
         {
@@ -80,6 +79,14 @@ internal class OcpiVersionService : IOcpiVersionService
         };
 
         return result;
+    }
+
+    public OcpiEndpointRouteMap GetEndpointMap(OcpiVersion version, Type controllerType)
+    {
+        var exists = _versionRouteMaps.TryGetValue(version, out var routes);
+        if (!exists) throw OcpiException.ClientError($"This platform does not support OCPI version '{version.ToMemberValue()}'.");
+    
+        return routes!.Single(x => x.ControllerType == controllerType);
     }
 
     private OcpiEndpoint GetEndpoint(OcpiEndpointRouteMap route)
