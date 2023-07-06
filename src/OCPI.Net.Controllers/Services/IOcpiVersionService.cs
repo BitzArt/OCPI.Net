@@ -1,4 +1,5 @@
-﻿using OCPI.Contracts;
+﻿using BitzArt.Pagination;
+using OCPI.Contracts;
 
 namespace OCPI;
 
@@ -9,26 +10,26 @@ namespace OCPI;
 public interface IOcpiVersionService
 {
     /// <summary>
-    /// Maps existing routes according to provided template.
+    /// Maps existing routes according to the template defined in OcpiOptions.
     /// Returns data prepared for displaying in OCPI Version Information endpoint.
     /// </summary>
-    IEnumerable<OcpiVersionInfo> GetVersions(string template = "[BaseServiceUrl]/versions/[Version]");
+    IEnumerable<OcpiVersionInfo> GetVersions();
 
     /// <summary>
-    /// Maps VersionDetails according to provided template.
+    /// Maps VersionDetails according to the template defined in OcpiOptions.
     /// Returns data prepared for displaying in OCPI Version Details endpoint.
     /// </summary>
-    OcpiVersionDetails GetVersionDetails(string request, string template = "[BaseServiceUrl]/[ModuleRoute]");
+    OcpiVersionDetails GetVersionDetails(string request);
 
     /// <summary>
-    /// Maps VersionDetails according to provided template.
+    /// Maps VersionDetails according to the template defined in OcpiOptions.
     /// Returns data prepared for displaying in OCPI Version Details endpoint.
     /// </summary>
-    OcpiVersionDetails GetVersionDetails(OcpiVersion request, string template = "[BaseServiceUrl]/[ModuleRoute]");
+    OcpiVersionDetails GetVersionDetails(OcpiVersion request);
 
-    /// <summary>Returns all raw Route Mappings this service knows of.</summary>
+    /// <summary>Returns all raw route mappings this service knows of.</summary>
     IEnumerable<OcpiEndpointRouteMap> GetRoutes();
 
-    /// <summary>Returns raw Route Mappings that are associated with a specific OCPI Version.</summary>
+    /// <summary>Returns raw route mappings that are associated with a specific OCPI Version.</summary>
     IEnumerable<OcpiEndpointRouteMap> GetRoutes(OcpiVersion ocpiVersion);
 }
