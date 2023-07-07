@@ -18,13 +18,13 @@ public class VersionsController : OcpiController
     public IActionResult GetVersionsAsync()
     {
         var versionInfo = _versionService.GetVersions();
-        return Ok(versionInfo);
+        return OcpiOk(versionInfo);
     }
 
     [HttpGet("{request}")]
     public IActionResult GetVersionDetailsAsync([FromRoute] string request)
     {
         var details = _versionService.GetVersionDetails(request);
-        return Ok(details);
+        return OcpiOk(details);
     }
 }

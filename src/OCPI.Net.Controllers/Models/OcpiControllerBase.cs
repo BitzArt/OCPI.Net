@@ -39,11 +39,21 @@ public abstract class OcpiControllerBase : ControllerBase
         }
     }
 
+    [NonAction]
+    public void SetMaxLimit(PageRequest pageRequest, int max)
+    {
+        if (pageRequest.Limit > max)
+        {
+            pageRequest.Limit = max;
+        }
+        HttpContext.Items["OcpiRequestMaxLimitValue"] = max;
+    }
+
     private void ConfigurePageResult(PageResult pageResult)
     {
         if (HttpContext is null) return;
-        var paginationService = GetRequiredService<PageResponseService>();
 
+        var paginationService = GetRequiredService<PageResponseService>();
         paginationService.ConfigureResponse(pageResult);
     }
 

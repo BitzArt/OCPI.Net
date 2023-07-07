@@ -8,6 +8,8 @@ public static class AddOcpiVersioningExtension
 {
     public static WebApplicationBuilder AddOcpiVersioning(this WebApplicationBuilder builder)
     {
+        builder.AddOcpiOptions();
+
         builder.Services.AddSingleton<IOcpiVersionService, OcpiVersionService>();
 
         return builder;

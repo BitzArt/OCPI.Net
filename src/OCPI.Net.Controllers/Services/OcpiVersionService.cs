@@ -1,4 +1,5 @@
 ﻿using BitzArt.EnumToMemberValue;
+using BitzArt.Pagination;
 using Microsoft.AspNetCore.Mvc;
 using OCPI.Contracts;
 
@@ -31,8 +32,10 @@ internal class OcpiVersionService : IOcpiVersionService
 
     public IEnumerable<OcpiEndpointRouteMap> GetRoutes() => _routeMaps;
 
-    public IEnumerable<OcpiVersionInfo> GetVersions(string template = "[BaseServiceUrl]/versions/[Version]")
+    public IEnumerable<OcpiVersionInfo> GetVersions()
     {
+        var template = _options.VersionListTemplate;
+
         if (string.IsNullOrWhiteSpace(template)) throw new ArgumentException("template not found");
         CheckTemplateContainsElement(template, TemplateElementNames.BaseServiceUrl);
         CheckTemplateContainsElement(template, TemplateElementNames.Version);
@@ -56,32 +59,39 @@ internal class OcpiVersionService : IOcpiVersionService
         };
     }
 
-    public OcpiVersionDetails GetVersionDetails(string request, string template = "[BaseServiceUrl]/[ModuleRoute]")
+    public OcpiVersionDetails GetVersionDetails(string request)
     {
         var version = request.ToEnum<OcpiVersion>(OcpiVersion.Invalid);
         if (version == OcpiVersion.Invalid) throw OcpiException.ClientError($"Invalid OCPI Version: '{request}'.");
 
-        return GetVersionDetails(version, template);
+        return GetVersionDetails(version);
     }
 
-    public OcpiVersionDetails GetVersionDetails(OcpiVersion request, string template = "[BaseServiceUrl]/[ModuleRoute]")
+    public OcpiVersionDetails GetVersionDetails(OcpiVersion request)
     {
         var exists = _versionRouteMaps.TryGetValue(request, out var routes);
-
-        if (!exists) throw OcpiException.ClientError($"Version '{request.ToMemberValue()}' not implemented.");
+        if (!exists) throw OcpiException.ClientError($"This platform does not support OCPI version '{request.ToMemberValue()}'.");
 
         var result = new OcpiVersionDetails()
         {
             Version = request,
-            Endpoints = routes!.Select(x => GetEndpoint(x, template))
+            Endpoints = routes!.Select(GetEndpoint)
         };
 
         return result;
     }
 
-    private OcpiEndpoint GetEndpoint(OcpiEndpointRouteMap route, string template = "[BaseServiceUrl]/[ModuleRoute]")
+    public OcpiEndpointRouteMap GetEndpointMap(OcpiVersion version, Type controllerType)
     {
-        var url = template
+        var exists = _versionRouteMaps.TryGetValue(version, out var routes);
+        if (!exists) throw OcpiException.ClientError($"This platform does not support OCPI version '{version.ToMemberValue()}'.");
+    
+        return routes!.Single(x => x.ControllerType == controllerType);
+    }
+
+    private OcpiEndpoint GetEndpoint(OcpiEndpointRouteMap route)
+    {
+        var url = _options.ModuleTemplate
             .Replace(GetTemplateElement(TemplateElementNames.BaseServiceUrl), _options.BaseServiceUrl)
             .Replace(GetTemplateElement(TemplateElementNames.ModuleRoute), route.Route);
 
