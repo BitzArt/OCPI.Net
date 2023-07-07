@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-using System.Text.Json.Serialization;
-using System.Threading;
+﻿using System.Text.Json.Serialization;
 
 namespace OCPI.Contracts;
 

@@ -1,5 +1,4 @@
 ﻿using BitzArt.EnumToMemberValue;
-using BitzArt.Pagination;
 using Microsoft.AspNetCore.Mvc;
 using OCPI.Contracts;
 
@@ -85,7 +84,7 @@ internal class OcpiVersionService : IOcpiVersionService
     {
         var exists = _versionRouteMaps.TryGetValue(version, out var routes);
         if (!exists) throw OcpiException.ClientError($"This platform does not support OCPI version '{version.ToMemberValue()}'.");
-    
+
         return routes!.Single(x => x.ControllerType == controllerType);
     }
 
