@@ -12,6 +12,9 @@ namespace OCPI.Sample.Controllers;
 public class CredentialsController : OcpiController
 {
     [HttpGet]
-    public IActionResult GetPageResult() =>
-        OcpiOk(Enumerable.Range(1, 100).ToPage(0, 10));
+    public IActionResult GetPageResult([FromQuery] OcpiPageRequest pageRequest)
+    {
+        SetMaxLimit(pageRequest, 10);
+        return OcpiOk(Enumerable.Range(1, 100).ToPage(pageRequest));
+    }
 }

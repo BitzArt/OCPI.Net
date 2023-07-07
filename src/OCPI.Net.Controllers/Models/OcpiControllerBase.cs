@@ -1,11 +1,9 @@
-﻿using BitzArt.EnumToMemberValue;
-using BitzArt.Pagination;
+﻿using BitzArt.Pagination;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using OCPI.Services;
-using System.Diagnostics;
 
 namespace OCPI;
 
@@ -39,6 +37,16 @@ public abstract class OcpiControllerBase : ControllerBase
             exception.Payload.AddData(new { errors });
             throw exception;
         }
+    }
+
+    [NonAction]
+    public void SetMaxLimit(PageRequest pageRequest, int max)
+    {
+        if (pageRequest.Limit > max)
+        {
+            pageRequest.Limit = max;
+        }
+        HttpContext.Items["OcpiRequestMaxLimitValue"] = max;
     }
 
     private void ConfigurePageResult(PageResult pageResult)
