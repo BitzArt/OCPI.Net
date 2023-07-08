@@ -46,7 +46,7 @@ internal class PageResponseService
         query["limit"] = nextLimit.ToString();
 
         var nextPageLink = $"{_options.BaseServiceUrl}{_httpContext.Request.Path}?{query.ToString()}";
-        var linkHeader = $"Link: <{nextPageLink}>; rel=\"next\"";
+        var linkHeader = $"<{nextPageLink}>; rel=\"next\"";
 
         _httpContext.Response.Headers.Add("Link", linkHeader);
     }
