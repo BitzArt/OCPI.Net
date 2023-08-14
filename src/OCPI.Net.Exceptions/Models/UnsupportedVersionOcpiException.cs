@@ -4,6 +4,6 @@ public class UnsupportedVersionOcpiException : OcpiExceptionBase
 {
     public const string DefaultMessage = "OCPI version not supported.";
 
-    public UnsupportedVersionOcpiException(string message = DefaultMessage)
-        : base(message, OcpiStatusCode.UnsupportedVersion) { }
+    public UnsupportedVersionOcpiException(string message = DefaultMessage, Exception? innerException = null)
+        : base(message, OcpiStatusCode.UnsupportedVersion, innerException: innerException) { }
 }
