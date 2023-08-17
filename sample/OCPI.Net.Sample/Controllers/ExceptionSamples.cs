@@ -14,7 +14,7 @@ public class OcpiExceptionSampleController : OcpiController
     [HttpGet("ocpi-custom")]
     public IActionResult ThrowOcpiCustomException()
     {
-        throw OcpiException.Custom("sample error message", 3999, 418);
+        throw OcpiException.Custom("sample error message", 3999, 418, 418);
     }
 
     [HttpGet("other")]
