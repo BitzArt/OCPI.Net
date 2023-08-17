@@ -12,7 +12,7 @@ public class OcpiExceptionFilterAttribute : ExceptionFilterAttribute
         var response = exception.ToOcpiResponse();
 
         var statusCode = exception is OcpiExceptionBase ocpi ?
-            ocpi.StatusCode : 200;
+            ocpi.OcpiLayerHttpStatusCode : 200;
 
         context.Result = new ObjectResult(response)
         {
