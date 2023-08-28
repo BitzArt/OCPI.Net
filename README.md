@@ -16,22 +16,23 @@ To use in your project, add the nuget package:
 ```
 dotnet add package OCPI.Net
 ```
+for now, see [sample project](sample/OCPI.Net.Sample) for further guidance.
 
 ## Main features
 
-- ### OCPI Contracts + Validation
-  This NuGet package provides a comprehensive collection of contract models required for seamless protocol implementation. Additionally, the package includes validators specifically designed to validate OCPI contract models, ensuring their accuracy and compliance with the protocol's specifications.
+- ### OCPI Contracts and Validation
+  This NuGet package provides a comprehensive collection of contract models required for seamless protocol implementation. The package also includes validators specifically designed to validate OCPI contract models, ensuring their accuracy and compliance with the protocol's specifications.
 
-- ### Asp.Net Core integration
-  The package contains all necessary functionality to easily implement OCPI using Asp.Net Core. Make sure your OCPI controllers inherit from the `OcpiContrtoller` class.
+- ### Unrestricted Domain Flexibility:
+  While the NuGet package equips you with contract models and validation tools for seamless OCPI protocol implementation, it also allows flexibility within your domain logic. Instead of constricting your application's domain logic, the package empowers you to integrate your specific requirements without limitations. This adaptable approach ensures your implementation perfectly aligns with your business needs and unique use cases, while still maintaining compliance with the OCPI protocol.
 
-- ### Versioning
-  Apply `OcpiEndpoint` attribute to those controllers that implement OCPI modules, and the package will perform an automated scan of the codebase and fetch necessary data for your OCPI Versions Module.
+- ### Asp.Net Core Integration, OCPI Versioning
+  The package contains all necessary functionality to easily implement OCPI using Asp.Net Core. Make sure your OCPI controllers inherit from the `OcpiContrtoller` class. You can apply `OcpiEndpoint` attribute to those controllers that implement OCPI modules, and the package will perform an automated scan of the codebase and fetch necessary data for your OCPI Versions Module.
+  
+  Explore [this sample project](sample/OCPI.Net.Sample) to see OCPI.Net in action. This project showcases how OCPI.Net integrates seamlessly within an Asp.Net Core application.
 
 - ### OCPI Errors
-  When using OCPI, there might be certain situations where something goes wrong or an error occurs. To help developers handle these errors effectively, there are predefined OCPI Exceptions available. By throwing (or raising) one of these predefined exceptions, developers can easily communicate the specific error that happened in accordance with the protocol.
-
-  In addition to the predefined exceptions, developers also have the flexibility to create their own custom exceptions. This means they can define their own specific types of errors to handle unique situations or requirements in their OCPI implementation.
+  When working with OCPI, errors can arise. To assist you in managing these errors, we offer predefined OCPI Exceptions. These exceptions make it simple for you to communicate specific errors in line with the protocol. You also have the option to design custom exceptions. This allows you to address distinct scenarios or needs in your OCPI implementation.
 
 ## Extra
 
