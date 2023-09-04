@@ -2,7 +2,7 @@
 
 namespace OCPI.Contracts;
 
-public class OcpiTariffRestriction
+public class OcpiTariffRestrictions
 {
     [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }

@@ -8,5 +8,5 @@ public class OcpiTariffElement
     public IEnumerable<OcpiPriceComponent>? PriceComponents { get; set; }
 
     [JsonPropertyName("restrictions")]
-    public IEnumerable<OcpiTariffRestriction>? Restrictions { get; set; }
+    public OcpiTariffRestrictions? Restrictions { get; set; }
 }

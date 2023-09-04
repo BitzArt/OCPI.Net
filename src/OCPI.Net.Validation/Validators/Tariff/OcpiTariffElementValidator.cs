@@ -12,7 +12,7 @@ public class OcpiTariffElementValidator : ActionValidator<OcpiTariffElement>
         RuleForEach(x => x.PriceComponents)
             .SetValidator(new OcpiPriceComponentValidator(actionType));
 
-        RuleForEach(x => x.Restrictions)
+        JsonRuleFor(x => x.Restrictions!)
             .SetValidator(new OcpiTariffRestrictionValidator(actionType));
     }
 }

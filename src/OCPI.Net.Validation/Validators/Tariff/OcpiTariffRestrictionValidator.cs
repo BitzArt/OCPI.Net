@@ -3,7 +3,7 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-public class OcpiTariffRestrictionValidator : ActionValidator<OcpiTariffRestriction>
+public class OcpiTariffRestrictionValidator : ActionValidator<OcpiTariffRestrictions>
 {
     public OcpiTariffRestrictionValidator(ActionType actionType) : base(actionType)
     {
