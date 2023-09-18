@@ -4,7 +4,9 @@
 
 [OCPI (Open Charge Point Interface)](https://github.com/ocpi/ocpi) implementation for .Net, built with C#
 
-Supported OCPI versions: `2.0`, `2.1.1`, `2.2`, `2.2.1`
+Currently supported OCPI versions: `2.2.1`
+
+Planned versions to support: `2.0`, `2.1.1`, `2.2`
 
 Package documentation is expected later.
 
