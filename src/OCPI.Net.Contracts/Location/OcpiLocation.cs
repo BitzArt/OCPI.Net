@@ -43,6 +43,10 @@ public class OcpiLocation
     [JsonPropertyName("related_locations")]
     public IEnumerable<OcpiAdditionalGeolocation>? RelatedLocations { get; set; }
 
+    //OCPI 2.1.1 property
+    [JsonPropertyName("type")]
+    public LocationType? Type { get; set; }
+
     [JsonPropertyName("parking_type")]
     public ParkingType? ParkingType { get; set; }
 
