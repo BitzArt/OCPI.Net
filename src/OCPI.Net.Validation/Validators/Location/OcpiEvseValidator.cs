@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiEvseValidator : ActionValidator<OcpiEvse>
+internal class OcpiEvseValidator : OcpiValidator<OcpiEvse>
 {
-    public OcpiEvseValidator(ActionType actionType) : base(actionType)
+    public OcpiEvseValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         Unless(ActionType.Patch, () =>
         {
@@ -16,40 +16,49 @@ internal class OcpiEvseValidator : ActionValidator<OcpiEvse>
             .NotEmpty();
         });
 
-        JsonRuleFor(x => x.Uid)
-            .MaximumLength(36);
-
         JsonRuleFor(x => x.EvseId)
             .MaximumLength(48);
 
         JsonRuleFor(x => x.Status)
-            .ValidEnum();
+            .IsInEnum();
 
         RuleForEach(x => x.StatusSchedule)
-            .SetValidator(new OcpiStatusScheduleValidator(actionType));
+            .SetValidator(new OcpiStatusScheduleValidator(actionType, ocpiVersion));
 
         RuleForEach(x => x.Capabilities)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.FloorLevel)
             .MaximumLength(4);
 
         JsonRuleFor(x => x.Coordinates!)
-            .SetValidator(new OcpiGeolocationValidator(actionType));
+            .SetValidator(new OcpiGeolocationValidator(actionType, ocpiVersion));
 
         JsonRuleFor(x => x.PhysicalReference);
 
         RuleForEach(x => x.Directions)
-            .SetValidator(new OcpiDisplayTextValidator(actionType));
+            .SetValidator(new OcpiDisplayTextValidator(actionType, ocpiVersion));
 
         RuleForEach(x => x.ParkingRestrictions)
-            .ValidEnum();
+            .IsInEnum();
 
         RuleForEach(x => x.Images)
-            .SetValidator(new OcpiImageValidator(actionType));
+            .SetValidator(new OcpiImageValidator(actionType, ocpiVersion));
 
         JsonRuleFor(x => x.LastUpdated)
             .NotEmpty()
             .ValidDateTime();
+
+        WhenOcpiVersionAbove("2.2", () =>
+        {
+            JsonRuleFor(x => x.Uid)
+            .MaximumLength(36);
+        });
+
+        WhenOcpiVersionBelow("2.2", () =>
+        {
+            JsonRuleFor(x => x.Uid)
+            .MaximumLength(39);
+        });
     }
 }

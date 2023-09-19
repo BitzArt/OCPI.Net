@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiConnectorValidator : ActionValidator<OcpiConnector>
+internal class OcpiConnectorValidator : OcpiValidator<OcpiConnector>
 {
-    public OcpiConnectorValidator(ActionType actionType) : base(actionType)
+    public OcpiConnectorValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         Unless(ActionType.Patch, () =>
         {
@@ -13,21 +13,31 @@ internal class OcpiConnectorValidator : ActionValidator<OcpiConnector>
             JsonRuleFor(x => x.Standard).NotEmpty();
             JsonRuleFor(x => x.Format).NotEmpty();
             JsonRuleFor(x => x.PowerType).NotEmpty();
-            JsonRuleFor(x => x.MaxVoltage).NotEmpty();
-            JsonRuleFor(x => x.MaxAmperage).NotEmpty();
+
+            WhenOcpiVersionAbove("2.2", () =>
+            {
+                JsonRuleFor(x => x.MaxVoltage).NotEmpty();
+                JsonRuleFor(x => x.MaxAmperage).NotEmpty();
+            });
+
+            WhenOcpiVersionBelow("2.2", () =>
+            {
+                JsonRuleFor(x => x.Voltage).NotEmpty();
+                JsonRuleFor(x => x.Amperage).NotEmpty();
+            });
         });
 
         JsonRuleFor(x => x.Id)
             .MaximumLength(36);
 
         JsonRuleFor(x => x.Standard)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Format)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.PowerType)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.TermsAndConditionsUrl)
             .ValidUrl();

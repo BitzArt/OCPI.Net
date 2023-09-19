@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiBusinessDetailsValidator : ActionValidator<OcpiBusinessDetails>
+internal class OcpiBusinessDetailsValidator : OcpiValidator<OcpiBusinessDetails>
 {
-    public OcpiBusinessDetailsValidator(ActionType actionType) : base(actionType)
+    public OcpiBusinessDetailsValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         JsonRuleFor(x => x.Name)
             .NotEmpty()
@@ -15,6 +15,6 @@ internal class OcpiBusinessDetailsValidator : ActionValidator<OcpiBusinessDetail
             .ValidUrl();
 
         JsonRuleFor(x => x.Logo!)
-            .SetValidator(new OcpiImageValidator(actionType));
+            .SetValidator(new OcpiImageValidator(actionType, ocpiVersion));
     }
 }

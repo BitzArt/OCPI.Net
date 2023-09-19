@@ -3,6 +3,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using OCPI.Contracts;
 
 namespace OCPI;
 
@@ -19,16 +20,20 @@ public static class AddOcpiValidationExtension
             .Assembly.DefinedTypes
             .Where(x => !x.IsAbstract)
             .Select(x => x.DeclaringType)
-            .Where(x => x!.IsSubclassOfRawGeneric(typeof(ActionValidator<>)));
+            .Where(x => x!.IsSubclassOfRawGeneric(typeof(OcpiValidator<>)) && x!.IsGenericType == false);
 
         foreach (var type in validatorTypes)
         {
             var modelType = type!.BaseType!.GenericTypeArguments.First();
-            var resultingType = typeof(ActionValidator<>).MakeGenericType(modelType);
+            var resultingType = typeof(OcpiValidator<>).MakeGenericType(modelType);
             builder.Services.AddScoped(resultingType, x =>
             {
-                var actionType = x.GetRequiredService<HttpContext>().Request.Method.ToActionType();
-                var instance = Activator.CreateInstance(type, actionType);
+                var httpContext = x.GetRequiredService<HttpContext>();
+                var request = httpContext.Request;
+
+                var ocpiVersion = request.GetCurrentOcpiVersion();
+                var actionType = request.Method.ToActionType();
+                var instance = Activator.CreateInstance(type, actionType, ocpiVersion);
                 return instance!;
             });
         }

@@ -3,13 +3,13 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-public class OcpiPriceComponentValidator : ActionValidator<OcpiPriceComponent>
+internal class OcpiPriceComponentValidator : OcpiValidator<OcpiPriceComponent>
 {
-    public OcpiPriceComponentValidator(ActionType actionType) : base(actionType)
+    public OcpiPriceComponentValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         JsonRuleFor(x => x.Type)
             .NotEmpty()
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Price)
             .NotEmpty();

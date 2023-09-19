@@ -10,6 +10,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{1A55D222-2CD3-4C34-AE50-74D051F25E32}"
 	ProjectSection(SolutionItems) = preProject
 		docs\OCPI-2.2.1.pdf = docs\OCPI-2.2.1.pdf
+		docs\OCPI-2.2.pdf = docs\OCPI-2.2.pdf
+		docs\OCPI_2.0-d2.pdf = docs\OCPI_2.0-d2.pdf
+		docs\OCPI_2.0.pdf = docs\OCPI_2.0.pdf
+		docs\OCPI_2.1.1-d2.pdf = docs\OCPI_2.1.1-d2.pdf
+		docs\OCPI_2.1.1.pdf = docs\OCPI_2.1.1.pdf
+		docs\OCPI_2.1.pdf = docs\OCPI_2.1.pdf
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Tests", "tests\OCPI.Net.Tests\OCPI.Net.Tests.csproj", "{B95AB476-AA1B-44AB-9195-6B1FC2E7BBE6}"

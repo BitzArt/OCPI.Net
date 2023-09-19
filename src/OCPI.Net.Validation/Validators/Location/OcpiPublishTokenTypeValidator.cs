@@ -3,15 +3,15 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal partial class OcpiPublishTokenTypeValidator : ActionValidator<OcpiPublishTokenType>
+internal partial class OcpiPublishTokenTypeValidator : OcpiValidator<OcpiPublishTokenType>
 {
-    public OcpiPublishTokenTypeValidator(ActionType actionType) : base(actionType)
+    public OcpiPublishTokenTypeValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         JsonRuleFor(x => x.Uid)
             .MaximumLength(36);
 
         JsonRuleFor(x => x.Type)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.VisualNumber)
             .MaximumLength(64);

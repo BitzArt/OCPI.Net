@@ -6,36 +6,43 @@ namespace OCPI.Sample.Controllers;
 [OcpiEndpoint(OcpiModule.Credentials, "Receiver", "2.2, 2.2.1")]
 [Route("2.2/credentials")]
 [Route("2.2.1/credentials")]
-public class CredentialsController : OcpiController
+public class OcpiCredentialsController : OcpiController
 {
     [HttpGet]
     public IActionResult Get()
     {
-        // Retreive requesting platform's credentials
+        // Your Credentials GET logic
+
         return OcpiOk(SampleCredentials);
     }
 
     [HttpPost]
     public IActionResult Post([FromBody] OcpiCredentials credentials)
     {
-        // Register requesting platform
         // if (platform.IsRegistered == true) throw ApiException.MethodNotAllowed("The platform is already registered.");
+
+        // Your Credentials POST logic
+
         return OcpiOk(SampleCredentials);
     }
 
     [HttpPut]
     public IActionResult Put([FromBody] OcpiCredentials credentials)
     {
-        // Update requesting platform's credentials
         // if (platform.IsRegistered == false) throw ApiException.MethodNotAllowed("The platform has to be registered in order to perform this action.");
+
+        // Your Credentials PUT logic
+
         return OcpiOk(SampleCredentials);
     }
 
     [HttpDelete]
     public IActionResult Delete()
     {
-        // Unregister the requesting platform
         // if (platform.IsRegistered == false) throw ApiException.MethodNotAllowed("The platform has to be registered in order to perform this action.");
+
+        // Your Credentials DELETE logic
+
         return OcpiOk("Success");
     }
 

@@ -3,13 +3,13 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiEnvironmentalImpactValidator : ActionValidator<OcpiEnvironmentalImpact>
+internal class OcpiEnvironmentalImpactValidator : OcpiValidator<OcpiEnvironmentalImpact>
 {
-    public OcpiEnvironmentalImpactValidator(ActionType actionType) : base(actionType)
+    public OcpiEnvironmentalImpactValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         JsonRuleFor(x => x.Category)
             .NotEmpty()
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Amount)
             .NotEmpty()

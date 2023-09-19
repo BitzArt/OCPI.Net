@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using OCPI.Contracts;
 using OCPI.Services;
 
 namespace OCPI;
@@ -27,7 +28,7 @@ public abstract class OcpiControllerBase : ControllerBase
     public void OcpiValidate<T>(T value)
     {
         if (value is null) return;
-        var validator = GetRequiredService<ActionValidator<T>>();
+        var validator = GetRequiredService<OcpiValidator<T>>();
         var validationResult = validator.Validate(value);
 
         if (!validationResult.IsValid)

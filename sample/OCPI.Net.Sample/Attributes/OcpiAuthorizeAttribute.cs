@@ -8,7 +8,7 @@ public class OcpiAuthorizeAttribute : Attribute, IAuthorizationFilter
 {
     public void OnAuthorization(AuthorizationFilterContext context)
     {
-        var token = GetToken(context.HttpContext.Request);
+        //var token = GetToken(context.HttpContext.Request);
 
         // Your authorization logic.
     }

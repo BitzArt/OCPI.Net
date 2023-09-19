@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-public class OcpiTariffValidator : ActionValidator<OcpiTariff>
+internal class OcpiTariffValidator : OcpiValidator<OcpiTariff>
 {
-    public OcpiTariffValidator(ActionType actionType) : base(actionType)
+    public OcpiTariffValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         Unless(ActionType.Patch, () =>
         {
@@ -18,7 +18,7 @@ public class OcpiTariffValidator : ActionValidator<OcpiTariff>
         });
 
         JsonRuleFor(x => x.CountryCode)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.PartyId)
             .MaximumLength(3);
@@ -27,25 +27,25 @@ public class OcpiTariffValidator : ActionValidator<OcpiTariff>
             .MaximumLength(36);
 
         JsonRuleFor(x => x.Currency)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Type)
-            .ValidEnum();
+            .IsInEnum();
 
         RuleForEach(x => x.TariffAltText)
-            .SetValidator(new OcpiDisplayTextValidator(actionType));
+            .SetValidator(new OcpiDisplayTextValidator(actionType, ocpiVersion));
 
         JsonRuleFor(x => x.TariffAltUrl)
             .ValidUrl();
 
         JsonRuleFor(x => x.MinPrice!)
-            .SetValidator(new OcpiPriceValidator(actionType));
+            .SetValidator(new OcpiPriceValidator(actionType, ocpiVersion));
 
         JsonRuleFor(x => x.MaxPrice!)
-            .SetValidator(new OcpiPriceValidator(actionType));
+            .SetValidator(new OcpiPriceValidator(actionType, ocpiVersion));
 
         RuleForEach(x => x.Elements)
-            .SetValidator(new OcpiTariffElementValidator(actionType));
+            .SetValidator(new OcpiTariffElementValidator(actionType, ocpiVersion));
 
         JsonRuleFor(x => x.StartDateTime)
             .ValidDateTime();
@@ -54,7 +54,7 @@ public class OcpiTariffValidator : ActionValidator<OcpiTariff>
             .ValidDateTime();
 
         JsonRuleFor(x => x.EnergyMix!)
-            .SetValidator(new OcpiEnergyMixValidator(actionType));
+            .SetValidator(new OcpiEnergyMixValidator(actionType, ocpiVersion));
 
         JsonRuleFor(x => x.LastUpdated)
             .ValidDateTime();

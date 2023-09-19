@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-public class OcpiTariffRestrictionValidator : ActionValidator<OcpiTariffRestrictions>
+internal class OcpiTariffRestrictionValidator : OcpiValidator<OcpiTariffRestrictions>
 {
-    public OcpiTariffRestrictionValidator(ActionType actionType) : base(actionType)
+    public OcpiTariffRestrictionValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         JsonRuleFor(x => x.StartTime)
             .MaximumLength(5);
@@ -20,9 +20,9 @@ public class OcpiTariffRestrictionValidator : ActionValidator<OcpiTariffRestrict
             .MaximumLength(10);
 
         RuleForEach(x => x.DayOfWeek)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Reservation)
-            .ValidEnum();
+            .IsInEnum();
     }
 }

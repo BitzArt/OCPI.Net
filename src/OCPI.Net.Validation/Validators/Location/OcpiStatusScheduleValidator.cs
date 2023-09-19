@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiStatusScheduleValidator : ActionValidator<OcpiStatusSchedule>
+internal class OcpiStatusScheduleValidator : OcpiValidator<OcpiStatusSchedule>
 {
-    public OcpiStatusScheduleValidator(ActionType actionType) : base(actionType)
+    public OcpiStatusScheduleValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         JsonRuleFor(x => x.PeriodBegin)
             .NotEmpty()
@@ -16,6 +16,6 @@ internal class OcpiStatusScheduleValidator : ActionValidator<OcpiStatusSchedule>
 
         JsonRuleFor(x => x.Status)
             .NotEmpty()
-            .ValidEnum();
+            .IsInEnum();
     }
 }
