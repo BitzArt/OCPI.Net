@@ -1,4 +1,3 @@
-using BitzArt.Pagination;
 using Microsoft.AspNetCore.Mvc;
 using OCPI.Contracts;
 
@@ -8,38 +7,8 @@ namespace OCPI.Sample.Controllers;
 [Route("2.2/locations")]
 [Route("2.2.1/locations")]
 [OcpiAuthorize]
-public class LocationsReceiverController : OcpiController
+public class OcpiLocationsReceiverController : OcpiController
 {
-    [HttpGet]
-    public IActionResult GetPage([FromQuery] OcpiPageRequest pageRequest)
-    {
-        // Set maximum Limit value
-        // Required for OCPI.Net PageResult handling
-        SetMaxLimit(pageRequest, 100);
-
-        // Process GetPage using Offset, Limit, DateFrom, DateTo from pageRequest
-
-        // You can use BitzArt.Pagination nuget package
-        // https://github.com/BitzArt/Pagination
-        // to handle Offset and Limit (does not handle DateFrom/DateTo),
-        // or implement your own OcpiPageRequest handling logic.
-
-        // Example:
-        var databaseLocations = Enumerable.Range(1, 100).Select(x =>
-        {
-            var location = SampleLocation;
-            location.Id = $"SampleLocation-{x}";
-            return location;
-        });
-
-        // This will handle Offset and Limit but not DateFrom or DateTo:
-        var result = databaseLocations.ToPage(pageRequest);
-
-        // Returning a PageResult in OcpiOk will process the paginated response
-        // and add appropriate page response headers.
-        return OcpiOk(result);
-    }
-
     [HttpGet("{countryCode}/{partyId}/{locationId}")]
     public IActionResult Get(
         [FromRoute] string countryCode,
@@ -56,9 +25,28 @@ public class LocationsReceiverController : OcpiController
         [FromRoute] string locationId,
         [FromBody] OcpiLocation location)
     {
-        OcpiValidate(location); // Use a built-in validator
+        // Use a built-in OCPI validator
+        OcpiValidate(location);
 
-        // Process Location PUT
+        // Your Location PUT logic
+
+        return OcpiOk(location);
+    }
+
+    [HttpPatch("{countryCode}/{partyId}/{locationId}")]
+    public IActionResult Patch(
+        [FromRoute] string countryCode,
+        [FromRoute] string partyId,
+        [FromRoute] string locationId,
+        [FromBody] OcpiLocation location)
+    {
+        // Use a built-in OCPI validator
+        // Validator behavior will be appropriate to PATCH
+        // Since this is a PATCH method
+        // (not throw errors on missing fields)
+        OcpiValidate(location);
+
+        // Your Location PATCH logic
 
         return OcpiOk(location);
     }

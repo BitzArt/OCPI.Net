@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace OCPI.Sample.Controllers;
 
 [Route("versions")]
-public class VersionsController : OcpiController
+public class OcpiVersionsController : OcpiController
 {
     // This service scans your codebase and maps all OCPI paths from
     // controllers marked with OcpiEndpoint attribute on startup.
     private readonly IOcpiVersionService _versionService;
 
-    public VersionsController(IOcpiVersionService versionService)
+    public OcpiVersionsController(IOcpiVersionService versionService)
     {
         _versionService = versionService;
     }
