@@ -56,6 +56,9 @@ internal partial class OcpiLocationValidator : ActionValidator<OcpiLocation>
         RuleForEach(x => x.RelatedLocations)
             .SetValidator(new OcpiAdditionalGeolocationValidator(actionType));
 
+        JsonRuleFor(x => x.Type)
+            .ValidEnum();
+
         JsonRuleFor(x => x.ParkingType)
             .ValidEnum();
 
