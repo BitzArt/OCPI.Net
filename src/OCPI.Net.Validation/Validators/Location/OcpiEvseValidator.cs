@@ -16,8 +16,17 @@ internal class OcpiEvseValidator : OcpiValidator<OcpiEvse>
             .NotEmpty();
         });
 
-        JsonRuleFor(x => x.Uid)
+        WhenOcpiVersionAbove("2.2", () =>
+        {
+            JsonRuleFor(x => x.Uid)
             .MaximumLength(36);
+        });
+
+        WhenOcpiVersionBelow("2.2", () =>
+        {
+            JsonRuleFor(x => x.Uid)
+            .MaximumLength(39);
+        });
 
         JsonRuleFor(x => x.EvseId)
             .MaximumLength(48);

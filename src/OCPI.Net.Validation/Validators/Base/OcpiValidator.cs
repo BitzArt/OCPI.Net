@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using BitzArt.EnumToMemberValue;
+using FluentValidation;
 
 namespace OCPI.Contracts;
 
@@ -11,13 +12,19 @@ internal abstract class OcpiValidator<T> : ActionValidator<T>
         OcpiVersion = ocpiVersion;
     }
 
-    public IConditionBuilder When(OcpiVersion ocpiVersion, Action action)
+    public IConditionBuilder WhenOcpiVersionAbove(string version, Action action)
+        => WhenOcpiVersionAbove(version.ToEnum<OcpiVersion>(), action);
+
+    public IConditionBuilder WhenOcpiVersionAbove(OcpiVersion version, Action action)
     {
-        return When((T x) => OcpiVersion == ocpiVersion, action);
+        return When((T x) => version > OcpiVersion, action);
     }
 
-    public IConditionBuilder Unless(OcpiVersion ocpiVersion, Action action)
+    public IConditionBuilder WhenOcpiVersionBelow(string version, Action action)
+        => WhenOcpiVersionBelow(version.ToEnum<OcpiVersion>(), action);
+
+    public IConditionBuilder WhenOcpiVersionBelow(OcpiVersion version, Action action)
     {
-        return Unless((T x) => OcpiVersion == ocpiVersion, action);
+        return When((T x) => version < OcpiVersion, action);
     }
 }

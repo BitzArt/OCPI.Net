@@ -11,7 +11,7 @@ internal static class GetCurrentOcpiVersionExtension
         var versionLength = path.IndexOf('/');
         if (versionLength == -1) versionLength = path.Length;
 
-        var versionString = path.Substring(0, versionLength);
+        var versionString = path[..versionLength];
 
         var result = versionString.ToEnum<OcpiVersion>();
         return result;

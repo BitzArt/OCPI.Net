@@ -18,6 +18,11 @@ internal partial class OcpiLocationValidator : OcpiValidator<OcpiLocation>
             JsonRuleFor(x => x.Country).NotEmpty();
             JsonRuleFor(x => x.Coordinates).NotEmpty();
             JsonRuleFor(x => x.TimeZone).NotEmpty();
+
+            WhenOcpiVersionBelow("2.2", () =>
+            {
+                JsonRuleFor(x => x.Type).NotEmpty();
+            });
         });
 
         JsonRuleFor(x => x.CountryCode)
@@ -25,9 +30,6 @@ internal partial class OcpiLocationValidator : OcpiValidator<OcpiLocation>
 
         JsonRuleFor(x => x.PartyId)
             .MaximumLength(3);
-
-        JsonRuleFor(x => x.Id)
-            .MaximumLength(36);
 
         RuleForEach(x => x.PublishAllowedTo)
             .SetValidator(new OcpiPublishTokenTypeValidator(actionType, ocpiVersion));
@@ -55,10 +57,6 @@ internal partial class OcpiLocationValidator : OcpiValidator<OcpiLocation>
 
         RuleForEach(x => x.RelatedLocations)
             .SetValidator(new OcpiAdditionalGeolocationValidator(actionType, ocpiVersion));
-
-        // TODO: Specific to OCPI 2.1.1
-        //JsonRuleFor(x => x.Type)
-        //    .ValidEnum();
 
         JsonRuleFor(x => x.ParkingType)
             .IsInEnum();
@@ -96,5 +94,20 @@ internal partial class OcpiLocationValidator : OcpiValidator<OcpiLocation>
         JsonRuleFor(x => x.LastUpdated)
             .NotEmpty()
             .ValidDateTime();
+
+        WhenOcpiVersionAbove("2.2", () =>
+        {
+            JsonRuleFor(x => x.Id)
+            .MaximumLength(36);
+        });
+
+        WhenOcpiVersionBelow("2.2", () =>
+        {
+            JsonRuleFor(x => x.Id)
+            .MaximumLength(39);
+
+            JsonRuleFor(x => x.Type)
+            .IsInEnum();
+        });
     }
 }
