@@ -9,7 +9,7 @@ internal class OcpiEnergySourceValidator : OcpiValidator<OcpiEnergySource>
     {
         JsonRuleFor(x => x.Source)
             .NotEmpty()
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Percentage)
             .NotEmpty()

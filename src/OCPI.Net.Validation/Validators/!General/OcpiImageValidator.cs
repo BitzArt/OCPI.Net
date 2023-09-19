@@ -16,7 +16,7 @@ internal class OcpiImageValidator : OcpiValidator<OcpiImage>
 
         JsonRuleFor(x => x.Category)
             .NotEmpty()
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Type)
             .NotEmpty()

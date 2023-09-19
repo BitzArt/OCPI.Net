@@ -17,7 +17,7 @@ internal class OcpiCredentialsRoleValidator : OcpiValidator<OcpiCredentialsRole>
 
         JsonRuleFor(x => x.Role)
             .NotEmpty()
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.BusinessDetails)
             .NotEmpty();

@@ -16,6 +16,6 @@ internal class OcpiStatusScheduleValidator : OcpiValidator<OcpiStatusSchedule>
 
         JsonRuleFor(x => x.Status)
             .NotEmpty()
-            .ValidEnum();
+            .IsInEnum();
     }
 }

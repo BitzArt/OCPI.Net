@@ -9,7 +9,7 @@ internal class OcpiPriceComponentValidator : OcpiValidator<OcpiPriceComponent>
     {
         JsonRuleFor(x => x.Type)
             .NotEmpty()
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Price)
             .NotEmpty();

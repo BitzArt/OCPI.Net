@@ -18,7 +18,7 @@ internal class OcpiTariffValidator : OcpiValidator<OcpiTariff>
         });
 
         JsonRuleFor(x => x.CountryCode)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.PartyId)
             .MaximumLength(3);
@@ -27,10 +27,10 @@ internal class OcpiTariffValidator : OcpiValidator<OcpiTariff>
             .MaximumLength(36);
 
         JsonRuleFor(x => x.Currency)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Type)
-            .ValidEnum();
+            .IsInEnum();
 
         RuleForEach(x => x.TariffAltText)
             .SetValidator(new OcpiDisplayTextValidator(actionType, ocpiVersion));

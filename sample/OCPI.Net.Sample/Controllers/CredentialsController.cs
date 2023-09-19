@@ -12,30 +12,37 @@ public class CredentialsController : OcpiController
     public IActionResult Get()
     {
         // Retreive requesting platform's credentials
+
         return OcpiOk(SampleCredentials);
     }
 
     [HttpPost]
     public IActionResult Post([FromBody] OcpiCredentials credentials)
     {
-        // Register requesting platform
         // if (platform.IsRegistered == true) throw ApiException.MethodNotAllowed("The platform is already registered.");
+
+        // Register requesting platform
+
         return OcpiOk(SampleCredentials);
     }
 
     [HttpPut]
     public IActionResult Put([FromBody] OcpiCredentials credentials)
     {
-        // Update requesting platform's credentials
         // if (platform.IsRegistered == false) throw ApiException.MethodNotAllowed("The platform has to be registered in order to perform this action.");
+
+        // Update requesting platform's credentials
+
         return OcpiOk(SampleCredentials);
     }
 
     [HttpDelete]
     public IActionResult Delete()
     {
-        // Unregister the requesting platform
         // if (platform.IsRegistered == false) throw ApiException.MethodNotAllowed("The platform has to be registered in order to perform this action.");
+
+        // Unregister the requesting platform
+
         return OcpiOk("Success");
     }
 

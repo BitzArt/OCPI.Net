@@ -9,7 +9,7 @@ internal class OcpiEnvironmentalImpactValidator : OcpiValidator<OcpiEnvironmenta
     {
         JsonRuleFor(x => x.Category)
             .NotEmpty()
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Amount)
             .NotEmpty()

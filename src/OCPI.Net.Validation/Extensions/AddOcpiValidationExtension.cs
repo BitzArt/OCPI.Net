@@ -20,7 +20,7 @@ public static class AddOcpiValidationExtension
             .Assembly.DefinedTypes
             .Where(x => !x.IsAbstract)
             .Select(x => x.DeclaringType)
-            .Where(x => x!.IsSubclassOfRawGeneric(typeof(OcpiValidator<>)));
+            .Where(x => x!.IsSubclassOfRawGeneric(typeof(OcpiValidator<>)) && x!.IsGenericType == false);
 
         foreach (var type in validatorTypes)
         {
@@ -28,8 +28,12 @@ public static class AddOcpiValidationExtension
             var resultingType = typeof(OcpiValidator<>).MakeGenericType(modelType);
             builder.Services.AddScoped(resultingType, x =>
             {
-                var actionType = x.GetRequiredService<HttpContext>().Request.Method.ToActionType();
-                var instance = Activator.CreateInstance(type, actionType);
+                var httpContext = x.GetRequiredService<HttpContext>();
+                var request = httpContext.Request;
+
+                var ocpiVersion = request.GetCurrentOcpiVersion();
+                var actionType = request.Method.ToActionType();
+                var instance = Activator.CreateInstance(type, actionType, ocpiVersion);
                 return instance!;
             });
         }

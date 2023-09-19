@@ -20,9 +20,9 @@ internal class OcpiTariffRestrictionValidator : OcpiValidator<OcpiTariffRestrict
             .MaximumLength(10);
 
         RuleForEach(x => x.DayOfWeek)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.Reservation)
-            .ValidEnum();
+            .IsInEnum();
     }
 }

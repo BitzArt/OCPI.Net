@@ -23,13 +23,13 @@ internal class OcpiEvseValidator : OcpiValidator<OcpiEvse>
             .MaximumLength(48);
 
         JsonRuleFor(x => x.Status)
-            .ValidEnum();
+            .IsInEnum();
 
         RuleForEach(x => x.StatusSchedule)
             .SetValidator(new OcpiStatusScheduleValidator(actionType, ocpiVersion));
 
         RuleForEach(x => x.Capabilities)
-            .ValidEnum();
+            .IsInEnum();
 
         JsonRuleFor(x => x.FloorLevel)
             .MaximumLength(4);
@@ -43,7 +43,7 @@ internal class OcpiEvseValidator : OcpiValidator<OcpiEvse>
             .SetValidator(new OcpiDisplayTextValidator(actionType, ocpiVersion));
 
         RuleForEach(x => x.ParkingRestrictions)
-            .ValidEnum();
+            .IsInEnum();
 
         RuleForEach(x => x.Images)
             .SetValidator(new OcpiImageValidator(actionType, ocpiVersion));
