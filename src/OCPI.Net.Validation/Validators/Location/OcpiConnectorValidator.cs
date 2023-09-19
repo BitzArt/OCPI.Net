@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiConnectorValidator : ActionValidator<OcpiConnector>
+internal class OcpiConnectorValidator : OcpiValidator<OcpiConnector>
 {
-    public OcpiConnectorValidator(ActionType actionType) : base(actionType)
+    public OcpiConnectorValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         Unless(ActionType.Patch, () =>
         {

@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiCredentialsRoleValidator : ActionValidator<OcpiCredentialsRole>
+internal class OcpiCredentialsRoleValidator : OcpiValidator<OcpiCredentialsRole>
 {
-    public OcpiCredentialsRoleValidator(ActionType actionType) : base(actionType)
+    public OcpiCredentialsRoleValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         JsonRuleFor(x => x.CountryCode)
             .NotEmpty()
@@ -23,6 +23,6 @@ internal class OcpiCredentialsRoleValidator : ActionValidator<OcpiCredentialsRol
             .NotEmpty();
 
         JsonRuleFor(x => x.BusinessDetails!)
-            .SetValidator(new OcpiBusinessDetailsValidator(actionType));
+            .SetValidator(new OcpiBusinessDetailsValidator(actionType, ocpiVersion));
     }
 }

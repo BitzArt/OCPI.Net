@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiEnergySourceValidator : ActionValidator<OcpiEnergySource>
+internal class OcpiEnergySourceValidator : OcpiValidator<OcpiEnergySource>
 {
-    public OcpiEnergySourceValidator(ActionType actionType) : base(actionType)
+    public OcpiEnergySourceValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         JsonRuleFor(x => x.Source)
             .NotEmpty()

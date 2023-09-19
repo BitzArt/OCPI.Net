@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal class OcpiEvseValidator : ActionValidator<OcpiEvse>
+internal class OcpiEvseValidator : OcpiValidator<OcpiEvse>
 {
-    public OcpiEvseValidator(ActionType actionType) : base(actionType)
+    public OcpiEvseValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         Unless(ActionType.Patch, () =>
         {
@@ -26,7 +26,7 @@ internal class OcpiEvseValidator : ActionValidator<OcpiEvse>
             .ValidEnum();
 
         RuleForEach(x => x.StatusSchedule)
-            .SetValidator(new OcpiStatusScheduleValidator(actionType));
+            .SetValidator(new OcpiStatusScheduleValidator(actionType, ocpiVersion));
 
         RuleForEach(x => x.Capabilities)
             .ValidEnum();
@@ -35,18 +35,18 @@ internal class OcpiEvseValidator : ActionValidator<OcpiEvse>
             .MaximumLength(4);
 
         JsonRuleFor(x => x.Coordinates!)
-            .SetValidator(new OcpiGeolocationValidator(actionType));
+            .SetValidator(new OcpiGeolocationValidator(actionType, ocpiVersion));
 
         JsonRuleFor(x => x.PhysicalReference);
 
         RuleForEach(x => x.Directions)
-            .SetValidator(new OcpiDisplayTextValidator(actionType));
+            .SetValidator(new OcpiDisplayTextValidator(actionType, ocpiVersion));
 
         RuleForEach(x => x.ParkingRestrictions)
             .ValidEnum();
 
         RuleForEach(x => x.Images)
-            .SetValidator(new OcpiImageValidator(actionType));
+            .SetValidator(new OcpiImageValidator(actionType, ocpiVersion));
 
         JsonRuleFor(x => x.LastUpdated)
             .NotEmpty()

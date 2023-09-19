@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal partial class OcpiGeolocationValidator : ActionValidator<OcpiGeolocation>
+internal partial class OcpiGeolocationValidator : OcpiValidator<OcpiGeolocation>
 {
-    public OcpiGeolocationValidator(ActionType actionType) : base(actionType)
+    public OcpiGeolocationValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         JsonRuleFor(x => x.Latitude)
             .NotEmpty()

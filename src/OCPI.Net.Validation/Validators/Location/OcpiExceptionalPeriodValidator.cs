@@ -3,9 +3,9 @@ using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
-internal partial class OcpiExceptionalPeriodValidator : ActionValidator<OcpiExceptionalPeriod>
+internal partial class OcpiExceptionalPeriodValidator : OcpiValidator<OcpiExceptionalPeriod>
 {
-    public OcpiExceptionalPeriodValidator(ActionType actionType) : base(actionType)
+    public OcpiExceptionalPeriodValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
     {
         JsonRuleFor(x => x.PeriodBegin)
             .NotEmpty()
