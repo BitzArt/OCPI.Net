@@ -9,19 +9,24 @@ internal partial class OcpiLocationValidator : OcpiValidator<OcpiLocation>
     {
         Unless(ActionType.Patch, () =>
         {
-            JsonRuleFor(x => x.CountryCode).NotEmpty();
-            JsonRuleFor(x => x.PartyId).NotEmpty();
             JsonRuleFor(x => x.Id).NotEmpty();
-            JsonRuleFor(x => x.Publish).NotEmpty();
             JsonRuleFor(x => x.Address).NotEmpty();
             JsonRuleFor(x => x.City).NotEmpty();
             JsonRuleFor(x => x.Country).NotEmpty();
             JsonRuleFor(x => x.Coordinates).NotEmpty();
-            JsonRuleFor(x => x.TimeZone).NotEmpty();
+
+            WhenOcpiVersionAbove("2.2", () =>
+            {
+                JsonRuleFor(x => x.CountryCode).NotEmpty();
+                JsonRuleFor(x => x.PartyId).NotEmpty();
+                JsonRuleFor(x => x.Publish).NotEmpty();
+                JsonRuleFor(x => x.TimeZone).NotEmpty();
+            });
 
             WhenOcpiVersionBelow("2.2", () =>
             {
                 JsonRuleFor(x => x.Type).NotEmpty();
+                JsonRuleFor(x => x.PostalCode).NotEmpty();
             });
         });
 

@@ -13,8 +13,18 @@ internal class OcpiConnectorValidator : OcpiValidator<OcpiConnector>
             JsonRuleFor(x => x.Standard).NotEmpty();
             JsonRuleFor(x => x.Format).NotEmpty();
             JsonRuleFor(x => x.PowerType).NotEmpty();
-            JsonRuleFor(x => x.MaxVoltage).NotEmpty();
-            JsonRuleFor(x => x.MaxAmperage).NotEmpty();
+
+            WhenOcpiVersionAbove("2.2", () =>
+            {
+                JsonRuleFor(x => x.MaxVoltage).NotEmpty();
+                JsonRuleFor(x => x.MaxAmperage).NotEmpty();
+            });
+
+            WhenOcpiVersionBelow("2.2", () =>
+            {
+                JsonRuleFor(x => x.Voltage).NotEmpty();
+                JsonRuleFor(x => x.Amperage).NotEmpty();
+            });
         });
 
         JsonRuleFor(x => x.Id)

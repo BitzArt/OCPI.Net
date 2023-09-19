@@ -16,18 +16,6 @@ internal class OcpiEvseValidator : OcpiValidator<OcpiEvse>
             .NotEmpty();
         });
 
-        WhenOcpiVersionAbove("2.2", () =>
-        {
-            JsonRuleFor(x => x.Uid)
-            .MaximumLength(36);
-        });
-
-        WhenOcpiVersionBelow("2.2", () =>
-        {
-            JsonRuleFor(x => x.Uid)
-            .MaximumLength(39);
-        });
-
         JsonRuleFor(x => x.EvseId)
             .MaximumLength(48);
 
@@ -60,5 +48,17 @@ internal class OcpiEvseValidator : OcpiValidator<OcpiEvse>
         JsonRuleFor(x => x.LastUpdated)
             .NotEmpty()
             .ValidDateTime();
+
+        WhenOcpiVersionAbove("2.2", () =>
+        {
+            JsonRuleFor(x => x.Uid)
+            .MaximumLength(36);
+        });
+
+        WhenOcpiVersionBelow("2.2", () =>
+        {
+            JsonRuleFor(x => x.Uid)
+            .MaximumLength(39);
+        });
     }
 }
