@@ -2,10 +2,11 @@
 
 namespace OCPI;
 
+[OcpiDeprecated(after: "2.1.1")]
 public enum LocationType : byte
 {
     /// <summary>
-    /// Parking in public space.
+    ///  Parking location type is not known by the operator (default).
     /// </summary>
     [EnumMember(Value = "UNKNOWN")]
     Unknown = 0,
@@ -42,7 +43,7 @@ public enum LocationType : byte
     //======================================
 
     /// <summary>
-    /// Parking in public space.
+    /// None of the given possibilities.
     /// </summary>
     [EnumMember(Value = "OTHER")]
     Other = 255,

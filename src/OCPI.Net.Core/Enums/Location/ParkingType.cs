@@ -2,6 +2,7 @@
 
 namespace OCPI;
 
+[OcpiIntroduced("2.2")]
 public enum ParkingType : byte
 {
     /// <summary>

@@ -4,6 +4,8 @@ namespace OCPI.Contracts;
 
 public class OcpiLocation
 {
+    //==================== OCPI 2.2.1 ========================
+
     [JsonPropertyName("country_code")]
     public CountryCode? CountryCode { get; set; }
 
@@ -43,10 +45,6 @@ public class OcpiLocation
     [JsonPropertyName("related_locations")]
     public IEnumerable<OcpiAdditionalGeolocation>? RelatedLocations { get; set; }
 
-    //OCPI 2.1.1 property
-    [JsonPropertyName("type")]
-    public LocationType? Type { get; set; }
-
     [JsonPropertyName("parking_type")]
     public ParkingType? ParkingType { get; set; }
 
@@ -85,4 +83,10 @@ public class OcpiLocation
 
     [JsonPropertyName("last_updated")]
     public DateTime? LastUpdated { get; set; }
+
+    //==================== Deprecated in OCPI 2.2 ========================
+
+    [OcpiDeprecated(after: "2.1.1")]
+    [JsonPropertyName("type")]
+    public LocationType? Type { get; set; }
 }
