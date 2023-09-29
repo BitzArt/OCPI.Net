@@ -19,3 +19,5 @@
    - [Predefined OCPI exceptions and how to use them](5.error-handling.md#predefined-ocpi-exceptions-and-how-to-use-them)
    - [Returning a custom OCPI status code](5.error-handling.md#returning-a-custom-ocpi-status-code)
    - [Creating custom OCPI exceptions](5.error-handling.md#creating-custom-ocpi-exceptions)
+6. [Pagination](6.pagination.md)
+   - [Example implementation](6.pagination.md#example-implementation)
