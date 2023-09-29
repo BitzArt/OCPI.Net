@@ -8,7 +8,7 @@ Currently supported OCPI versions: `2.2.1`.
 
 Planned versions to support: `2.0`, `2.1.1`, `2.2`.
 
-See [documentation](docs/0.contents.md) for more information.
+See [documentation](docs/1.introduction.md) for more information.
 
 ## License
 
