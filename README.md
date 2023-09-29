@@ -9,9 +9,9 @@ See [documentation](docs/1.introduction.md) for more information.
 | OCPI Version | Supported |
 |--------------|-----------|
 | 2.2.1        | ✔️       |
-| 2.2.0        | Planned   |
+| 2.2          | Planned   |
 | 2.1.1        | Planned   |
-| 2.1.0        | Planned   |
+| 2.1          | Planned   |
 
 ## License
 
