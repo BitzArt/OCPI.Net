@@ -8,17 +8,7 @@ Currently supported OCPI versions: `2.2.1`
 
 Planned versions to support: `2.0`, `2.1.1`, `2.2`
 
-Package documentation is expected later.
-
-For now, you can refer to this [sample project](sample/OCPI.Net.Sample)
-
-## Installation
-
-To use in your project, add the nuget package:
-```
-dotnet add package OCPI.Net
-```
-for now, see [sample project](sample/OCPI.Net.Sample) for further guidance.
+See [documentation](docs/Contents.md) for more details.
 
 ## Main features
 
@@ -33,10 +23,11 @@ for now, see [sample project](sample/OCPI.Net.Sample) for further guidance.
   
   Explore [this sample project](sample/OCPI.Net.Sample) to see OCPI.Net in action. This project showcases how OCPI.Net integrates seamlessly within an Asp.Net Core application.
 
-- ### OCPI Errors
-  When working with OCPI, errors can arise. To assist you in managing these errors, we offer predefined OCPI Exceptions. These exceptions make it simple for you to communicate specific errors in line with the protocol. You also have the option to design custom exceptions. This allows you to address distinct scenarios or needs in your OCPI implementation.
+- ### OCPI Exceptions
+  The package contains a collection of predefined OCPI exceptions that you can use to handle errors that may arise during implementation. These exceptions are designed to provide a clear and comprehensive error message, as well as a detailed description of the error's origin.
 
-## Extra
+## License
 
-Any contributions, suggestions and feature requests are welcome.
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details
+
 
