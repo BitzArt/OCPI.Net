@@ -21,5 +21,6 @@
    - [Example implementation](6.pagination.md#example-implementation)
 7. [Versioning](7.versioning.md)
    - [How to implement OCPI Versions Module](7.versioning.md#how-to-implement-ocpi-versions-module)
+   - [Example Versions Module implementation](7.versioning.md#example-versions-module-implementation)
    - [How to support multiple OCPI versions at the same time](7.versioning.md#how-to-support-multiple-ocpi-versions-at-the-same-time)
    - [How to handle version-specific differences in OCPI modules](7.versioning.md#how-to-handle-version-specific-differences-in-ocpi-modules)
