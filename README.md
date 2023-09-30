@@ -6,15 +6,15 @@
 
 See [documentation](docs/1.introduction.md) for more information.
 
-| OCPI Version | Supported |
-|--------------|-----------|
-| 2.2.1        | ✔️       |
-| 2.2          | Planned   |
-| 2.1.1        | Planned   |
-| 2.1          | Planned   |
+| OCPI Version | Support   | Progress                                        |
+|--------------|-----------|-------------------------------------------------|
+| 2.2.1        | ✔️        |                                                 |
+| 2.2          | Planned   | (https://github.com/BitzArt/OCPI.Net/issues/15) |
+| 2.1.1        | Planned   | (https://github.com/BitzArt/OCPI.Net/issues/16) |
+| 2.1          | Planned   | (https://github.com/BitzArt/OCPI.Net/issues/17) |
 
 ## License
 
-This project is licensed under the MIT License - see [LICENSE](LICENSE) for details
+This project is licensed under the MIT License - see [LICENSE](LICENSE)
 
 
