@@ -4,753 +4,753 @@ namespace OCPI;
 
 public enum CountryCode : int
 {
-    [EnumMember(Value = "xx")]
+    [EnumMember(Value = "XX")]
     TestCountry = 1,
 
-    [EnumMember(Value = "af")]
+    [EnumMember(Value = "AF")]
     Afghanistan = 4,
 
-    [EnumMember(Value = "al")]
+    [EnumMember(Value = "AL")]
     Albania = 8,
 
-    [EnumMember(Value = "dz")]
+    [EnumMember(Value = "DZ")]
     Algeria = 12,
 
-    [EnumMember(Value = "as")]
+    [EnumMember(Value = "AS")]
     AmericanSamoa = 16,
 
-    [EnumMember(Value = "ad")]
+    [EnumMember(Value = "AD")]
     Andorra = 20,
 
-    [EnumMember(Value = "ao")]
+    [EnumMember(Value = "AO")]
     Angola = 24,
 
-    [EnumMember(Value = "ai")]
+    [EnumMember(Value = "AI")]
     Anguilla = 660,
 
-    [EnumMember(Value = "aq")]
+    [EnumMember(Value = "AQ")]
     Antarctica = 10,
 
-    [EnumMember(Value = "ag")]
+    [EnumMember(Value = "AG")]
     AntiguaAndBarbuda = 28,
 
-    [EnumMember(Value = "ar")]
+    [EnumMember(Value = "AR")]
     Argentina = 32,
 
-    [EnumMember(Value = "am")]
+    [EnumMember(Value = "AM")]
     Armenia = 51,
 
-    [EnumMember(Value = "aw")]
+    [EnumMember(Value = "AW")]
     Aruba = 533,
 
-    [EnumMember(Value = "au")]
+    [EnumMember(Value = "AU")]
     Australia = 36,
 
-    [EnumMember(Value = "at")]
+    [EnumMember(Value = "AT")]
     Austria = 40,
 
-    [EnumMember(Value = "az")]
+    [EnumMember(Value = "AZ")]
     Azerbaijan = 31,
 
-    [EnumMember(Value = "bs")]
+    [EnumMember(Value = "BS")]
     Bahamas = 44,
 
-    [EnumMember(Value = "bh")]
+    [EnumMember(Value = "BH")]
     Bahrain = 48,
 
-    [EnumMember(Value = "bd")]
+    [EnumMember(Value = "BD")]
     Bangladesh = 50,
 
-    [EnumMember(Value = "bb")]
+    [EnumMember(Value = "BB")]
     Barbados = 52,
 
-    [EnumMember(Value = "by")]
+    [EnumMember(Value = "BY")]
     Belarus = 112,
 
-    [EnumMember(Value = "be")]
+    [EnumMember(Value = "BE")]
     Belgium = 56,
 
-    [EnumMember(Value = "bz")]
+    [EnumMember(Value = "BZ")]
     Belize = 84,
 
-    [EnumMember(Value = "bj")]
+    [EnumMember(Value = "BJ")]
     Benin = 204,
 
-    [EnumMember(Value = "bm")]
+    [EnumMember(Value = "BM")]
     Bermuda = 60,
 
-    [EnumMember(Value = "bt")]
+    [EnumMember(Value = "BT")]
     Bhutan = 64,
 
-    [EnumMember(Value = "bo")]
+    [EnumMember(Value = "BO")]
     PlurinationalStateOfBolivia = 68,
 
-    [EnumMember(Value = "bq")]
+    [EnumMember(Value = "BQ")]
     BonaireSintEustatiusAndSaba = 535,
 
-    [EnumMember(Value = "ba")]
+    [EnumMember(Value = "BA")]
     BosniaAndHerzegovina = 70,
 
-    [EnumMember(Value = "bw")]
+    [EnumMember(Value = "BW")]
     Botswana = 72,
 
-    [EnumMember(Value = "bv")]
+    [EnumMember(Value = "BV")]
     BouvetIsland = 74,
 
-    [EnumMember(Value = "br")]
+    [EnumMember(Value = "BR")]
     Brazil = 76,
 
-    [EnumMember(Value = "io")]
+    [EnumMember(Value = "IO")]
     TheBritishIndianOceanTerritory = 86,
 
-    [EnumMember(Value = "bn")]
+    [EnumMember(Value = "BN")]
     BruneiDarussalam = 96,
 
-    [EnumMember(Value = "bg")]
+    [EnumMember(Value = "BG")]
     Bulgaria = 100,
 
-    [EnumMember(Value = "bf")]
+    [EnumMember(Value = "BF")]
     BurkinaFaso = 854,
 
-    [EnumMember(Value = "bi")]
+    [EnumMember(Value = "BI")]
     Burundi = 108,
 
-    [EnumMember(Value = "cv")]
+    [EnumMember(Value = "CV")]
     CaboVerde = 132,
 
-    [EnumMember(Value = "kh")]
+    [EnumMember(Value = "KH")]
     Cambodia = 116,
 
-    [EnumMember(Value = "cm")]
+    [EnumMember(Value = "CM")]
     Cameroon = 120,
 
-    [EnumMember(Value = "ca")]
+    [EnumMember(Value = "CA")]
     Canada = 124,
 
-    [EnumMember(Value = "ky")]
+    [EnumMember(Value = "KY")]
     TheCaymanIslands = 136,
 
-    [EnumMember(Value = "cf")]
+    [EnumMember(Value = "CF")]
     TheCentralAfricanRepublic = 140,
 
-    [EnumMember(Value = "td")]
+    [EnumMember(Value = "TD")]
     Chad = 148,
 
-    [EnumMember(Value = "cl")]
+    [EnumMember(Value = "CL")]
     Chile = 152,
 
-    [EnumMember(Value = "cn")]
+    [EnumMember(Value = "CN")]
     China = 156,
 
-    [EnumMember(Value = "cx")]
+    [EnumMember(Value = "CX")]
     ChristmasIsland = 162,
 
-    [EnumMember(Value = "cc")]
+    [EnumMember(Value = "CC")]
     TheCocosIslands = 166,
 
-    [EnumMember(Value = "co")]
+    [EnumMember(Value = "CO")]
     Colombia = 170,
 
-    [EnumMember(Value = "km")]
+    [EnumMember(Value = "KM")]
     Comoros = 174,
 
-    [EnumMember(Value = "cd")]
+    [EnumMember(Value = "CD")]
     DemocraticRepublicOfTheCongo = 180,
 
-    [EnumMember(Value = "cg")]
+    [EnumMember(Value = "CG")]
     Congo = 178,
 
-    [EnumMember(Value = "ck")]
+    [EnumMember(Value = "CK")]
     CookIslands = 184,
 
-    [EnumMember(Value = "cr")]
+    [EnumMember(Value = "CR")]
     CostaRica = 188,
 
-    [EnumMember(Value = "hr")]
+    [EnumMember(Value = "HR")]
     Croatia = 191,
 
-    [EnumMember(Value = "cu")]
+    [EnumMember(Value = "CU")]
     Cuba = 192,
 
-    [EnumMember(Value = "cw")]
+    [EnumMember(Value = "CW")]
     Curaçao = 531,
 
-    [EnumMember(Value = "cy")]
+    [EnumMember(Value = "CY")]
     Cyprus = 196,
 
-    [EnumMember(Value = "cz")]
+    [EnumMember(Value = "CZ")]
     CzechRepublic = 203,
 
-    [EnumMember(Value = "ci")]
+    [EnumMember(Value = "CI")]
     CoteDIvoire = 384,
 
-    [EnumMember(Value = "dk")]
+    [EnumMember(Value = "DK")]
     Denmark = 208,
 
-    [EnumMember(Value = "dj")]
+    [EnumMember(Value = "DJ")]
     Djibouti = 262,
 
-    [EnumMember(Value = "dm")]
+    [EnumMember(Value = "DM")]
     Dominica = 212,
 
-    [EnumMember(Value = "do")]
+    [EnumMember(Value = "DO")]
     TheDominicanRepublic = 214,
 
-    [EnumMember(Value = "ec")]
+    [EnumMember(Value = "EC")]
     Ecuador = 218,
 
-    [EnumMember(Value = "eg")]
+    [EnumMember(Value = "EG")]
     Egypt = 818,
 
-    [EnumMember(Value = "sv")]
+    [EnumMember(Value = "SV")]
     ElSalvador = 222,
 
-    [EnumMember(Value = "gq")]
+    [EnumMember(Value = "GQ")]
     EquatorialGuinea = 226,
 
-    [EnumMember(Value = "er")]
+    [EnumMember(Value = "ER")]
     Eritrea = 232,
 
-    [EnumMember(Value = "ee")]
+    [EnumMember(Value = "EE")]
     Estonia = 233,
 
-    [EnumMember(Value = "sz")]
+    [EnumMember(Value = "SZ")]
     Eswatini = 748,
 
-    [EnumMember(Value = "et")]
+    [EnumMember(Value = "ET")]
     Ethiopia = 231,
 
-    [EnumMember(Value = "fk")]
+    [EnumMember(Value = "FK")]
     Malvinas = 238,
 
-    [EnumMember(Value = "fo")]
+    [EnumMember(Value = "FO")]
     TheFaroeIslands = 234,
 
-    [EnumMember(Value = "fj")]
+    [EnumMember(Value = "FJ")]
     Fiji = 242,
 
-    [EnumMember(Value = "fi")]
+    [EnumMember(Value = "FI")]
     Finland = 246,
 
-    [EnumMember(Value = "fr")]
+    [EnumMember(Value = "FR")]
     France = 250,
 
-    [EnumMember(Value = "gf")]
+    [EnumMember(Value = "GF")]
     FrenchGuiana = 254,
 
-    [EnumMember(Value = "pf")]
+    [EnumMember(Value = "PF")]
     FrenchPolynesia = 258,
 
-    [EnumMember(Value = "tf")]
+    [EnumMember(Value = "TF")]
     TheFrenchSouthernTerritories = 260,
 
-    [EnumMember(Value = "ga")]
+    [EnumMember(Value = "GA")]
     Gabon = 266,
 
-    [EnumMember(Value = "gm")]
+    [EnumMember(Value = "GM")]
     TheGambia = 270,
 
-    [EnumMember(Value = "ge")]
+    [EnumMember(Value = "GE")]
     Georgia = 268,
 
-    [EnumMember(Value = "de")]
+    [EnumMember(Value = "DE")]
     Germany = 276,
 
-    [EnumMember(Value = "gh")]
+    [EnumMember(Value = "GH")]
     Ghana = 288,
 
-    [EnumMember(Value = "gi")]
+    [EnumMember(Value = "GI")]
     Gibraltar = 292,
 
-    [EnumMember(Value = "gr")]
+    [EnumMember(Value = "GR")]
     Greece = 300,
 
-    [EnumMember(Value = "gl")]
+    [EnumMember(Value = "GL")]
     Greenland = 304,
 
-    [EnumMember(Value = "gd")]
+    [EnumMember(Value = "GD")]
     Grenada = 308,
 
-    [EnumMember(Value = "gp")]
+    [EnumMember(Value = "GP")]
     Guadeloupe = 312,
 
-    [EnumMember(Value = "gu")]
+    [EnumMember(Value = "GU")]
     Guam = 316,
 
-    [EnumMember(Value = "gt")]
+    [EnumMember(Value = "GT")]
     Guatemala = 320,
 
-    [EnumMember(Value = "gg")]
+    [EnumMember(Value = "GG")]
     Guernsey = 831,
 
-    [EnumMember(Value = "gn")]
+    [EnumMember(Value = "GN")]
     Guinea = 324,
 
-    [EnumMember(Value = "gw")]
+    [EnumMember(Value = "GW")]
     GuineaBissau = 624,
 
-    [EnumMember(Value = "gy")]
+    [EnumMember(Value = "GY")]
     Guyana = 328,
 
-    [EnumMember(Value = "ht")]
+    [EnumMember(Value = "HT")]
     Haiti = 332,
 
-    [EnumMember(Value = "hm")]
+    [EnumMember(Value = "HM")]
     HeardIslandandMcDonaldIslands = 334,
 
-    [EnumMember(Value = "va")]
+    [EnumMember(Value = "VA")]
     TheHolySee = 336,
 
-    [EnumMember(Value = "hn")]
+    [EnumMember(Value = "HN")]
     Honduras = 340,
 
-    [EnumMember(Value = "hk")]
+    [EnumMember(Value = "HK")]
     HongKong = 344,
 
-    [EnumMember(Value = "hu")]
+    [EnumMember(Value = "HU")]
     Hungary = 348,
 
-    [EnumMember(Value = "is")]
+    [EnumMember(Value = "IS")]
     Iceland = 352,
 
-    [EnumMember(Value = "in")]
+    [EnumMember(Value = "IN")]
     India = 356,
 
-    [EnumMember(Value = "id")]
+    [EnumMember(Value = "ID")]
     Indonesia = 360,
 
-    [EnumMember(Value = "ir")]
+    [EnumMember(Value = "IR")]
     Iran = 364,
 
-    [EnumMember(Value = "iq")]
+    [EnumMember(Value = "IQ")]
     Iraq = 368,
 
-    [EnumMember(Value = "ie")]
+    [EnumMember(Value = "IE")]
     Ireland = 372,
 
-    [EnumMember(Value = "im")]
+    [EnumMember(Value = "IM")]
     IsleOfMan = 833,
 
-    [EnumMember(Value = "il")]
+    [EnumMember(Value = "IL")]
     Israel = 376,
 
-    [EnumMember(Value = "it")]
+    [EnumMember(Value = "IT")]
     Italy = 380,
 
-    [EnumMember(Value = "jm")]
+    [EnumMember(Value = "JM")]
     Jamaica = 388,
 
-    [EnumMember(Value = "jp")]
+    [EnumMember(Value = "JP")]
     Japan = 392,
 
-    [EnumMember(Value = "je")]
+    [EnumMember(Value = "JE")]
     Jersey = 832,
 
-    [EnumMember(Value = "jo")]
+    [EnumMember(Value = "JO")]
     Jordan = 400,
 
-    [EnumMember(Value = "kz")]
+    [EnumMember(Value = "KZ")]
     Kazakhstan = 398,
 
-    [EnumMember(Value = "ke")]
+    [EnumMember(Value = "KE")]
     Kenya = 404,
 
-    [EnumMember(Value = "ki")]
+    [EnumMember(Value = "KI")]
     Kiribati = 296,
 
-    [EnumMember(Value = "kp")]
+    [EnumMember(Value = "KP")]
     NorthKorea = 408,
 
-    [EnumMember(Value = "kr")]
+    [EnumMember(Value = "KR")]
     SouthKorea = 410,
 
-    [EnumMember(Value = "kw")]
+    [EnumMember(Value = "KW")]
     Kuwait = 414,
 
-    [EnumMember(Value = "kg")]
+    [EnumMember(Value = "KG")]
     Kyrgyzstan = 417,
 
-    [EnumMember(Value = "la")]
+    [EnumMember(Value = "LA")]
     Laos = 418,
 
-    [EnumMember(Value = "lv")]
+    [EnumMember(Value = "LV")]
     Latvia = 428,
 
-    [EnumMember(Value = "lb")]
+    [EnumMember(Value = "LB")]
     Lebanon = 422,
 
-    [EnumMember(Value = "ls")]
+    [EnumMember(Value = "LS")]
     Lesotho = 426,
 
-    [EnumMember(Value = "lr")]
+    [EnumMember(Value = "LR")]
     Liberia = 430,
 
-    [EnumMember(Value = "ly")]
+    [EnumMember(Value = "LY")]
     Libya = 434,
 
-    [EnumMember(Value = "li")]
+    [EnumMember(Value = "LI")]
     Liechtenstein = 438,
 
-    [EnumMember(Value = "lt")]
+    [EnumMember(Value = "LT")]
     Lithuania = 440,
 
-    [EnumMember(Value = "lu")]
+    [EnumMember(Value = "LU")]
     Luxembourg = 442,
 
-    [EnumMember(Value = "mo")]
+    [EnumMember(Value = "MO")]
     Macao = 446,
 
-    [EnumMember(Value = "mg")]
+    [EnumMember(Value = "MG")]
     Madagascar = 450,
 
-    [EnumMember(Value = "mw")]
+    [EnumMember(Value = "MW")]
     Malawi = 454,
 
-    [EnumMember(Value = "my")]
+    [EnumMember(Value = "MY")]
     Malaysia = 458,
 
-    [EnumMember(Value = "mv")]
+    [EnumMember(Value = "MV")]
     Maldives = 462,
 
-    [EnumMember(Value = "ml")]
+    [EnumMember(Value = "ML")]
     Mali = 466,
 
-    [EnumMember(Value = "mt")]
+    [EnumMember(Value = "MT")]
     Malta = 470,
 
-    [EnumMember(Value = "mh")]
+    [EnumMember(Value = "MH")]
     TheMarshallIslands = 584,
 
-    [EnumMember(Value = "mq")]
+    [EnumMember(Value = "MQ")]
     Martinique = 474,
 
-    [EnumMember(Value = "mr")]
+    [EnumMember(Value = "MR")]
     Mauritania = 478,
 
-    [EnumMember(Value = "mu")]
+    [EnumMember(Value = "MU")]
     Mauritius = 480,
 
-    [EnumMember(Value = "yt")]
+    [EnumMember(Value = "YT")]
     Mayotte = 175,
 
-    [EnumMember(Value = "mx")]
+    [EnumMember(Value = "MX")]
     Mexico = 484,
 
-    [EnumMember(Value = "fm")]
+    [EnumMember(Value = "FM")]
     Micronesia = 583,
 
-    [EnumMember(Value = "md")]
+    [EnumMember(Value = "MD")]
     Moldova = 498,
 
-    [EnumMember(Value = "mc")]
+    [EnumMember(Value = "MC")]
     Monaco = 492,
 
-    [EnumMember(Value = "mn")]
+    [EnumMember(Value = "MN")]
     Mongolia = 496,
 
-    [EnumMember(Value = "me")]
+    [EnumMember(Value = "ME")]
     Montenegro = 499,
 
-    [EnumMember(Value = "ms")]
+    [EnumMember(Value = "MS")]
     Montserrat = 500,
 
-    [EnumMember(Value = "ma")]
+    [EnumMember(Value = "MA")]
     Morocco = 504,
 
-    [EnumMember(Value = "mz")]
+    [EnumMember(Value = "MZ")]
     Mozambique = 508,
 
-    [EnumMember(Value = "mm")]
+    [EnumMember(Value = "MM")]
     Myanmar = 104,
 
-    [EnumMember(Value = "na")]
+    [EnumMember(Value = "NA")]
     Namibia = 516,
 
-    [EnumMember(Value = "nr")]
+    [EnumMember(Value = "NR")]
     Nauru = 520,
 
-    [EnumMember(Value = "np")]
+    [EnumMember(Value = "NP")]
     Nepal = 524,
 
-    [EnumMember(Value = "nl")]
+    [EnumMember(Value = "NL")]
     TheNetherlands = 528,
 
-    [EnumMember(Value = "nc")]
+    [EnumMember(Value = "NC")]
     NewCaledonia = 540,
 
-    [EnumMember(Value = "nz")]
+    [EnumMember(Value = "NZ")]
     NewZealand = 554,
 
-    [EnumMember(Value = "ni")]
+    [EnumMember(Value = "NI")]
     Nicaragua = 558,
 
-    [EnumMember(Value = "ne")]
+    [EnumMember(Value = "NE")]
     TheNiger = 562,
 
-    [EnumMember(Value = "ng")]
+    [EnumMember(Value = "NG")]
     Nigeria = 566,
 
-    [EnumMember(Value = "nu")]
+    [EnumMember(Value = "NU")]
     Niue = 570,
 
-    [EnumMember(Value = "nf")]
+    [EnumMember(Value = "NF")]
     NorfolkIsland = 574,
 
-    [EnumMember(Value = "mp")]
+    [EnumMember(Value = "MP")]
     TheNorthernMarianaIslands = 580,
 
-    [EnumMember(Value = "no")]
+    [EnumMember(Value = "NO")]
     Norway = 578,
 
-    [EnumMember(Value = "om")]
+    [EnumMember(Value = "OM")]
     Oman = 512,
 
-    [EnumMember(Value = "pk")]
+    [EnumMember(Value = "PK")]
     Pakistan = 586,
 
-    [EnumMember(Value = "pw")]
+    [EnumMember(Value = "PW")]
     Palau = 585,
 
-    [EnumMember(Value = "ps")]
+    [EnumMember(Value = "PS")]
     StateOfPalestine = 275,
 
-    [EnumMember(Value = "pa")]
+    [EnumMember(Value = "PA")]
     Panama = 591,
 
-    [EnumMember(Value = "pg")]
+    [EnumMember(Value = "PG")]
     PapuaNewGuinea = 598,
 
-    [EnumMember(Value = "py")]
+    [EnumMember(Value = "PY")]
     Paraguay = 600,
 
-    [EnumMember(Value = "pe")]
+    [EnumMember(Value = "PE")]
     Peru = 604,
 
-    [EnumMember(Value = "ph")]
+    [EnumMember(Value = "PH")]
     ThePhilippines = 608,
 
-    [EnumMember(Value = "pn")]
+    [EnumMember(Value = "PN")]
     Pitcairn = 612,
 
-    [EnumMember(Value = "pl")]
+    [EnumMember(Value = "PL")]
     Poland = 616,
 
-    [EnumMember(Value = "pt")]
+    [EnumMember(Value = "PT")]
     Portugal = 620,
 
-    [EnumMember(Value = "pr")]
+    [EnumMember(Value = "PR")]
     PuertoRico = 630,
 
-    [EnumMember(Value = "qa")]
+    [EnumMember(Value = "QA")]
     Qatar = 634,
 
-    [EnumMember(Value = "mk")]
+    [EnumMember(Value = "MK")]
     RepublicOfNorthMacedonia = 807,
 
-    [EnumMember(Value = "ro")]
+    [EnumMember(Value = "RO")]
     Romania = 642,
 
-    [EnumMember(Value = "ru")]
+    [EnumMember(Value = "RU")]
     TheRussianFederation = 643,
 
-    [EnumMember(Value = "rw")]
+    [EnumMember(Value = "RW")]
     Rwanda = 646,
 
-    [EnumMember(Value = "re")]
+    [EnumMember(Value = "RE")]
     Réunion = 638,
 
-    [EnumMember(Value = "bl")]
+    [EnumMember(Value = "BL")]
     SaintBarthélemy = 652,
 
-    [EnumMember(Value = "sh")]
+    [EnumMember(Value = "SH")]
     AscensionAndTristanDaCunhaSaintHelena = 654,
 
-    [EnumMember(Value = "kn")]
+    [EnumMember(Value = "KN")]
     SaintKittsAndNevis = 659,
 
-    [EnumMember(Value = "lc")]
+    [EnumMember(Value = "LC")]
     SaintLucia = 662,
 
-    [EnumMember(Value = "mf")]
+    [EnumMember(Value = "MF")]
     SaintMartinFrenchPart = 663,
 
-    [EnumMember(Value = "pm")]
+    [EnumMember(Value = "PM")]
     SaintPierreAndMiquelon = 666,
 
-    [EnumMember(Value = "vc")]
+    [EnumMember(Value = "VC")]
     SaintVincentAndTheGrenadines = 670,
 
-    [EnumMember(Value = "ws")]
+    [EnumMember(Value = "WS")]
     Samoa = 882,
 
-    [EnumMember(Value = "sm")]
+    [EnumMember(Value = "SM")]
     SanMarino = 674,
 
-    [EnumMember(Value = "st")]
+    [EnumMember(Value = "ST")]
     SaoTomeAndPrincipe = 678,
 
-    [EnumMember(Value = "sa")]
+    [EnumMember(Value = "SA")]
     SaudiArabia = 682,
 
-    [EnumMember(Value = "sn")]
+    [EnumMember(Value = "SN")]
     Senegal = 686,
 
-    [EnumMember(Value = "rs")]
+    [EnumMember(Value = "RS")]
     Serbia = 688,
 
-    [EnumMember(Value = "sc")]
+    [EnumMember(Value = "SC")]
     Seychelles = 690,
 
-    [EnumMember(Value = "sl")]
+    [EnumMember(Value = "SL")]
     SierraLeone = 694,
 
-    [EnumMember(Value = "sg")]
+    [EnumMember(Value = "SG")]
     Singapore = 702,
 
-    [EnumMember(Value = "sx")]
+    [EnumMember(Value = "SX")]
     SintMaartenDutchPart = 534,
 
-    [EnumMember(Value = "sk")]
+    [EnumMember(Value = "SK")]
     Slovakia = 703,
 
-    [EnumMember(Value = "si")]
+    [EnumMember(Value = "SI")]
     Slovenia = 705,
 
-    [EnumMember(Value = "sb")]
+    [EnumMember(Value = "SB")]
     SolomonIslands = 90,
 
-    [EnumMember(Value = "so")]
+    [EnumMember(Value = "SO")]
     Somalia = 706,
 
-    [EnumMember(Value = "za")]
+    [EnumMember(Value = "ZA")]
     SouthAfrica = 710,
 
-    [EnumMember(Value = "gs")]
+    [EnumMember(Value = "GS")]
     SouthGeorgiaAndTheSouthSandwichIslands = 239,
 
-    [EnumMember(Value = "ss")]
+    [EnumMember(Value = "SS")]
     SouthSudan = 728,
 
-    [EnumMember(Value = "es")]
+    [EnumMember(Value = "ES")]
     Spain = 724,
 
-    [EnumMember(Value = "lk")]
+    [EnumMember(Value = "LK")]
     SriLanka = 144,
 
-    [EnumMember(Value = "sd")]
+    [EnumMember(Value = "SD")]
     TheSudan = 729,
 
-    [EnumMember(Value = "sr")]
+    [EnumMember(Value = "SR")]
     Suriname = 740,
 
-    [EnumMember(Value = "sj")]
+    [EnumMember(Value = "SJ")]
     SvalbardAndJanMayen = 744,
 
-    [EnumMember(Value = "se")]
+    [EnumMember(Value = "SE")]
     Sweden = 752,
 
-    [EnumMember(Value = "ch")]
+    [EnumMember(Value = "CH")]
     Switzerland = 756,
 
-    [EnumMember(Value = "sy")]
+    [EnumMember(Value = "SY")]
     SyrianArabRepublic = 760,
 
-    [EnumMember(Value = "tw")]
+    [EnumMember(Value = "TW")]
     Taiwan = 158,
 
-    [EnumMember(Value = "tj")]
+    [EnumMember(Value = "TJ")]
     Tajikistan = 762,
 
-    [EnumMember(Value = "tz")]
+    [EnumMember(Value = "TZ")]
     UnitedRepublicOfTanzania = 834,
 
-    [EnumMember(Value = "th")]
+    [EnumMember(Value = "TH")]
     Thailand = 764,
 
-    [EnumMember(Value = "tl")]
+    [EnumMember(Value = "TL")]
     TimorLeste = 626,
 
-    [EnumMember(Value = "tg")]
+    [EnumMember(Value = "TG")]
     Togo = 768,
 
-    [EnumMember(Value = "tk")]
+    [EnumMember(Value = "TK")]
     Tokelau = 772,
 
-    [EnumMember(Value = "to")]
+    [EnumMember(Value = "TO")]
     Tonga = 776,
 
-    [EnumMember(Value = "tt")]
+    [EnumMember(Value = "TT")]
     TrinidadAndTobago = 780,
 
-    [EnumMember(Value = "tn")]
+    [EnumMember(Value = "TN")]
     Tunisia = 788,
 
-    [EnumMember(Value = "tr")]
+    [EnumMember(Value = "TR")]
     Turkey = 792,
 
-    [EnumMember(Value = "tm")]
+    [EnumMember(Value = "TM")]
     Turkmenistan = 795,
 
-    [EnumMember(Value = "tc")]
+    [EnumMember(Value = "TC")]
     TheTurksAndCaicosIslands = 796,
 
-    [EnumMember(Value = "tv")]
+    [EnumMember(Value = "TV")]
     Tuvalu = 798,
 
-    [EnumMember(Value = "ug")]
+    [EnumMember(Value = "UG")]
     Uganda = 800,
 
-    [EnumMember(Value = "ua")]
+    [EnumMember(Value = "UA")]
     Ukraine = 804,
 
-    [EnumMember(Value = "ae")]
+    [EnumMember(Value = "AE")]
     TheUnitedArabEmirates = 784,
 
-    [EnumMember(Value = "gb")]
+    [EnumMember(Value = "GB")]
     TheUnitedKingdomOfGreatBritainAndNorthernIreland = 826,
 
-    [EnumMember(Value = "um")]
+    [EnumMember(Value = "UM")]
     TheUnitedStatesMinorOutlyingIslands = 581,
 
-    [EnumMember(Value = "us")]
+    [EnumMember(Value = "US")]
     TheUnitedStatesOfAmerica = 840,
 
-    [EnumMember(Value = "uy")]
+    [EnumMember(Value = "UY")]
     Uruguay = 858,
 
-    [EnumMember(Value = "uz")]
+    [EnumMember(Value = "UZ")]
     Uzbekistan = 860,
 
-    [EnumMember(Value = "vu")]
+    [EnumMember(Value = "VU")]
     Vanuatu = 548,
 
-    [EnumMember(Value = "ve")]
+    [EnumMember(Value = "VE")]
     Venezuela = 862,
 
-    [EnumMember(Value = "vn")]
+    [EnumMember(Value = "VN")]
     VietNam = 704,
 
-    [EnumMember(Value = "vg")]
+    [EnumMember(Value = "VG")]
     VirginIslandsBritish = 92,
 
-    [EnumMember(Value = "vi")]
+    [EnumMember(Value = "VI")]
     VirginIslandsUS = 850,
 
-    [EnumMember(Value = "wf")]
+    [EnumMember(Value = "WF")]
     WallisAndFutuna = 876,
 
-    [EnumMember(Value = "eh")]
+    [EnumMember(Value = "EH")]
     WesternSahara = 732,
 
-    [EnumMember(Value = "ye")]
+    [EnumMember(Value = "YE")]
     Yemen = 887,
 
-    [EnumMember(Value = "zm")]
+    [EnumMember(Value = "ZM")]
     Zambia = 894,
 
-    [EnumMember(Value = "zw")]
+    [EnumMember(Value = "ZW")]
     Zimbabwe = 716,
 
-    [EnumMember(Value = "ax")]
+    [EnumMember(Value = "AX")]
     ÅlandIslands = 248,
 }
