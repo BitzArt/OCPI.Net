@@ -13,8 +13,8 @@ See [documentation](docs/1.introduction.md) for more information.
 | 2.1.1        | Planned   | (https://github.com/BitzArt/OCPI.Net/issues/16) |
 | 2.1          | Planned   | (https://github.com/BitzArt/OCPI.Net/issues/17) |
 
-## License
+---
 
-This project is licensed under the MIT License - see [LICENSE](LICENSE)
+[LICENSE](LICENSE)
 
 
