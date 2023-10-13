@@ -1,5 +1,3 @@
-# OCPI.Net Documentation
-
 1. [Introduction](1.introduction.md)
    - [Overview of the OCPI.Net package](1.introduction.md#overview-of-the-ocpinet-package)
    - [Benefits of using OCPI.Net](1.introduction.md#benefits-of-using-ocpinet)
