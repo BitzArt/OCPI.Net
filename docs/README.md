@@ -1,4 +1,4 @@
-# OCPI.Net Documentation
+## Table of contents
 
 1. [Introduction](1.introduction.md)
    - [Overview of the OCPI.Net package](1.introduction.md#overview-of-the-ocpinet-package)
