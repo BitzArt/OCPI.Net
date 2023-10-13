@@ -15,8 +15,8 @@
 
 [![documentation](https://img.shields.io/badge/OCPI.Net_documentation-%230072C6?style=for-the-badge)](https://bitzart.github.io/OCPI.Net/1.introduction.html)
 
----
+## License
 
-[LICENSE](LICENSE)
+[![License](https://img.shields.io/badge/mit-%230072C6?style=for-the-badge)](https://github.com/BitzArt/OCPI.Net/blob/main/LICENSE)
 
 
