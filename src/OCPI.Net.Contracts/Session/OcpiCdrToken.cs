@@ -4,9 +4,11 @@ namespace OCPI.Contracts;
 
 public class OcpiCdrToken
 {
+    [OcpiIntroduced("2.2.1")]
     [JsonPropertyName("country_code")]
     public CountryCode? CountryCode { get; set; }
 
+    [OcpiIntroduced("2.2.1")]
     [JsonPropertyName("party_id")]
     public string? PartyId { get; set; }
 

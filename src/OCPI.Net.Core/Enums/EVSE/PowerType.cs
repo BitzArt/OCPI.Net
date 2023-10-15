@@ -14,9 +14,11 @@ public enum PowerType : byte
 
     //======================================
 
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "AC_2_PHASE")]
     Ac2Phase = 31,
 
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "AC_2_PHASE_SPLIT")]
     Ac2PhaseSplit = 32,
 
