@@ -60,6 +60,7 @@ public class OcpiStartSessionCommand
     /// is set on the
     /// <see cref="OcpiEvse">EVSE</see>.
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [JsonPropertyName("connector_id")]
     public string? ConnectorId { get; set; }
 

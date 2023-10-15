@@ -19,6 +19,7 @@ public class OcpiCdrLocation
     [JsonPropertyName("postal_code")]
     public string? PostalCode { get; set; }
 
+    [OcpiIntroduced("2.2.1")]
     [JsonPropertyName("state")]
     public string? State { get; set; }
 

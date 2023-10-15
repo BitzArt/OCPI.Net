@@ -14,6 +14,7 @@ public enum ConnectorType : byte
     /// The ChaoJi connector.
     /// The new generation charging connector, harmonized between CHAdeMO and GB/T. DC.
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "CHAOJI")]
     CHAOJI = 12,
 
@@ -186,30 +187,35 @@ public enum ConnectorType : byte
     /// <summary>
     /// Standard/Domestic household, type "M", BS 546, 3 pins
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "Domestic_M")]
     Domestic_M = 113,
 
     /// <summary>
     /// Standard/Domestic household, type "N", NBR 14136, 3 pins
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "Domestic_N")]
     Domestic_N = 114,
 
     /// <summary>
     /// Standard/Domestic household, type "O", TIS 166-2549, 3 pins
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "Domestic_O")]
     Domestic_O = 115,
 
     /// <summary>
     /// Guobiao GB/T 20234.2 AC socket/connector
     /// </summary>IEC_62196_T2
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "GBT_AC")]
     GBT_AC = 117,
 
     /// <summary>
     /// Guobiao GB/T 20234.3 DC connector
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "GBT_DC")]
     GBT_DC = 118,
 
@@ -218,42 +224,49 @@ public enum ConnectorType : byte
     /// <summary>
     /// NEMA 5-20, 3 pins
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "NEMA_5_20")]
     NEMA_5_20 = 131,
 
     /// <summary>
     /// NEMA 6-30, 3 pins
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "NEMA_6_30")]
     NEMA_6_30 = 132,
 
     /// <summary>
     /// NEMA 6-50, 3 pins
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "NEMA_6_50")]
     NEMA_6_50 = 133,
 
     /// <summary>
     /// NEMA 10-30, 3 pins
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "NEMA_10_30")]
     NEMA_10_30 = 134,
 
     // <summary>
     /// NEMA 10-50, 3 pins
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "NEMA_10_50")]
     NEMA_10_50 = 135,
 
     // <summary>
     /// NEMA 14-30, 3 pins, rating of 30 A
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "NEMA_14_30")]
     NEMA_14_30 = 136,
 
     // <summary>
     /// NEMA 14-50, 3 pins, rating of 50 A
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "NEMA_14_50")]
     NEMA_14_50 = 137
 }

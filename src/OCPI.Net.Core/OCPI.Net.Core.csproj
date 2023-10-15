@@ -23,4 +23,11 @@
 		<PackageReference Include="BitzArt.EnumToMemberValue" Version="1.0.0" />
 		<PackageReference Include="BitzArt.Pagination" Version="1.13.0" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>OCPI.Net.Contracts</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+	
 </Project>

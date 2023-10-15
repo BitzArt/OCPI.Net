@@ -6,7 +6,7 @@ namespace OCPI;
 /// Marks the OCPI protocol elements that were deprecated in one of the previous OCPI versions.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Interface | AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Event | AttributeTargets.Delegate, Inherited = false)]
-public class OcpiDeprecatedAttribute : Attribute
+internal class OcpiDeprecatedAttribute : Attribute
 {
     private readonly OcpiVersion _lastVersion;
 

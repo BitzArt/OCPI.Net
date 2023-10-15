@@ -87,6 +87,7 @@ public enum OcpiStatusCode : int
     /// <summary>
     /// Generic Hub error
     /// </summary>
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "Hub error")]
     HubError = 4000,
 

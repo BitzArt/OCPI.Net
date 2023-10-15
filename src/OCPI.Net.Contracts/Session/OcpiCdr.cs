@@ -88,6 +88,7 @@ public class OcpiCdr
     [JsonPropertyName("credit_reference_id")]
     public string? CreditReferenceId { get; set; }
 
+    [OcpiIntroduced("2.2.1")]
     [JsonPropertyName("home_charging_compensation")]
     public bool? HomeChargingCompensation { get; set; }
 

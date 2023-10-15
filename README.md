@@ -7,7 +7,7 @@
 | OCPI Version | Support   | Progress                                        |
 |--------------|-----------|-------------------------------------------------|
 | 2.2.1        | ✔️        |                                                 |
-| 2.2          | Planned   | (https://github.com/BitzArt/OCPI.Net/issues/15) |
+| 2.2          | Partial   | (https://github.com/BitzArt/OCPI.Net/issues/15) |
 | 2.1.1        | Planned   | (https://github.com/BitzArt/OCPI.Net/issues/16) |
 | 2.1          | Planned   | (https://github.com/BitzArt/OCPI.Net/issues/17) |
 

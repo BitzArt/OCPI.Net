@@ -46,6 +46,7 @@ public enum EvseCapabilityType : byte
 
     //======================================
 
+    [OcpiIntroduced("2.2.1")]
     [EnumMember(Value = "START_SESSION_CONNECTOR_REQUIRED")]
     StartSessionConnectorRequired = 41
 }
