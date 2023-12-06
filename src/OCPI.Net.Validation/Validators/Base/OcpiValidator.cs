@@ -17,7 +17,7 @@ internal abstract class OcpiValidator<T> : ActionValidator<T>
 
     public IConditionBuilder WhenOcpiVersionAbove(OcpiVersion version, Action action)
     {
-        return When((T x) => version > OcpiVersion, action);
+        return When((T x) => OcpiVersion > version, action);
     }
 
     public IConditionBuilder WhenOcpiVersionBelow(string version, Action action)
@@ -25,6 +25,6 @@ internal abstract class OcpiValidator<T> : ActionValidator<T>
 
     public IConditionBuilder WhenOcpiVersionBelow(OcpiVersion version, Action action)
     {
-        return When((T x) => version < OcpiVersion, action);
+        return When((T x) => OcpiVersion < version, action);
     }
 }
