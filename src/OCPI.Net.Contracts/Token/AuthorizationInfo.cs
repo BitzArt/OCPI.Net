@@ -37,5 +37,4 @@ public class AuthorizationInfo
     /// </summary>
     [JsonPropertyName("info")]
     public OcpiDisplayText? Info { get; set; }
-
 }

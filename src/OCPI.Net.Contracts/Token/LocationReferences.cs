@@ -25,5 +25,5 @@ public class LocationReferences
     [OcpiDeprecated(after: "2.1.1")]
     [JsonPropertyName("connector_ids")]
     public string? ConnectorIds { get; set; }
-
 }
+

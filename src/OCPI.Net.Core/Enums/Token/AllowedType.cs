@@ -36,6 +36,5 @@ public enum AllowedType : byte
     /// </summary>
     [EnumMember(Value = "NOT_ALLOWED")]
     NotAllowed = 24
-
-
 }
+
