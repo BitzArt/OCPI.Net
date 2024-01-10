@@ -12,7 +12,7 @@
 | 2.1.1        | Planned   | (https://github.com/BitzArt/OCPI.Net/issues/16) |
 | 2.1          | Planned   | (https://github.com/BitzArt/OCPI.Net/issues/17) |
 
-[![documentation](https://img.shields.io/badge/documentation-%230072C6?style=for-the-badge)](https://bitzart.github.io/OCPI.Net/1.introduction.html)
+[![documentation](https://img.shields.io/badge/documentation-512BD4?style=for-the-badge)](https://bitzart.github.io/OCPI.Net/1.introduction.html)
 
 ## License
 
