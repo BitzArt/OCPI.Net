@@ -2,10 +2,8 @@
 
 namespace OCPI;
 
-public enum OcpiVersion : ushort
+public enum OcpiVersion : byte
 {
-    Invalid = 0,
-
     [EnumMember(Value = "2.0")]
     v2_0 = 200,
 
