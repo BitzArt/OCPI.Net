@@ -5,7 +5,7 @@ namespace OCPI;
 
 internal static class GetCurrentOcpiVersionExtension
 {
-    public static OcpiVersion GetCurrentOcpiVersion(this HttpRequest request)
+    public static OcpiVersion? GetCurrentOcpiVersion(this HttpRequest request)
     {
         var path = request.Path.Value!.TrimStart('/');
         var versionLength = path.IndexOf('/');
@@ -13,7 +13,16 @@ internal static class GetCurrentOcpiVersionExtension
 
         var versionString = path[..versionLength];
 
-        var result = versionString.ToEnum<OcpiVersion>();
+        OcpiVersion? result = null;
+
+        try
+        {
+            result = versionString.ToEnum<OcpiVersion>();
+        }
+        catch (Exception)
+        {
+        }
+
         return result;
     }
 }
