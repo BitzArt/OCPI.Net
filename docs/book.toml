@@ -1,2 +1,6 @@
 [book]
 title = "OCPI.Net"
+
+[output.html]
+git-repository-url = "https://github.com/BitzArt/OCPI.Net"
+git-repository-icon = "fa-github"
