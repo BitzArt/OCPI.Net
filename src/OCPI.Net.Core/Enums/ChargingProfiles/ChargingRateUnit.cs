@@ -24,5 +24,4 @@ public enum ChargingRateUnit : byte
     /// </summary>
     [EnumMember(Value = "A")]
     Amperes = 12,
-
 }
