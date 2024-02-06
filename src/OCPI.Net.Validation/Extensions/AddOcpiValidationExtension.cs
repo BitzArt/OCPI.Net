@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using OCPI.Contracts;
+using OCPI.Validation;
 
 namespace OCPI;
 
@@ -15,6 +16,14 @@ public static class AddOcpiValidationExtension
     {
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddTransient(x => x.GetRequiredService<IHttpContextAccessor>()!.HttpContext!);
+
+        builder.Services.AddScoped(x =>
+        {
+            var httpContext = x.GetRequiredService<HttpContext>();
+            var request = httpContext.Request;
+
+            return new OcpiValidationContext(request);
+        });
 
         var validatorTypes = typeof(IOcpiValidatorsAssemblyPointer)
             .Assembly.DefinedTypes
@@ -28,12 +37,8 @@ public static class AddOcpiValidationExtension
             var resultingType = typeof(OcpiValidator<>).MakeGenericType(modelType);
             builder.Services.AddScoped(resultingType, x =>
             {
-                var httpContext = x.GetRequiredService<HttpContext>();
-                var request = httpContext.Request;
-
-                var ocpiVersion = request.GetCurrentOcpiVersion();
-                var actionType = request.Method.ToActionType();
-                var instance = Activator.CreateInstance(type, actionType, ocpiVersion);
+                var validationContext = x.GetRequiredService<OcpiValidationContext>();
+                var instance = Activator.CreateInstance(type, validationContext.ActionType, validationContext.OcpiVersion);
                 return instance!;
             });
         }

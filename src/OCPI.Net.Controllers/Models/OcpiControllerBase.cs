@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using OCPI.Contracts;
 using OCPI.Services;
+using OCPI.Validation;
 
 namespace OCPI;
 
@@ -22,6 +23,26 @@ public abstract class OcpiControllerBase : ControllerBase
         }
 
         return base.Ok(new OcpiResponse(value));
+    }
+
+    [NonAction]
+    public void OcpiValidate<T>(T value, OcpiVersion forOcpiVersion)
+    {
+        if (value is null) return;
+
+        var validationContext = GetRequiredService<OcpiValidationContext>();
+        validationContext.OcpiVersion = forOcpiVersion;
+
+        var validator = GetRequiredService<OcpiValidator<T>>();
+        var validationResult = validator.Validate(value);
+
+        if (!validationResult.IsValid)
+        {
+            var exception = OcpiException.InvalidParameters();
+            var errors = validationResult.Errors.Select(x => x.ErrorMessage);
+            exception.Payload.AddData(new { errors });
+            throw exception;
+        }
     }
 
     [NonAction]

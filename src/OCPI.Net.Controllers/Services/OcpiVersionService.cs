@@ -1,5 +1,6 @@
 ﻿using BitzArt.EnumToMemberValue;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using OCPI.Contracts;
 
 namespace OCPI.Versioning.Services;
@@ -7,14 +8,18 @@ namespace OCPI.Versioning.Services;
 internal class OcpiVersionService : IOcpiVersionService
 {
     private readonly OcpiOptions _options;
+    private readonly ILogger<OcpiVersionService> _logger;
 
     private readonly ICollection<OcpiEndpointRouteMap> _routeMaps;
 
     private readonly IDictionary<OcpiVersion, ICollection<OcpiEndpointRouteMap>> _versionRouteMaps;
 
-    public OcpiVersionService(OcpiOptions options)
+    public OcpiVersionService(OcpiOptions options, ILogger<OcpiVersionService> logger)
     {
         _options = options;
+        _logger = logger;
+
+        _logger.LogInformation("Initializing OcpiVersionService");
 
         _routeMaps = new HashSet<OcpiEndpointRouteMap>();
         _versionRouteMaps = new Dictionary<OcpiVersion, ICollection<OcpiEndpointRouteMap>>();
@@ -24,9 +29,14 @@ internal class OcpiVersionService : IOcpiVersionService
             .GetAssemblies()
             .SelectMany(x => x.DefinedTypes)
             .Where(x => !x.IsAbstract)
-            .Where(x => typeof(OcpiController).IsAssignableFrom(x));
+            .Where(x => typeof(OcpiController).IsAssignableFrom(x))
+            .ToList();
+
+        _logger.LogInformation("{count} OCPI Controllers found", controllerTypes.Count);
 
         foreach (var type in controllerTypes) ParseEndpoint(type);
+
+        _logger.LogInformation("OCPI Controllers parsed successfully");
     }
 
     public IEnumerable<OcpiEndpointRouteMap> GetRoutes() => _routeMaps;
@@ -60,10 +70,15 @@ internal class OcpiVersionService : IOcpiVersionService
 
     public OcpiVersionDetails GetVersionDetails(string request)
     {
-        var version = request.ToEnum<OcpiVersion>(OcpiVersion.Invalid);
-        if (version == OcpiVersion.Invalid) throw OcpiException.ClientError($"Invalid OCPI Version: '{request}'.");
-
-        return GetVersionDetails(version);
+        try
+        {
+            var version = request.ToEnum<OcpiVersion>();
+            return GetVersionDetails(version);
+        }
+        catch (Exception ex)
+        {
+            throw OcpiException.ClientError($"Invalid OCPI Version: '{request}'.", ex);
+        }
     }
 
     public OcpiVersionDetails GetVersionDetails(OcpiVersion request)
@@ -118,12 +133,13 @@ internal class OcpiVersionService : IOcpiVersionService
         var endpoint = GetAttribute<OcpiEndpointAttribute>(type);
         if (endpoint is null) return;
 
-        var routes = GetAttributes<RouteAttribute>(type).Select(x => x.Template);
+        _logger.LogDebug("Parsing OCPI endpoints for Controller {ControllerName}...", type.Name);
+
+        var routes = GetAttributes<RouteAttribute>(type).Select(x => x.Template).ToList();
 
         foreach (var version in endpoint.Versions)
         {
-            var route = routes.FirstOrDefault(x => x.StartsWith(version.ToMemberValue()));
-            if (route is null) throw new Exception($"Appropriate route not found for Controller {type.Name} and OCPI Version {version.ToMemberValue()}");
+            var route = FindRouteForVersion(version, endpoint.Versions, routes, type.Name);
 
             foreach (var role in endpoint.Roles)
             {
@@ -138,6 +154,61 @@ internal class OcpiVersionService : IOcpiVersionService
                 _routeMaps.Add(map);
                 AddToVersionMap(version, map);
             }
+        }
+    }
+
+    private string FindRouteForVersion(OcpiVersion version, IEnumerable<OcpiVersion> allVersions, IEnumerable<string> routes, string controllerName)
+    {
+        var target = version.ToMemberValue();
+
+        _logger.LogDebug("Attempting to find a matching route for OCPI Version {version}", target);
+
+        var otherVersions = allVersions
+            .Except(new[] { version })
+            .Select(x => x.ToMemberValue())
+            .ToList();
+
+        var badMatches = new List<string>();
+
+        foreach (var route in routes)
+        {
+            if (!route.Contains(target)) continue;
+
+            _logger.LogDebug("Route '{route}' matched with OCPI Version {target}", route, target);
+
+            var otherMatches = otherVersions.Where(route.Contains).ToList();
+            if (otherMatches.Any())
+            {
+                _logger.LogDebug("Route '{route}' also matched with other OCPI Versions this endpoint implements.", route);
+                
+                if (otherMatches.All(target.Contains))
+                {
+                    _logger.LogDebug("Version conflict successfully resolved, using route '{route}'", route);
+                    return route;
+                }
+                
+                _logger.LogDebug("Version conflict could not be resolved, keeping '{route}' as bad match for version '{version}'", route, target);
+                badMatches.Add(route);
+                continue;
+            }
+
+            _logger.LogDebug("A good match was found!");
+
+            return route;
+        }
+
+        if (!badMatches.Any()) throw new RouteNotFoundForOcpiVersionException($"No matching route was found for Controller {controllerName} and OCPI Version {version.ToMemberValue()}");
+
+        _logger.LogWarning("No good matches were found for Endpoint {endpoint} and OcpiVersion {target}, using a bad match.", controllerName, target);
+        return badMatches.First();
+    }
+
+    internal class RouteNotFoundForOcpiVersionException : Exception
+    {
+        public RouteNotFoundForOcpiVersionException(string controllerName, string version) : base($"Unable to find a matching route for Controller {controllerName} and OCPI Version {version}") { }
+
+        public RouteNotFoundForOcpiVersionException(string message) : base(message)
+        {
         }
     }
 

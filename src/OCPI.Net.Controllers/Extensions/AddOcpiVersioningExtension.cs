@@ -10,6 +10,7 @@ public static class AddOcpiVersioningExtension
     {
         builder.AddOcpiOptions();
 
+        builder.Services.AddLogging();
         builder.Services.AddSingleton<IOcpiVersionService, OcpiVersionService>();
 
         return builder;
