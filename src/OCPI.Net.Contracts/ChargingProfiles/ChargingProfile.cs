@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text;
+using System.Text.Json.Serialization;
 using OCPI.Enums.SmartCharging;
 
 namespace OCPI.Contracts.ChargingProfiles;
@@ -44,4 +45,23 @@ public class ChargingProfile
     /// </summary>
     [JsonPropertyName("charging_profile_period")]
     public IEnumerable<ChargingProfilePeriod>? ChargingProfilePeriod { get; set; }
+
+    public override string ToString()
+    {
+        var toStringBuilder = new StringBuilder();
+        toStringBuilder.Append($"Start date time: {StartDateTime}, ");
+        toStringBuilder.AppendLine($"Duration: {Duration},");
+        toStringBuilder.Append($"Charging rate unit: {ChargingRateUnit}, ");
+        toStringBuilder.AppendLine($"Minimum charging rate: {MinChargingRate},");
+
+        if (ChargingProfilePeriod == null) 
+            return toStringBuilder.ToString();
+
+        var periodNum = 1;
+        toStringBuilder.AppendLine("ChargingProfilePeriods:");
+        foreach (var period in ChargingProfilePeriod)
+            toStringBuilder.Append($"Period #{periodNum++} - {period}, ");
+        
+        return toStringBuilder.ToString();
+    }
 }

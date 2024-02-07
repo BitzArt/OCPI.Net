@@ -17,4 +17,6 @@ public class ChargingProfilePeriod
     /// </summary>
     [JsonPropertyName("limit")]
     public required decimal Limit { get; set; }
+
+    public override string ToString() => $"Start Period: {StartPeriod}, Limit: {Limit}";
 }
