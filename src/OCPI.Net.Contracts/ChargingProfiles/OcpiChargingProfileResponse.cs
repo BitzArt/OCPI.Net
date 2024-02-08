@@ -2,7 +2,7 @@
 using OCPI.Enums.SmartCharging;
 
 namespace OCPI.Contracts.ChargingProfiles;
-public class ChargingProfileResponse
+public class OcpiChargingProfileResponse
 {
     /// <summary>
     /// Response from the CPO on the ChargingProfile request.

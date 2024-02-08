@@ -2,7 +2,7 @@
 
 namespace OCPI.Contracts.ChargingProfiles;
 
-public class ChargingProfilePeriod
+public class OcpiChargingProfilePeriod
 {
     /// <summary>
     /// Start of the period, in seconds from the start of profile. The value of StartPeriod

@@ -2,7 +2,7 @@
 
 namespace OCPI.Contracts;
 
-public class AuthorizationInfo
+public class OcpiAuthorizationInfo
 {
     /// <summary>
     /// Status of the Token, and whether charging is allowed at the optionally
@@ -23,7 +23,7 @@ public class AuthorizationInfo
     /// EV driver is allowed to charge at are returned.
     /// </summary>
     [JsonPropertyName("location")]
-    public LocationReferences? LocationReferences { get; set; }
+    public OcpiLocationReferences? LocationReferences { get; set; }
 
     /// <summary>
     /// Reference to the authorization given by the eMSP, when given, this

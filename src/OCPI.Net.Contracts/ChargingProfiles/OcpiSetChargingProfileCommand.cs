@@ -7,7 +7,7 @@ public class OcpiSetChargingProfileCommand
     /// Contains limits for the available power or current over time.
     /// </summary>
     [JsonPropertyName("charging_profile")]
-    public required ChargingProfile ChargingProfile { get; set; } = null!;
+    public required OcpiChargingProfile ChargingProfile { get; set; } = null!;
 
     /// <summary>
     /// URL that the ChargingProfileResult POST should be send to. This

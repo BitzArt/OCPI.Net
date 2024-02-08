@@ -5,7 +5,7 @@ using OCPI.Enums.SmartCharging;
 
 namespace OCPI.Contracts.ChargingProfiles;
 
-public class ChargingProfile
+public class OcpiChargingProfile
 {
     /// <summary>
     /// Starting point of an absolute profile. If absent the profile
@@ -45,7 +45,7 @@ public class ChargingProfile
     /// maximum power or current usage over time.
     /// </summary>
     [JsonPropertyName("charging_profile_period")]
-    public IEnumerable<ChargingProfilePeriod>? ChargingProfilePeriod { get; set; }
+    public IEnumerable<OcpiChargingProfilePeriod>? ChargingProfilePeriod { get; set; }
 
     public override string ToString()
     {
@@ -63,7 +63,7 @@ public class ChargingProfile
         var toStringBuilder = new StringBuilder();
         toStringBuilder.AppendLine("ChargingProfilePeriods:");
 
-        var periodsToIterate = ChargingProfilePeriod ?? ImmutableList<ChargingProfilePeriod>.Empty;
+        var periodsToIterate = ChargingProfilePeriod ?? ImmutableList<OcpiChargingProfilePeriod>.Empty;
         var periodNum = 1;
         foreach (var period in periodsToIterate) 
             toStringBuilder.Append($"Period #{periodNum++}: {period}; ");
