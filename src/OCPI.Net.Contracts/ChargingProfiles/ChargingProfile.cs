@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Immutable;
+using System.Text;
 using System.Text.Json.Serialization;
 using OCPI.Enums.SmartCharging;
 
@@ -53,15 +54,20 @@ public class ChargingProfile
         toStringBuilder.AppendLine($"Duration: {Duration},");
         toStringBuilder.Append($"Charging rate unit: {ChargingRateUnit}, ");
         toStringBuilder.AppendLine($"Minimum charging rate: {MinChargingRate},");
+        var chargingProfilePeriodToString = ChargingProfilePeriodToString();
+        return toStringBuilder.Append(chargingProfilePeriodToString).ToString();
+    }
 
-        if (ChargingProfilePeriod == null) 
-            return toStringBuilder.ToString();
-
-        var periodNum = 1;
+    private string ChargingProfilePeriodToString()
+    {
+        var toStringBuilder = new StringBuilder();
         toStringBuilder.AppendLine("ChargingProfilePeriods:");
-        foreach (var period in ChargingProfilePeriod)
-            toStringBuilder.Append($"Period #{periodNum++} - {period}, ");
-        
+
+        var periodsToIterate = ChargingProfilePeriod ?? ImmutableList<ChargingProfilePeriod>.Empty;
+        var periodNum = 1;
+        foreach (var period in periodsToIterate) 
+            toStringBuilder.Append($"Period #{periodNum++}: {period}; ");
+
         return toStringBuilder.ToString();
     }
 }
