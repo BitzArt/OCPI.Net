@@ -54,11 +54,11 @@ public class ChargingProfile
         toStringBuilder.AppendLine($"Duration: {Duration},");
         toStringBuilder.Append($"Charging rate unit: {ChargingRateUnit}, ");
         toStringBuilder.AppendLine($"Minimum charging rate: {MinChargingRate},");
-        var chargingProfilePeriodToString = ChargingProfilePeriodToString();
+        var chargingProfilePeriodToString = ChargingProfilePeriodsToString();
         return toStringBuilder.Append(chargingProfilePeriodToString).ToString();
     }
 
-    private string ChargingProfilePeriodToString()
+    private string ChargingProfilePeriodsToString()
     {
         var toStringBuilder = new StringBuilder();
         toStringBuilder.AppendLine("ChargingProfilePeriods:");
