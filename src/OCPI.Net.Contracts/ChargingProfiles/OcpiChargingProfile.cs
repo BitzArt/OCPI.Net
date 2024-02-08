@@ -45,27 +45,33 @@ public class OcpiChargingProfile
     /// maximum power or current usage over time.
     /// </summary>
     [JsonPropertyName("charging_profile_period")]
-    public IEnumerable<OcpiChargingProfilePeriod>? ChargingProfilePeriod { get; set; }
+    public IEnumerable<OcpiChargingProfilePeriod>? ChargingProfilePeriods { get; set; }
 
     public override string ToString()
     {
         var toStringBuilder = new StringBuilder();
+
         toStringBuilder.Append($"Start date time: {StartDateTime}, ");
         toStringBuilder.AppendLine($"Duration: {Duration},");
         toStringBuilder.Append($"Charging rate unit: {ChargingRateUnit}, ");
         toStringBuilder.AppendLine($"Minimum charging rate: {MinChargingRate},");
+
         var chargingProfilePeriodToString = ChargingProfilePeriodsToString();
-        return toStringBuilder.Append(chargingProfilePeriodToString).ToString();
+        toStringBuilder.Append(chargingProfilePeriodToString);
+        
+        return toStringBuilder.ToString();
     }
 
     private string ChargingProfilePeriodsToString()
     {
+        if (ChargingProfilePeriods is null || !ChargingProfilePeriods.Any()) 
+            return string.Empty;
+
         var toStringBuilder = new StringBuilder();
         toStringBuilder.AppendLine("ChargingProfilePeriods:");
 
-        var periodsToIterate = ChargingProfilePeriod ?? ImmutableList<OcpiChargingProfilePeriod>.Empty;
         var periodNum = 1;
-        foreach (var period in periodsToIterate) 
+        foreach (var period in ChargingProfilePeriods) 
             toStringBuilder.Append($"Period #{periodNum++}: {period}; ");
 
         return toStringBuilder.ToString();

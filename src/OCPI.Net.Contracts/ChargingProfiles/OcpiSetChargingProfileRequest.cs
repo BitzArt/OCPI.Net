@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 
 namespace OCPI.Contracts.ChargingProfiles;
-public class OcpiSetChargingProfileCommand
+public class OcpiSetChargingProfileRequest
 {
     /// <summary>
     /// Contains limits for the available power or current over time.
