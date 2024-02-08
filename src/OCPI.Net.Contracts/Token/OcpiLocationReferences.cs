@@ -2,7 +2,7 @@
 
 namespace OCPI.Contracts;
 
-public class LocationReferences
+public class OcpiLocationReferences
 {
     /// <summary>
     /// Unique identifier for the location.
