@@ -1,5 +1,4 @@
-﻿using System.Collections.Immutable;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json.Serialization;
 using OCPI.Enums.SmartCharging;
 
@@ -27,7 +26,7 @@ public class OcpiChargingProfile
     /// The unit of measure.
     /// </summary>
     [JsonPropertyName("charging_rate_unit")]
-    public required ChargingRateUnit ChargingRateUnit { get; set; }
+    public ChargingRateUnit? ChargingRateUnit { get; set; }
 
     /// <summary>
     /// Minimum charging rate supported by the EV. The unit

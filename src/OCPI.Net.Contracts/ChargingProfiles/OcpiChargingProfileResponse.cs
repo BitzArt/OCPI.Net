@@ -8,11 +8,11 @@ public class OcpiChargingProfileResponse
     /// Response from the CPO on the ChargingProfile request.
     /// </summary>
     [JsonPropertyName("result")]
-    public required ChargingProfileResponseType Result { get; set; }
+    public ChargingProfileResponseType? Result { get; set; }
 
     /// <summary>
     /// Response from the CPO on the ChargingProfile request.
     /// </summary>
     [JsonPropertyName("timeout")]
-    public required int Timeout { get; set; }
+    public int? Timeout { get; set; }
 }
