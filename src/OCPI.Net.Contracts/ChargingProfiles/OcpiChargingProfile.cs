@@ -61,7 +61,7 @@ public class OcpiChargingProfile
         return toStringBuilder.ToString();
     }
 
-    private string ChargingProfilePeriodsToString()
+    public string ChargingProfilePeriodsToString()
     {
         if (ChargingProfilePeriods is null || !ChargingProfilePeriods.Any()) 
             return string.Empty;
