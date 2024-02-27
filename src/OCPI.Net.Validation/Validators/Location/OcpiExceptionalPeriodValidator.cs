@@ -5,13 +5,13 @@ namespace OCPI.Contracts;
 
 internal partial class OcpiExceptionalPeriodValidator : OcpiValidator<OcpiExceptionalPeriod>
 {
-    public OcpiExceptionalPeriodValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiExceptionalPeriodValidator()
     {
-        JsonRuleFor(x => x.PeriodBegin)
+        RuleFor(x => x.PeriodBegin)
             .NotEmpty()
             .ValidDateTime();
 
-        JsonRuleFor(x => x.PeriodEnd)
+        RuleFor(x => x.PeriodEnd)
             .NotEmpty()
             .ValidDateTime();
     }

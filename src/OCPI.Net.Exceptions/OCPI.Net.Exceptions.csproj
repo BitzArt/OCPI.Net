@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<RootNamespace>OCPI</RootNamespace>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
@@ -17,7 +17,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BitzArt.ApiExceptions.AspNetCore" Version="1.18.2" />
+		<PackageReference Include="BitzArt.ApiExceptions.AspNetCore" Version="1.20.0" />
 	</ItemGroup>
 
 	<ItemGroup>

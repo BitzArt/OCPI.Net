@@ -4,15 +4,17 @@ namespace OCPI.Contracts;
 
 internal class OcpiTariffElementValidator : OcpiValidator<OcpiTariffElement>
 {
-    public OcpiTariffElementValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiTariffElementValidator(
+        IOcpiValidator<OcpiPriceComponent> priceComponentValidator,
+        IOcpiValidator<OcpiTariffRestrictions> tariffRestrictionsValidator)
     {
-        JsonRuleFor(x => x.PriceComponents)
+        RuleFor(x => x.PriceComponents)
             .NotEmpty();
 
         RuleForEach(x => x.PriceComponents)
-            .SetValidator(new OcpiPriceComponentValidator(actionType, ocpiVersion));
+            .SetValidator(priceComponentValidator);
 
-        JsonRuleFor(x => x.Restrictions!)
-            .SetValidator(new OcpiTariffRestrictionValidator(actionType, ocpiVersion));
+        RuleFor(x => x.Restrictions!)
+            .SetValidator(tariffRestrictionsValidator);
     }
 }

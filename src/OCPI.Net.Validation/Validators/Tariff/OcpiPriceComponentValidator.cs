@@ -5,13 +5,13 @@ namespace OCPI.Contracts;
 
 internal class OcpiPriceComponentValidator : OcpiValidator<OcpiPriceComponent>
 {
-    public OcpiPriceComponentValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiPriceComponentValidator()
     {
-        JsonRuleFor(x => x.Type)
+        RuleFor(x => x.Type)
             .NotEmpty()
             .IsInEnum();
 
-        JsonRuleFor(x => x.Price)
+        RuleFor(x => x.Price)
             .NotEmpty();
     }
 }

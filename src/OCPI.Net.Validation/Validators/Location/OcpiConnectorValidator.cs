@@ -5,44 +5,44 @@ namespace OCPI.Contracts;
 
 internal class OcpiConnectorValidator : OcpiValidator<OcpiConnector>
 {
-    public OcpiConnectorValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiConnectorValidator()
     {
         Unless(ActionType.Patch, () =>
         {
-            JsonRuleFor(x => x.Id).NotEmpty();
-            JsonRuleFor(x => x.Standard).NotEmpty();
-            JsonRuleFor(x => x.Format).NotEmpty();
-            JsonRuleFor(x => x.PowerType).NotEmpty();
+            RuleFor(x => x.Id).NotEmpty();
+            RuleFor(x => x.Standard).NotEmpty();
+            RuleFor(x => x.Format).NotEmpty();
+            RuleFor(x => x.PowerType).NotEmpty();
 
             WhenOcpiVersionAbove("2.2", () =>
             {
-                JsonRuleFor(x => x.MaxVoltage).NotEmpty();
-                JsonRuleFor(x => x.MaxAmperage).NotEmpty();
+                RuleFor(x => x.MaxVoltage).NotEmpty();
+                RuleFor(x => x.MaxAmperage).NotEmpty();
             });
 
             WhenOcpiVersionBelow("2.2", () =>
             {
-                JsonRuleFor(x => x.Voltage).NotEmpty();
-                JsonRuleFor(x => x.Amperage).NotEmpty();
+                RuleFor(x => x.Voltage).NotEmpty();
+                RuleFor(x => x.Amperage).NotEmpty();
             });
         });
 
-        JsonRuleFor(x => x.Id)
+        RuleFor(x => x.Id)
             .MaximumLength(36);
 
-        JsonRuleFor(x => x.Standard)
+        RuleFor(x => x.Standard)
             .IsInEnum();
 
-        JsonRuleFor(x => x.Format)
+        RuleFor(x => x.Format)
             .IsInEnum();
 
-        JsonRuleFor(x => x.PowerType)
+        RuleFor(x => x.PowerType)
             .IsInEnum();
 
-        JsonRuleFor(x => x.TermsAndConditionsUrl)
+        RuleFor(x => x.TermsAndConditionsUrl)
             .ValidUrl();
 
-        JsonRuleFor(x => x.LastUpdated)
+        RuleFor(x => x.LastUpdated)
             .NotEmpty()
             .ValidDateTime();
     }

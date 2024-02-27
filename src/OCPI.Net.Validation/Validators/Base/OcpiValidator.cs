@@ -3,14 +3,9 @@ using FluentValidation;
 
 namespace OCPI.Contracts;
 
-internal abstract class OcpiValidator<T> : ActionValidator<T>
+internal abstract class OcpiValidator<T> : ActionValidator<T>, IOcpiValidator<T>
 {
-    protected readonly OcpiVersion OcpiVersion;
-
-    protected OcpiValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType)
-    {
-        OcpiVersion = ocpiVersion;
-    }
+    public OcpiVersion OcpiVersion { get; set; }
 
     public IConditionBuilder WhenOcpiVersionAbove(string version, Action action)
         => WhenOcpiVersionAbove(version.ToEnum<OcpiVersion>(), action);

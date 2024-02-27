@@ -10,18 +10,18 @@ internal partial class OcpiRegularHoursValidator : OcpiValidator<OcpiRegularHour
     [GeneratedRegex(_timePeriodRegexValue)]
     private static partial Regex TimePeriodRegex();
 
-    public OcpiRegularHoursValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiRegularHoursValidator()
     {
-        JsonRuleFor(x => x.Weekday)
+        RuleFor(x => x.Weekday)
             .NotEmpty()
             .Must(x => x >= 1 && x <= 7).WithMessage("{PropertyName} must be between 1 and 7");
 
-        JsonRuleFor(x => x.PeriodBegin)
+        RuleFor(x => x.PeriodBegin)
             .NotEmpty()
             .MaximumLength(5)
             .Must(x => TimePeriodRegex().IsMatch(x)).WithMessage($"{{PropertyName}} is not a valid regular period. Regex: {_timePeriodRegexValue}");
 
-        JsonRuleFor(x => x.PeriodEnd)
+        RuleFor(x => x.PeriodEnd)
             .NotEmpty()
             .MaximumLength(5)
             .Must(x => TimePeriodRegex().IsMatch(x)).WithMessage($"{{PropertyName}} is not a valid regular period. Regex: {_timePeriodRegexValue}");

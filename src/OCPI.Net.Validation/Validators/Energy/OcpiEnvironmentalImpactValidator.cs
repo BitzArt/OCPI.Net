@@ -5,13 +5,13 @@ namespace OCPI.Contracts;
 
 internal class OcpiEnvironmentalImpactValidator : OcpiValidator<OcpiEnvironmentalImpact>
 {
-    public OcpiEnvironmentalImpactValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiEnvironmentalImpactValidator()
     {
-        JsonRuleFor(x => x.Category)
+        RuleFor(x => x.Category)
             .NotEmpty()
             .IsInEnum();
 
-        JsonRuleFor(x => x.Amount)
+        RuleFor(x => x.Amount)
             .NotEmpty()
             .MaxSymbols(10);
     }

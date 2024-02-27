@@ -5,18 +5,19 @@ namespace OCPI.Contracts;
 
 internal partial class OcpiAdditionalGeolocationValidator : OcpiValidator<OcpiAdditionalGeolocation>
 {
-    public OcpiAdditionalGeolocationValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiAdditionalGeolocationValidator(
+        IOcpiValidator<OcpiDisplayText> displayTextValidator)
     {
-        JsonRuleFor(x => x.Latitude)
+        RuleFor(x => x.Latitude)
             .NotEmpty()
             .ValidLatitude();
 
-        JsonRuleFor(x => x.Longitude)
+        RuleFor(x => x.Longitude)
             .NotEmpty()
             .ValidLongitude();
 
-        JsonRuleFor(x => x.Name!)
-            .SetValidator(new OcpiDisplayTextValidator(actionType, ocpiVersion))
+        RuleFor(x => x.Name!)
+            .SetValidator(displayTextValidator)
             .When(x => x.Name is not null);
     }
 }

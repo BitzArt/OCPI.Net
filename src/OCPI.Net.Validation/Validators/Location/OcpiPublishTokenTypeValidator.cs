@@ -5,21 +5,21 @@ namespace OCPI.Contracts;
 
 internal partial class OcpiPublishTokenTypeValidator : OcpiValidator<OcpiPublishTokenType>
 {
-    public OcpiPublishTokenTypeValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiPublishTokenTypeValidator()
     {
-        JsonRuleFor(x => x.Uid)
+        RuleFor(x => x.Uid)
             .MaximumLength(36);
 
-        JsonRuleFor(x => x.Type)
+        RuleFor(x => x.Type)
             .IsInEnum();
 
-        JsonRuleFor(x => x.VisualNumber)
+        RuleFor(x => x.VisualNumber)
             .MaximumLength(64);
 
-        JsonRuleFor(x => x.Issuer)
+        RuleFor(x => x.Issuer)
             .MaximumLength(64);
 
-        JsonRuleFor(x => x.GroupId)
+        RuleFor(x => x.GroupId)
             .MaximumLength(36);
     }
 }

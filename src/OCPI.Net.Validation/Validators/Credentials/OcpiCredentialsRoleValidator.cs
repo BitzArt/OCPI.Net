@@ -5,24 +5,25 @@ namespace OCPI.Contracts;
 
 internal class OcpiCredentialsRoleValidator : OcpiValidator<OcpiCredentialsRole>
 {
-    public OcpiCredentialsRoleValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiCredentialsRoleValidator(
+        IOcpiValidator<OcpiBusinessDetails> businessDetailsValidator)
     {
-        JsonRuleFor(x => x.CountryCode)
+        RuleFor(x => x.CountryCode)
             .NotEmpty()
             .NotEqual((CountryCode)0);
 
-        JsonRuleFor(x => x.PartyId)
+        RuleFor(x => x.PartyId)
             .NotEmpty()
             .MaximumLength(3);
 
-        JsonRuleFor(x => x.Role)
+        RuleFor(x => x.Role)
             .NotEmpty()
             .IsInEnum();
 
-        JsonRuleFor(x => x.BusinessDetails)
+        RuleFor(x => x.BusinessDetails)
             .NotEmpty();
 
-        JsonRuleFor(x => x.BusinessDetails!)
-            .SetValidator(new OcpiBusinessDetailsValidator(actionType, ocpiVersion));
+        RuleFor(x => x.BusinessDetails!)
+            .SetValidator(businessDetailsValidator);
     }
 }

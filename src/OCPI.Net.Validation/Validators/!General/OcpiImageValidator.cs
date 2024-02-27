@@ -5,27 +5,27 @@ namespace OCPI.Contracts;
 
 internal class OcpiImageValidator : OcpiValidator<OcpiImage>
 {
-    public OcpiImageValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiImageValidator()
     {
-        JsonRuleFor(x => x.Url)
+        RuleFor(x => x.Url)
             .NotEmpty()
             .ValidUrl();
 
-        JsonRuleFor(x => x.Thumbnail)
+        RuleFor(x => x.Thumbnail)
             .ValidUrl();
 
-        JsonRuleFor(x => x.Category)
+        RuleFor(x => x.Category)
             .NotEmpty()
             .IsInEnum();
 
-        JsonRuleFor(x => x.Type)
+        RuleFor(x => x.Type)
             .NotEmpty()
             .MaximumLength(4);
 
-        JsonRuleFor(x => x.Width)
+        RuleFor(x => x.Width)
             .MaxSymbols(5);
 
-        JsonRuleFor(x => x.Height)
+        RuleFor(x => x.Height)
             .MaxSymbols(5);
     }
 }

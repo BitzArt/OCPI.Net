@@ -5,58 +5,62 @@ namespace OCPI.Contracts;
 
 internal class OcpiTariffValidator : OcpiValidator<OcpiTariff>
 {
-    public OcpiTariffValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiTariffValidator(
+        IOcpiValidator<OcpiDisplayText> displayTextValidator,
+        IOcpiValidator<OcpiPrice> priceValidator,
+        IOcpiValidator<OcpiTariffElement> tariffElementValidator,
+        IOcpiValidator<OcpiEnergyMix> energyMixValidator)
     {
         Unless(ActionType.Patch, () =>
         {
-            JsonRuleFor(x => x.CountryCode).NotEmpty();
-            JsonRuleFor(x => x.PartyId).NotEmpty();
-            JsonRuleFor(x => x.Id).NotEmpty();
-            JsonRuleFor(x => x.Currency).NotEmpty();
-            JsonRuleFor(x => x.Elements).NotEmpty();
-            JsonRuleFor(x => x.LastUpdated).NotEmpty();
+            RuleFor(x => x.CountryCode).NotEmpty();
+            RuleFor(x => x.PartyId).NotEmpty();
+            RuleFor(x => x.Id).NotEmpty();
+            RuleFor(x => x.Currency).NotEmpty();
+            RuleFor(x => x.Elements).NotEmpty();
+            RuleFor(x => x.LastUpdated).NotEmpty();
         });
 
-        JsonRuleFor(x => x.CountryCode)
+        RuleFor(x => x.CountryCode)
             .IsInEnum();
 
-        JsonRuleFor(x => x.PartyId)
+        RuleFor(x => x.PartyId)
             .MaximumLength(3);
 
-        JsonRuleFor(x => x.Id)
+        RuleFor(x => x.Id)
             .MaximumLength(36);
 
-        JsonRuleFor(x => x.Currency)
+        RuleFor(x => x.Currency)
             .IsInEnum();
 
-        JsonRuleFor(x => x.Type)
+        RuleFor(x => x.Type)
             .IsInEnum();
 
         RuleForEach(x => x.TariffAltText)
-            .SetValidator(new OcpiDisplayTextValidator(actionType, ocpiVersion));
+            .SetValidator(displayTextValidator);
 
-        JsonRuleFor(x => x.TariffAltUrl)
+        RuleFor(x => x.TariffAltUrl)
             .ValidUrl();
 
-        JsonRuleFor(x => x.MinPrice!)
-            .SetValidator(new OcpiPriceValidator(actionType, ocpiVersion));
+        RuleFor(x => x.MinPrice!)
+            .SetValidator(priceValidator);
 
-        JsonRuleFor(x => x.MaxPrice!)
-            .SetValidator(new OcpiPriceValidator(actionType, ocpiVersion));
+        RuleFor(x => x.MaxPrice!)
+            .SetValidator(priceValidator);
 
         RuleForEach(x => x.Elements)
-            .SetValidator(new OcpiTariffElementValidator(actionType, ocpiVersion));
+            .SetValidator(tariffElementValidator);
 
-        JsonRuleFor(x => x.StartDateTime)
+        RuleFor(x => x.StartDateTime)
             .ValidDateTime();
 
-        JsonRuleFor(x => x.EndDateTime)
+        RuleFor(x => x.EndDateTime)
             .ValidDateTime();
 
-        JsonRuleFor(x => x.EnergyMix!)
-            .SetValidator(new OcpiEnergyMixValidator(actionType, ocpiVersion));
+        RuleFor(x => x.EnergyMix!)
+            .SetValidator(energyMixValidator);
 
-        JsonRuleFor(x => x.LastUpdated)
+        RuleFor(x => x.LastUpdated)
             .ValidDateTime();
     }
 }

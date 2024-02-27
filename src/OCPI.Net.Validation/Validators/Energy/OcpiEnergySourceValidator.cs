@@ -5,13 +5,13 @@ namespace OCPI.Contracts;
 
 internal class OcpiEnergySourceValidator : OcpiValidator<OcpiEnergySource>
 {
-    public OcpiEnergySourceValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiEnergySourceValidator()
     {
-        JsonRuleFor(x => x.Source)
+        RuleFor(x => x.Source)
             .NotEmpty()
             .IsInEnum();
 
-        JsonRuleFor(x => x.Percentage)
+        RuleFor(x => x.Percentage)
             .NotEmpty()
             .Must(x => x!.Value >= 0 && x!.Value <= 100);
     }

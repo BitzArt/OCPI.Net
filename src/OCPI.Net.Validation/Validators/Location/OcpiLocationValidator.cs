@@ -5,113 +5,122 @@ namespace OCPI.Contracts;
 
 internal partial class OcpiLocationValidator : OcpiValidator<OcpiLocation>
 {
-    public OcpiLocationValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiLocationValidator(
+        IOcpiValidator<OcpiPublishTokenType> publishTokenTypeValidator,
+        IOcpiValidator<OcpiGeolocation> geolocationValidator,
+        IOcpiValidator<OcpiAdditionalGeolocation> additionalGeolocationValidator,
+        IOcpiValidator<OcpiEvse> evseValidator,
+        IOcpiValidator<OcpiDisplayText> displayTextValidator,
+        IOcpiValidator<OcpiBusinessDetails> businessDetailsValidator,
+        IOcpiValidator<OcpiHours> hoursValidator,
+        IOcpiValidator<OcpiImage> imageValidator,
+        IOcpiValidator<OcpiEnergyMix> energyMixValidator)
     {
         Unless(ActionType.Patch, () =>
         {
-            JsonRuleFor(x => x.Id).NotEmpty();
-            JsonRuleFor(x => x.Address).NotEmpty();
-            JsonRuleFor(x => x.City).NotEmpty();
-            JsonRuleFor(x => x.Country).NotEmpty();
-            JsonRuleFor(x => x.Coordinates).NotEmpty();
+            RuleFor(x => x.Id).NotEmpty();
+            RuleFor(x => x.Address).NotEmpty();
+            RuleFor(x => x.City).NotEmpty();
+            RuleFor(x => x.Country).NotEmpty();
+            RuleFor(x => x.Coordinates).NotEmpty();
 
             WhenOcpiVersionAbove("2.2", () =>
             {
-                JsonRuleFor(x => x.CountryCode).NotEmpty();
-                JsonRuleFor(x => x.PartyId).NotEmpty();
-                JsonRuleFor(x => x.Publish).NotEmpty();
-                JsonRuleFor(x => x.TimeZone).NotEmpty();
+                RuleFor(x => x.CountryCode).NotEmpty();
+                RuleFor(x => x.PartyId).NotEmpty();
+                RuleFor(x => x.Publish).NotEmpty();
+                RuleFor(x => x.TimeZone).NotEmpty();
             });
 
             WhenOcpiVersionBelow("2.2", () =>
             {
-                JsonRuleFor(x => x.Type).NotEmpty();
-                JsonRuleFor(x => x.PostalCode).NotEmpty();
+                RuleFor(x => x.Type).NotEmpty();
+                RuleFor(x => x.PostalCode).NotEmpty();
             });
         });
 
-        JsonRuleFor(x => x.CountryCode)
+        RuleFor(x => x.CountryCode)
             .IsInEnum();
 
-        JsonRuleFor(x => x.PartyId)
+        RuleFor(x => x.PartyId)
             .MaximumLength(3);
 
         RuleForEach(x => x.PublishAllowedTo)
-            .SetValidator(new OcpiPublishTokenTypeValidator(actionType, ocpiVersion));
+            .SetValidator(publishTokenTypeValidator);
 
-        JsonRuleFor(x => x.Name)
+        RuleFor(x => x.Name)
             .MaximumLength(255);
 
-        JsonRuleFor(x => x.Address)
+        RuleFor(x => x.Address)
             .MaximumLength(45);
 
-        JsonRuleFor(x => x.City)
+        RuleFor(x => x.City)
             .MaximumLength(45);
 
-        JsonRuleFor(x => x.PostalCode)
+        RuleFor(x => x.PostalCode)
             .MaximumLength(10);
 
-        JsonRuleFor(x => x.State)
+        RuleFor(x => x.State)
             .MaximumLength(20);
 
-        JsonRuleFor(x => x.Country)
+        RuleFor(x => x.Country)
             .MaximumLength(3);
 
-        JsonRuleFor(x => x.Coordinates!)
-            .SetValidator(new OcpiGeolocationValidator(actionType, ocpiVersion));
+        RuleFor(x => x.Coordinates!)
+            .SetValidator(geolocationValidator);
 
         RuleForEach(x => x.RelatedLocations)
-            .SetValidator(new OcpiAdditionalGeolocationValidator(actionType, ocpiVersion));
+            .SetValidator(additionalGeolocationValidator);
 
-        JsonRuleFor(x => x.ParkingType)
+        RuleFor(x => x.ParkingType)
             .IsInEnum();
 
         RuleForEach(x => x.Evses)
-            .SetValidator(new OcpiEvseValidator(actionType, ocpiVersion));
+            .SetValidator(evseValidator);
 
         RuleForEach(x => x.Directions)
-            .SetValidator(new OcpiDisplayTextValidator(actionType, ocpiVersion));
+            .SetValidator(displayTextValidator);
 
-        JsonRuleFor(x => x.Operator!)
-            .SetValidator(new OcpiBusinessDetailsValidator(actionType, ocpiVersion));
+        RuleFor(x => x.Operator!)
+            .SetValidator(businessDetailsValidator);
 
-        JsonRuleFor(x => x.Suboperator!)
-            .SetValidator(new OcpiBusinessDetailsValidator(actionType, ocpiVersion));
+        RuleFor(x => x.Suboperator!)
+            .SetValidator(businessDetailsValidator);
 
-        JsonRuleFor(x => x.Owner!)
-            .SetValidator(new OcpiBusinessDetailsValidator(actionType, ocpiVersion));
+        RuleFor(x => x.Owner!)
+            .SetValidator(businessDetailsValidator);
 
         RuleForEach(x => x.Facilities)
             .IsInEnum();
 
-        JsonRuleFor(x => x.TimeZone)
+        RuleFor(x => x.TimeZone)
             .MaximumLength(255);
 
-        JsonRuleFor(x => x.OpeningTimes!)
-            .SetValidator(new OcpiHoursValidator(actionType, ocpiVersion));
+        RuleFor(x => x.OpeningTimes!)
+            .SetValidator(hoursValidator);
 
         RuleForEach(x => x.Images)
-            .SetValidator(new OcpiImageValidator(actionType, ocpiVersion));
+            .SetValidator(imageValidator);
 
-        JsonRuleFor(x => x.EnergyMix!)
-            .SetValidator(new OcpiEnergyMixValidator(actionType, ocpiVersion));
+        RuleFor(x => x.EnergyMix!)
+            .SetValidator(energyMixValidator);
 
-        JsonRuleFor(x => x.LastUpdated)
+        RuleFor(x => x.LastUpdated)
             .NotEmpty()
             .ValidDateTime();
 
         WhenOcpiVersionAbove("2.2", () =>
         {
-            JsonRuleFor(x => x.Id)
+            RuleFor(x => x.Id)
             .MaximumLength(36);
         });
 
         WhenOcpiVersionBelow("2.2", () =>
         {
-            JsonRuleFor(x => x.Id)
+            RuleFor(x => x.Id)
             .MaximumLength(39);
 
-            JsonRuleFor(x => x.Type)
+            RuleFor(x => x.Type)
             .IsInEnum();
         });
     }

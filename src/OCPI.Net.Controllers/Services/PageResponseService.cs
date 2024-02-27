@@ -4,28 +4,19 @@ using System.Web;
 
 namespace OCPI.Services;
 
-internal class PageResponseService
+internal class PageResponseService(IHttpContextAccessor httpContextAccessor, OcpiOptions options)
 {
-    private readonly HttpContext _httpContext;
-    private readonly OcpiOptions _options;
-    private readonly IOcpiVersionService _versionService;
-
-    public PageResponseService(IHttpContextAccessor httpContextAccessor, OcpiOptions options, IOcpiVersionService versionService)
-    {
-        _httpContext = httpContextAccessor.HttpContext!;
-        _options = options;
-        _versionService = versionService;
-    }
+    private readonly HttpContext _httpContext = httpContextAccessor.HttpContext!;
 
     public void ConfigureResponse(PageResult pageResult)
     {
         if (_httpContext is null) return;
 
-        _httpContext.Response.Headers.Add("X-Total-Count", pageResult.Total.ToString());
+        _httpContext.Response.Headers.Append("X-Total-Count", pageResult.Total.ToString());
 
-        var maxLimit = _httpContext.Items["OcpiRequestMaxLimitValue"];
-        if (maxLimit is null) throw new Exception("Unable to find MaxLimit value for this request. Make sure SetMaxLimit is used in a controller method.");
-        _httpContext.Response.Headers.Add("X-Limit", maxLimit.ToString());
+        var maxLimit = _httpContext.Items["OcpiRequestMaxLimitValue"]
+            ?? throw new Exception("Unable to find MaxLimit value for this request. Make sure SetMaxLimit is used in a controller method.");
+        _httpContext.Response.Headers.Append("X-Limit", maxLimit.ToString());
 
         AddNextPageLink(pageResult);
     }
@@ -45,9 +36,9 @@ internal class PageResponseService
         var nextLimit = entriesLeft > limit ? limit : entriesLeft;
         query["limit"] = nextLimit.ToString();
 
-        var nextPageLink = $"{_options.BaseServiceUrl}{_httpContext.Request.Path}?{query.ToString()}";
+        var nextPageLink = $"{options.BaseServiceUrl}{_httpContext.Request.Path}?{query}";
         var linkHeader = $"<{nextPageLink}>; rel=\"next\"";
 
-        _httpContext.Response.Headers.Add("Link", linkHeader);
+        _httpContext.Response.Headers.Append("Link", linkHeader);
     }
 }

@@ -10,7 +10,9 @@ public static class AddOcpiExtension
 
         builder.AddOcpiControllers();
         builder.AddOcpiVersioning();
-        builder.AddOcpiValidation();
+
+        builder.Services.AddOcpiValidationContext();
+        builder.Services.AddOcpiValidation();
 
         return builder;
     }

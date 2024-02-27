@@ -4,18 +4,20 @@ namespace OCPI.Contracts;
 
 internal partial class OcpiHoursValidator : OcpiValidator<OcpiHours>
 {
-    public OcpiHoursValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiHoursValidator(
+        IOcpiValidator<OcpiRegularHours> regularHoursValidator,
+        IOcpiValidator<OcpiExceptionalPeriod> exceptionalPeriodValidator)
     {
-        JsonRuleFor(x => x.TwentyFourSeven)
+        RuleFor(x => x.TwentyFourSeven)
             .NotEmpty();
 
         RuleForEach(x => x.RegularHours)
-            .SetValidator(new OcpiRegularHoursValidator(actionType, ocpiVersion));
+            .SetValidator(regularHoursValidator);
 
         RuleForEach(x => x.ExceptionalOpenings)
-            .SetValidator(new OcpiExceptionalPeriodValidator(actionType, ocpiVersion));
+            .SetValidator(exceptionalPeriodValidator);
 
         RuleForEach(x => x.ExceptionalClosings)
-            .SetValidator(new OcpiExceptionalPeriodValidator(actionType, ocpiVersion));
+            .SetValidator(exceptionalPeriodValidator);
     }
 }

@@ -4,21 +4,23 @@ namespace OCPI.Contracts;
 
 internal class OcpiEnergyMixValidator : OcpiValidator<OcpiEnergyMix>
 {
-    public OcpiEnergyMixValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiEnergyMixValidator(
+        IOcpiValidator<OcpiEnergySource> energySourceValidator,
+        IOcpiValidator<OcpiEnvironmentalImpact> environmentalImpactValidator)
     {
-        JsonRuleFor(x => x.IsGreenEnergy)
+        RuleFor(x => x.IsGreenEnergy)
             .NotEmpty();
 
         RuleForEach(x => x.EnergySources)
-            .SetValidator(new OcpiEnergySourceValidator(actionType, ocpiVersion));
+            .SetValidator(energySourceValidator);
 
         RuleForEach(x => x.EnvironmentalImpact)
-            .SetValidator(new OcpiEnvironmentalImpactValidator(actionType, ocpiVersion));
+            .SetValidator(environmentalImpactValidator);
 
-        JsonRuleFor(x => x.SupplierName)
+        RuleFor(x => x.SupplierName)
             .MaximumLength(64);
 
-        JsonRuleFor(x => x.EnergyProductName)
+        RuleFor(x => x.EnergyProductName)
             .MaximumLength(64);
     }
 }

@@ -5,16 +5,16 @@ namespace OCPI.Contracts;
 
 internal class OcpiStatusScheduleValidator : OcpiValidator<OcpiStatusSchedule>
 {
-    public OcpiStatusScheduleValidator(ActionType actionType, OcpiVersion ocpiVersion) : base(actionType, ocpiVersion)
+    public OcpiStatusScheduleValidator()
     {
-        JsonRuleFor(x => x.PeriodBegin)
+        RuleFor(x => x.PeriodBegin)
             .NotEmpty()
             .ValidDateTime();
 
-        JsonRuleFor(x => x.PeriodEnd)
+        RuleFor(x => x.PeriodEnd)
             .ValidDateTime();
 
-        JsonRuleFor(x => x.Status)
+        RuleFor(x => x.Status)
             .NotEmpty()
             .IsInEnum();
     }

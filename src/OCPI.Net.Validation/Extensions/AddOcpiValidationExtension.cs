@@ -1,10 +1,9 @@
 ﻿using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using OCPI.Contracts;
 using OCPI.Validation;
+using System.Reflection;
+using System.Text.Json.Serialization;
 
 namespace OCPI;
 
@@ -12,18 +11,11 @@ public static class AddOcpiValidationExtension
 {
     private interface IOcpiValidatorsAssemblyPointer { }
 
-    public static WebApplicationBuilder AddOcpiValidation(this WebApplicationBuilder builder, Action<FluentValidationAutoValidationConfiguration>? validationConfigurationExpression = null)
+    public static IServiceCollection AddOcpiValidation(this IServiceCollection services)
     {
-        builder.Services.AddHttpContextAccessor();
-        builder.Services.AddTransient(x => x.GetRequiredService<IHttpContextAccessor>()!.HttpContext!);
-
-        builder.Services.AddScoped(x =>
-        {
-            var httpContext = x.GetRequiredService<HttpContext>();
-            var request = httpContext.Request;
-
-            return new OcpiValidationContext(request);
-        });
+        ValidatorOptions.Global.PropertyNameResolver =
+            (_, member, _) =>
+                member?.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name ?? member?.Name;
 
         var validatorTypes = typeof(IOcpiValidatorsAssemblyPointer)
             .Assembly.DefinedTypes
@@ -34,16 +26,19 @@ public static class AddOcpiValidationExtension
         foreach (var type in validatorTypes)
         {
             var modelType = type!.BaseType!.GenericTypeArguments.First();
-            var resultingType = typeof(OcpiValidator<>).MakeGenericType(modelType);
-            builder.Services.AddScoped(resultingType, x =>
+            var resultingType = typeof(IOcpiValidator<>).MakeGenericType(modelType);
+            services.AddScoped(type);
+            services.AddScoped(resultingType, x =>
             {
+                var instance = x.GetRequiredService(type);
                 var validationContext = x.GetRequiredService<OcpiValidationContext>();
-                var instance = Activator.CreateInstance(type, validationContext.ActionType, validationContext.OcpiVersion);
+                (instance as IActionValidator)!.ActionType = validationContext.ActionType;
+                (instance as IOcpiValidator)!.OcpiVersion = validationContext.OcpiVersion!.Value;
                 return instance!;
             });
         }
 
-        return builder;
+        return services;
     }
 }
 
