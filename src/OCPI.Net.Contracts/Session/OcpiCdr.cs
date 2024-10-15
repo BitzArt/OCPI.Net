@@ -52,7 +52,7 @@ public class OcpiCdr
     [JsonPropertyName("total_cost")]
     public OcpiPrice? TotalCost { get; set; }
 
-    [JsonPropertyName("total__fixed_cost")]
+    [JsonPropertyName("total_fixed_cost")]
     public OcpiPrice? TotalFixedCost { get; set; }
 
     [JsonPropertyName("total_energy")]
