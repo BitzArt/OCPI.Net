@@ -27,7 +27,7 @@ public static partial class OcpiGeolocationValidationExtensions
     // OCPI has an error in documentation. It says the max length for Longitude is 11 but their regex says it is 12.
     public static IRuleBuilderOptions<TClass, string?> ValidLongitude<TClass>(this IRuleBuilder<TClass, string?> ruleBuilder) =>
         ruleBuilder
-        .Must(ValidLatitude)
+        .Must(ValidLongitude)
         .WithMessage($"'{{PropertyName}}' is not a valid longitude value. Must match Regex : {_longitudeRegexValue}")
         .MaximumLength(12);
 
