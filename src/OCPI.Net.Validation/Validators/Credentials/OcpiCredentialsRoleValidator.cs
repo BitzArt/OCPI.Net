@@ -6,7 +6,9 @@ namespace OCPI.Contracts;
 internal class OcpiCredentialsRoleValidator : OcpiValidator<OcpiCredentialsRole>
 {
     public OcpiCredentialsRoleValidator(
+        OcpiValidationContext validationContext,
         IOcpiValidator<OcpiBusinessDetails> businessDetailsValidator)
+        : base(validationContext)
     {
         RuleFor(x => x.CountryCode)
             .NotEmpty()

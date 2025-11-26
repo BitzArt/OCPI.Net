@@ -6,7 +6,9 @@ namespace OCPI.Contracts;
 internal class OcpiBusinessDetailsValidator : OcpiValidator<OcpiBusinessDetails>
 {
     public OcpiBusinessDetailsValidator(
+        OcpiValidationContext validationContext,
         IOcpiValidator<OcpiImage> imageValidator)
+        :base(validationContext)
     {
         RuleFor(x => x.Name)
             .NotEmpty()

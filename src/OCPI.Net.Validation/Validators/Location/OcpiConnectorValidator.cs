@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 
 internal class OcpiConnectorValidator : OcpiValidator<OcpiConnector>
 {
-    public OcpiConnectorValidator()
+    public OcpiConnectorValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         Unless(ActionType.Patch, () =>
         {

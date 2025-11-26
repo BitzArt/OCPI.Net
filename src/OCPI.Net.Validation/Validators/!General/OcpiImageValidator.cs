@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 
 internal class OcpiImageValidator : OcpiValidator<OcpiImage>
 {
-    public OcpiImageValidator()
+    public OcpiImageValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.Url)
             .NotEmpty()

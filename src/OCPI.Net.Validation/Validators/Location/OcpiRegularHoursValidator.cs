@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using OCPI.Validation;
 using System.Text.RegularExpressions;
 
 namespace OCPI.Contracts;
@@ -10,7 +11,7 @@ internal partial class OcpiRegularHoursValidator : OcpiValidator<OcpiRegularHour
     [GeneratedRegex(_timePeriodRegexValue)]
     private static partial Regex TimePeriodRegex();
 
-    public OcpiRegularHoursValidator()
+    public OcpiRegularHoursValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.Weekday)
             .NotEmpty()

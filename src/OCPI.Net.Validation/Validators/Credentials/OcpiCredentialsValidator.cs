@@ -6,7 +6,9 @@ namespace OCPI.Validation;
 internal class OcpiCredentialsValidator : OcpiValidator<OcpiCredentials>
 {
     public OcpiCredentialsValidator(
+        OcpiValidationContext validationContext,
         IOcpiValidator<OcpiCredentialsRole> credentialsRoleValidator)
+        :base(validationContext)
     {
         RuleFor(x => x.Token)
             .NotEmpty()

@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 
 internal class OcpiPriceComponentValidator : OcpiValidator<OcpiPriceComponent>
 {
-    public OcpiPriceComponentValidator()
+    public OcpiPriceComponentValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.Type)
             .NotEmpty()

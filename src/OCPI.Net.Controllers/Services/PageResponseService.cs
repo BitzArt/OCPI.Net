@@ -8,7 +8,8 @@ internal class PageResponseService(IHttpContextAccessor httpContextAccessor, Ocp
 {
     private readonly HttpContext _httpContext = httpContextAccessor.HttpContext!;
 
-    public void ConfigureResponse(PageResult pageResult)
+    public void ConfigureResponse<TData, TRequest>(PageResult<TData, TRequest> pageResult)
+        where TRequest : OcpiPageRequest
     {
         if (_httpContext is null) return;
 
@@ -21,7 +22,8 @@ internal class PageResponseService(IHttpContextAccessor httpContextAccessor, Ocp
         AddNextPageLink(pageResult);
     }
 
-    private void AddNextPageLink(PageResult pageResult)
+    private void AddNextPageLink<TData, TRequest>(PageResult<TData, TRequest> pageResult)
+        where TRequest : OcpiPageRequest
     {
         var fetched = pageResult.Request!.Offset!.Value + pageResult.Count!.Value;
         var limit = pageResult.Request!.Limit!.Value;

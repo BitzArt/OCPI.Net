@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 
 internal class OcpiEnergySourceValidator : OcpiValidator<OcpiEnergySource>
 {
-    public OcpiEnergySourceValidator()
+    public OcpiEnergySourceValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.Source)
             .NotEmpty()

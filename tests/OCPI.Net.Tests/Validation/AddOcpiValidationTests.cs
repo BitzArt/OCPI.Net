@@ -21,7 +21,7 @@ public class AddOcpiValidationTests
         var serviceProvider = services.BuildServiceProvider();
         var ocpiValidator = serviceProvider.GetRequiredService<IOcpiValidator<OcpiCredentialsRole>>();
         
-        Assert.Equal(ActionType.Get, ocpiValidator.ActionType);
+        Assert.Equal(ActionType.Get, ocpiValidator.Action);
         Assert.Equal(OcpiVersion.v2_2_1, ocpiValidator.OcpiVersion);
         
         Assert.NotNull(ocpiValidator);

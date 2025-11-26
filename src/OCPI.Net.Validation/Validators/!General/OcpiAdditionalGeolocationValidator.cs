@@ -6,7 +6,9 @@ namespace OCPI.Contracts;
 internal partial class OcpiAdditionalGeolocationValidator : OcpiValidator<OcpiAdditionalGeolocation>
 {
     public OcpiAdditionalGeolocationValidator(
+        OcpiValidationContext validationContext,
         IOcpiValidator<OcpiDisplayText> displayTextValidator)
+        :base(validationContext)
     {
         RuleFor(x => x.Latitude)
             .NotEmpty()

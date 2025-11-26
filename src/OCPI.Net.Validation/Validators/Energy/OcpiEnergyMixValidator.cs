@@ -1,12 +1,15 @@
 ﻿using FluentValidation;
+using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
 internal class OcpiEnergyMixValidator : OcpiValidator<OcpiEnergyMix>
 {
     public OcpiEnergyMixValidator(
+        OcpiValidationContext validationContext,
         IOcpiValidator<OcpiEnergySource> energySourceValidator,
         IOcpiValidator<OcpiEnvironmentalImpact> environmentalImpactValidator)
+        :base(validationContext)
     {
         RuleFor(x => x.IsGreenEnergy)
             .NotEmpty();

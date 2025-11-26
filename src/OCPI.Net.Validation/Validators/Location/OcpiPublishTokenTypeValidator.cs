@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 
 internal partial class OcpiPublishTokenTypeValidator : OcpiValidator<OcpiPublishTokenType>
 {
-    public OcpiPublishTokenTypeValidator()
+    public OcpiPublishTokenTypeValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.Uid)
             .MaximumLength(36);

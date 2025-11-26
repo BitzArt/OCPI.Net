@@ -16,13 +16,19 @@ public abstract class OcpiControllerBase : ControllerBase
     {
         if (value is null) return base.Ok(new OcpiResponse());
 
-        if (value is PageResult valuePage)
+        if (value is PageResult)
         {
-            ConfigurePageResult(valuePage);
-            return base.Ok(new OcpiResponse(valuePage.Data));
+            throw new InvalidOperationException("This method was deprecated for PageResult types. Use OcpiOk<T>(PageResult<T> value) instead.");
         }
 
         return base.Ok(new OcpiResponse(value));
+    }
+
+    [NonAction]
+    public OkObjectResult OcpiOk<T>([ActionResultObjectValue] PageResult<T> value)
+    {
+        ConfigurePageResult(value);
+        return base.Ok(new OcpiResponse(value.Items));
     }
 
     [NonAction]
@@ -71,12 +77,17 @@ public abstract class OcpiControllerBase : ControllerBase
         HttpContext.Items["OcpiRequestMaxLimitValue"] = max;
     }
 
-    private void ConfigurePageResult(PageResult pageResult)
+    private void ConfigurePageResult<T>(PageResult<T> pageResult)
     {
         if (HttpContext is null) return;
 
+        if (pageResult is not PageResult<T, OcpiPageRequest> typedPageResult)
+        {
+            throw new NotSupportedException("Unexpected PageRequest type.");
+        }
+
         var paginationService = GetRequiredService<PageResponseService>();
-        paginationService.ConfigureResponse(pageResult);
+        paginationService.ConfigureResponse(typedPageResult);
     }
 
     private TService GetRequiredService<TService>()

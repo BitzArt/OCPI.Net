@@ -1,10 +1,11 @@
 ﻿using FluentValidation;
+using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
 internal class OcpiTariffRestrictionsValidator : OcpiValidator<OcpiTariffRestrictions>
 {
-    public OcpiTariffRestrictionsValidator()
+    public OcpiTariffRestrictionsValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.StartTime)
             .MaximumLength(5);

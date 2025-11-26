@@ -6,6 +6,7 @@ namespace OCPI.Contracts;
 internal partial class OcpiLocationValidator : OcpiValidator<OcpiLocation>
 {
     public OcpiLocationValidator(
+        OcpiValidationContext validationContext,
         IOcpiValidator<OcpiPublishTokenType> publishTokenTypeValidator,
         IOcpiValidator<OcpiGeolocation> geolocationValidator,
         IOcpiValidator<OcpiAdditionalGeolocation> additionalGeolocationValidator,
@@ -15,6 +16,7 @@ internal partial class OcpiLocationValidator : OcpiValidator<OcpiLocation>
         IOcpiValidator<OcpiHours> hoursValidator,
         IOcpiValidator<OcpiImage> imageValidator,
         IOcpiValidator<OcpiEnergyMix> energyMixValidator)
+        : base(validationContext)
     {
         Unless(ActionType.Patch, () =>
         {

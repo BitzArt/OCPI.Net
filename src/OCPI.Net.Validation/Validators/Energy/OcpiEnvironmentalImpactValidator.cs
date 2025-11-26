@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 
 internal class OcpiEnvironmentalImpactValidator : OcpiValidator<OcpiEnvironmentalImpact>
 {
-    public OcpiEnvironmentalImpactValidator()
+    public OcpiEnvironmentalImpactValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.Category)
             .NotEmpty()

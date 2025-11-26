@@ -6,10 +6,12 @@ namespace OCPI.Contracts;
 internal class OcpiEvseValidator : OcpiValidator<OcpiEvse>
 {
     public OcpiEvseValidator(
+        OcpiValidationContext validationContext,
         IOcpiValidator<OcpiStatusSchedule> statusScheduleValidator,
         IOcpiValidator<OcpiGeolocation> geolocationValidator,
         IOcpiValidator<OcpiDisplayText> displayTextValidator,
         IOcpiValidator<OcpiImage> imageValidator)
+        : base(validationContext)
     {
         Unless(ActionType.Patch, () =>
         {

@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 
 internal partial class OcpiExceptionalPeriodValidator : OcpiValidator<OcpiExceptionalPeriod>
 {
-    public OcpiExceptionalPeriodValidator()
+    public OcpiExceptionalPeriodValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.PeriodBegin)
             .NotEmpty()

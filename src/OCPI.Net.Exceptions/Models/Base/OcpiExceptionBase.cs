@@ -1,4 +1,5 @@
-﻿using BitzArt.ApiExceptions;
+﻿using BitzArt;
+using BitzArt.ApiExceptions;
 
 namespace OCPI.Exceptions;
 
@@ -10,7 +11,7 @@ namespace OCPI.Exceptions;
 /// <param name="ocpiLayerHttpStatusCode">HttpStatusCode for responses within OCPI Layer</param>
 /// <param name="apiStatusCode">HttpStatusCode for responses outside of OCPI Layer</param>
 /// <param name="innerException">Inner exception</param>
-public abstract class OcpiExceptionBase(string message, int ocpiStatusCode, int ocpiLayerHttpStatusCode, int apiStatusCode, Exception? innerException = null) : ApiExceptionBase(message, apiStatusCode, innerException: innerException)
+public abstract class OcpiExceptionBase(string message, int ocpiStatusCode, int ocpiLayerHttpStatusCode, int apiStatusCode, Exception? innerException = null) : ApiException(message, apiStatusCode, innerException: innerException)
 {
     /// <summary>
     /// OCPI Status Code. Used when displaying error responses within OCPI Layer.

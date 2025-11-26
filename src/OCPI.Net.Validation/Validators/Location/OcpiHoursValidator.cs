@@ -1,12 +1,15 @@
 ﻿using FluentValidation;
+using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
 internal partial class OcpiHoursValidator : OcpiValidator<OcpiHours>
 {
     public OcpiHoursValidator(
+        OcpiValidationContext validationContext,
         IOcpiValidator<OcpiRegularHours> regularHoursValidator,
         IOcpiValidator<OcpiExceptionalPeriod> exceptionalPeriodValidator)
+        : base(validationContext)
     {
         RuleFor(x => x.TwentyFourSeven)
             .NotEmpty();

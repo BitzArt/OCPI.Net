@@ -1,10 +1,11 @@
 ﻿using FluentValidation;
+using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
 internal class OcpiPriceValidator : OcpiValidator<OcpiPrice>
 {
-    public OcpiPriceValidator()
+    public OcpiPriceValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.ExclVat)
             .NotEmpty();

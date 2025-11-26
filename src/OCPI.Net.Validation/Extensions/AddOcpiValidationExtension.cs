@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using OCPI.Contracts;
 using OCPI.Validation;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
@@ -26,16 +27,11 @@ public static class AddOcpiValidationExtension
         foreach (var type in validatorTypes)
         {
             var modelType = type!.BaseType!.GenericTypeArguments.First();
+            var basicValidatorType = typeof(IValidator<>).MakeGenericType(modelType);
             var resultingType = typeof(IOcpiValidator<>).MakeGenericType(modelType);
-            services.AddScoped(type);
-            services.AddScoped(resultingType, x =>
-            {
-                var instance = x.GetRequiredService(type);
-                var validationContext = x.GetRequiredService<OcpiValidationContext>();
-                (instance as IActionValidator)!.ActionType = validationContext.ActionType;
-                (instance as IOcpiValidator)!.OcpiVersion = validationContext.OcpiVersion!.Value;
-                return instance!;
-            });
+
+            services.AddActionValidator(type, sp => sp.GetRequiredService<OcpiValidationContext>().ActionType);
+            services.AddScoped(resultingType, sp => sp.GetRequiredService(basicValidatorType));
         }
 
         return services;

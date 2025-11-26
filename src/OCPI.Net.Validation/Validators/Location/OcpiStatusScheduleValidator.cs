@@ -5,7 +5,7 @@ namespace OCPI.Contracts;
 
 internal class OcpiStatusScheduleValidator : OcpiValidator<OcpiStatusSchedule>
 {
-    public OcpiStatusScheduleValidator()
+    public OcpiStatusScheduleValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.PeriodBegin)
             .NotEmpty()

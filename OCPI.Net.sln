@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.3.32804.467
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11217.181 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{91D87FDC-D1F0-483B-BB83-C24BD6A4699E}"
 EndProject
@@ -24,6 +24,18 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Validation", "src\OCPI.Net.Validation\OCPI.Net.Validation.csproj", "{609C4BF6-9DF2-4E9A-9993-0E372488B01F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCPI.Net.Controllers", "src\OCPI.Net.Controllers\OCPI.Net.Controllers.csproj", "{46317B20-B640-4DD3-B70D-11F0A01BB11B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{E1000500-0DF0-4430-BEFF-4741D5D64E9C}"
+	ProjectSection(SolutionItems) = preProject
+		.github\FUNDING.yml = .github\FUNDING.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4A4418CF-DBD9-41A5-8389-E0ECA6CA9259}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\docs.yml = .github\workflows\docs.yml
+		.github\workflows\Publish OCPI.Net.yml = .github\workflows\Publish OCPI.Net.yml
+		.github\workflows\Tests.yml = .github\workflows\Tests.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,6 +88,7 @@ Global
 		{F1752473-C636-4FE1-8D33-651C8B0953CA} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
 		{609C4BF6-9DF2-4E9A-9993-0E372488B01F} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
 		{46317B20-B640-4DD3-B70D-11F0A01BB11B} = {91D87FDC-D1F0-483B-BB83-C24BD6A4699E}
+		{4A4418CF-DBD9-41A5-8389-E0ECA6CA9259} = {E1000500-0DF0-4430-BEFF-4741D5D64E9C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1815709D-17EC-48E3-9911-103827F87498}

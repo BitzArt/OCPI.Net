@@ -6,10 +6,12 @@ namespace OCPI.Contracts;
 internal class OcpiTariffValidator : OcpiValidator<OcpiTariff>
 {
     public OcpiTariffValidator(
+        OcpiValidationContext validationContext,
         IOcpiValidator<OcpiDisplayText> displayTextValidator,
         IOcpiValidator<OcpiPrice> priceValidator,
         IOcpiValidator<OcpiTariffElement> tariffElementValidator,
         IOcpiValidator<OcpiEnergyMix> energyMixValidator)
+        : base(validationContext)
     {
         Unless(ActionType.Patch, () =>
         {

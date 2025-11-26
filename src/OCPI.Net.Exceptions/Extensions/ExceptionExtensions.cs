@@ -1,4 +1,5 @@
-﻿using BitzArt.ApiExceptions;
+﻿using BitzArt;
+using BitzArt.ApiExceptions;
 using OCPI.Exceptions;
 
 namespace OCPI;
@@ -10,7 +11,7 @@ public static class ExceptionExtensions
         var statusCode = exception is OcpiExceptionBase ocpiException ?
             ocpiException.OcpiStatus : (int)OcpiStatusCode.ServerError;
 
-        var problem = exception is ApiExceptionBase apiException ?
+        var problem = exception is ApiException apiException ?
             new ProblemDetails(apiException) : new ProblemDetails(exception);
 
         var response = new OcpiResponse(null, statusCode)

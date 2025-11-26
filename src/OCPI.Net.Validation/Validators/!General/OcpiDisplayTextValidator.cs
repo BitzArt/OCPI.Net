@@ -1,10 +1,11 @@
 ﻿using FluentValidation;
+using OCPI.Validation;
 
 namespace OCPI.Contracts;
 
 internal class OcpiDisplayTextValidator : OcpiValidator<OcpiDisplayText>
 {
-    public OcpiDisplayTextValidator()
+    public OcpiDisplayTextValidator(OcpiValidationContext validationContext) : base(validationContext)
     {
         RuleFor(x => x.Language)
             .NotEmpty()
