@@ -15,7 +15,7 @@ public class OcpiLocationReferences
     /// given location.
     /// </summary>
     [JsonPropertyName("evse_uids")]
-    public string? EvseUids { get; set; }
+    public IEnumerable<string>? EvseUids { get; set; }
 
     //==================== Deprecated in OCPI 2.2 ========================
 
