@@ -104,4 +104,13 @@ public enum CdrDimensionType : byte
     /// </summary>
     [EnumMember(Value = "STATE_OF_CHARGE")]
     StateOfCharge = 51,
+
+    //====================6x: Pricing========================
+
+    /// <summary>
+    /// Flat pricing dimension: a fixed cost with no variable component.
+    /// Added to support OCPI 2.1.1 backward compatibility.
+    /// </summary>
+    [EnumMember(Value = "FLAT")]
+    Flat = 61,
 }
